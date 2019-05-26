@@ -1,41 +1,76 @@
-# Campusrope
+# campusropefrontend
 
-This project was generated using [Nx](https://nx.dev).
+Frontend React/Redux app for campusrope
 
-<p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/nx-logo.png" width="450"></p>
+# Welcome to CampusRope
 
-🔎 **Nx is a set of Angular CLI power-ups for modern development.**
+## Introduction
 
-## Quick Start & Documentation
+### "Social network has eroded all the barriers between an artist and a consumer through which consumers can themselves be the artist, creating a dynamic relationship between the two."
 
-[30-minute video showing all Nx features](https://nx.dev/getting-started/what-is-nx)
 
-[Interactive tutorial](https://nx.dev/tutorial/01-create-application)
+This project is licenced under GNU GPL V3 which gurantees the four freedoms that every user should have:
 
-## Generate your first application
+- the freedom to use the software for any purpose,
+- the freedom to change the software to suit your needs,
+- the freedom to share the software with your friends and neighbors, and
+- the freedom to share the changes you make.
 
-Run `ng g app myapp` to generate an application. When using Nx, you can create multiple applications and libraries in the same CLI workspace.
+#
 
-## Development server
+### About Us
 
-Run `ng serve myapp` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Social network plays an important role in our day to day life,
+and it is an inevitable part of our evolution.
+We are building a social network which is powered by the wisdom of the crowd.
+We believe that we can exponentially **raise the standard of living** through this technology by strengthening the foundational infrastructure of our society.
 
-## Code scaffolding
+## Our Goals
 
-Run `ng generate component component-name --project=myapp` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+> ### 1. Providing social networking platform for NGOs -
 
-## Build
+We believe that NGOs are an integral part of our society as they play important roles like:-
 
-Run `ng build myapp` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+- Brings the concerns of citizens to the concerned authority.
+- Provides a variety of humanitarian services.
+- Task oriented and driven by people with a common interest.
+- Advocate and monitor policies of private, public and government
+  sectors.
+- For public welfare and relief during emergencies.
 
-## Running unit tests
+As an initiative, we are creating a web portal to remove communication barriers and provide technological assistance to increase the productivity of NGOs
 
-Run `ng test` to execute the unit tests via [Jest](https://karma-runner.github.io).
+#
 
-## Running end-to-end tests
+> ### 2. Facilitating E-governance -
 
-Run `ng e2e` to execute the end-to-end tests via [Cypress](http://www.protractortest.org/).
+Aiming to strengthen the relationship between government and citizens using technology, we are integrating various stand-alone systems and services of government and private organizations. The objectives are to make administrations more transparent, speedy and accountable while addressing the society's needs and expectations through efficient public services and effective interaction between the people, businesses and government through digital services.
 
-## Further help
+#
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+> ### 3. Raising awareness -
+>
+> Using social media to raise awareness through mass communication and facilitating awareness campaigns, legal empowerment and NGO support to provide social justice.
+
+#
+
+> ### 4. Data analytics for the greater good -
+
+- Data driven social service organisation & administrations
+- Facilitate communication through proper channels
+
+#
+
+> ### 5. Advance problem solving -
+>
+> Through collaborative work of the open source community we aim to -
+
+- Put an end to human surveillance in general
+- Free ourselves from digital manipulation
+- Faclitate healthy technological evolution
+- Strengthen sustainable development
+- Decentralise the internet
+
+#
+
+> A small difference now can make a huge difference later.
