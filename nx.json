@@ -25,6 +25,18 @@
     },
     "material": {
       "tags": []
+    },
+    "state-auth": {
+      "tags": []
+    },
+    "state-root": {
+      "tags": []
+    },
+    "state-layout": {
+      "tags": []
+    },
+    "state-router": {
+      "tags": []
     }
   }
 }

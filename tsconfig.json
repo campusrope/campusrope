@@ -17,7 +17,11 @@
     "paths": {
       "@campusrope/api-interface": ["libs/api-interface/src/index.ts"],
       "@campusrope/shared": ["libs/shared/src/index.ts"],
-      "@campusrope/material": ["libs/material/src/index.ts"]
+      "@campusrope/material": ["libs/material/src/index.ts"],
+      "@campusrope/state/auth": ["libs/state/auth/src/index.ts"],
+      "@campusrope/state/root": ["libs/state/root/src/index.ts"],
+      "@campusrope/state/layout": ["libs/state/layout/src/index.ts"],
+      "@campusrope/state/router": ["libs/state/router/src/index.ts"]
     },
     "rootDir": "."
   },
