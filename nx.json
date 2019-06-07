@@ -19,6 +19,12 @@
     },
     "api-interface": {
       "tags": []
+    },
+    "shared": {
+      "tags": []
+    },
+    "material": {
+      "tags": []
     }
   }
 }

@@ -15,7 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@campusrope/api-interface": ["libs/api-interface/src/index.ts"]
+      "@campusrope/api-interface": ["libs/api-interface/src/index.ts"],
+      "@campusrope/shared": ["libs/shared/src/index.ts"],
+      "@campusrope/material": ["libs/material/src/index.ts"]
     },
     "rootDir": "."
   },
