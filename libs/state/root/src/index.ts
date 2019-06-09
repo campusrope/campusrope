@@ -1,3 +1,4 @@
-export * from './lib/+state/root.reducer';
-export * from './lib/+state/root.selectors';
+import * as RootState from './lib/+state';
+
 export * from './lib/state-root.module';
+export { RootState };

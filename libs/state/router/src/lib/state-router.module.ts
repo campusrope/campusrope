@@ -1,21 +1,16 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
-import { EffectsModule } from '@ngrx/effects';
-import {
-  ROUTER_FEATURE_KEY,
-  initialState as routerInitialState,
-  routerReducer
-} from './+state/router.reducer';
-import { RouterEffects } from './+state/router.effects';
+import { reducer } from './+state/router.reducer';
+import { provider } from './+state/serializer';
 
 @NgModule({
   imports: [
     CommonModule,
-    StoreModule.forFeature(ROUTER_FEATURE_KEY, routerReducer, {
-      initialState: routerInitialState
-    }),
-    EffectsModule.forFeature([RouterEffects])
-  ]
+    StoreRouterConnectingModule.forRoot(),
+    StoreModule.forFeature('router', reducer),
+  ],
+  providers: [provider],
 })
 export class StateRouterModule {}

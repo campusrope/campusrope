@@ -1,47 +1,22 @@
-import { RootAction, RootActionTypes } from './root.actions';
+import { InjectionToken } from '@angular/core';
+import { ActionReducerMap } from '@ngrx/store';
+import { AuthState } from '@campusrope/state/auth';
+import { RouterState } from '@campusrope/state/router';
 
-export const ROOT_FEATURE_KEY = 'root';
-
-/**
- * Interface for the 'Root' data used in
- *  - RootState, and
- *  - rootReducer
- *
- *  Note: replace if already defined in another module
- */
-
-/* tslint:disable:no-empty-interface */
-export interface Entity {}
-
-export interface RootState {
-  list: Entity[]; // list of Root; analogous to a sql normalized table
-  selectedId?: string | number; // which Root record has been selected
-  loaded: boolean; // has the Root list been loaded
-  error?: any; // last none error (if any)
+export interface State {
+  router: RouterState.State;
+  auth: AuthState.State;
 }
 
-export interface RootPartialState {
-  readonly [ROOT_FEATURE_KEY]: RootState;
+export const reducers: ActionReducerMap<any> = {};
+
+export const reducerToken = new InjectionToken<ActionReducerMap<any>>('Reducers');
+
+export function getReducers() {
+  return reducers;
 }
 
-export const initialState: RootState = {
-  list: [],
-  loaded: false
+export const reducerProvider = {
+  provide: reducerToken,
+  useFactory: getReducers,
 };
-
-export function rootReducer(
-  state: RootState = initialState,
-  action: RootAction
-): RootState {
-  switch (action.type) {
-    case RootActionTypes.RootLoaded: {
-      state = {
-        ...state,
-        list: action.payload,
-        loaded: true
-      };
-      break;
-    }
-  }
-  return state;
-}

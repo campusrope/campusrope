@@ -1,47 +1,47 @@
-import { AuthAction, AuthActionTypes } from './auth.actions';
+import { ActionReducer } from '@ngrx/store';
+import { Action, createReducer, Store } from 'ngrx-actions';
+import { AuthIn, AuthOut } from './auth.actions';
 
-export const AUTH_FEATURE_KEY = 'auth';
-
-/**
- * Interface for the 'Auth' data used in
- *  - AuthState, and
- *  - authReducer
- *
- *  Note: replace if already defined in another module
- */
-
-/* tslint:disable:no-empty-interface */
-export interface Entity {}
-
-export interface AuthState {
-  list: Entity[]; // list of Auth; analogous to a sql normalized table
-  selectedId?: string | number; // which Auth record has been selected
-  loaded: boolean; // has the Auth list been loaded
-  error?: any; // last none error (if any)
+export interface State {
+  uid: string;
+  isAnonymous: boolean;
+  ready: boolean;
 }
 
-export interface AuthPartialState {
-  readonly [AUTH_FEATURE_KEY]: AuthState;
-}
-
-export const initialState: AuthState = {
-  list: [],
-  loaded: false
+export const initialState = {
+  uid: null,
+  isAnonymous: false,
+  ready: false,
 };
 
-export function authReducer(
-  state: AuthState = initialState,
-  action: AuthAction
-): AuthState {
-  switch (action.type) {
-    case AuthActionTypes.AuthLoaded: {
-      state = {
-        ...state,
-        list: action.payload,
-        loaded: true
-      };
-      break;
-    }
+@Store<State>(initialState)
+export class StateStore {
+  @Action(AuthIn)
+  authSuccess(state: State, action: AuthIn): State {
+    return {
+      ...state,
+      ...action.authData,
+      ready: true,
+    };
   }
-  return state;
+
+  @Action(AuthOut)
+  signOutSuccess(state: State): State {
+    return {
+      ...state,
+      ...initialState,
+      ready: true,
+    };
+  }
+}
+
+export function reducer(state, action) {
+  return createReducer(StateStore)(state, action);
+}
+
+/** Clears storage on SignOut */
+export function signOutMetaReducer(_reducer: ActionReducer<any>): ActionReducer<any> {
+  return function(state, action) {
+    return _reducer(action.type === '[Auth] SignOut Success' ? undefined : state, action);
+  };
 }

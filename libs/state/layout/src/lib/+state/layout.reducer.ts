@@ -1,47 +1,35 @@
-import { LayoutAction, LayoutActionTypes } from './layout.actions';
+import { Action, createReducer, Store } from 'ngrx-actions';
+import { SetIsMobile, SetSidenav, ToggleSidenav } from './layout.actions';
 
-export const LAYOUT_FEATURE_KEY = 'layout';
-
-/**
- * Interface for the 'Layout' data used in
- *  - LayoutState, and
- *  - layoutReducer
- *
- *  Note: replace if already defined in another module
- */
-
-/* tslint:disable:no-empty-interface */
-export interface Entity {}
-
-export interface LayoutState {
-  list: Entity[]; // list of Layout; analogous to a sql normalized table
-  selectedId?: string | number; // which Layout record has been selected
-  loaded: boolean; // has the Layout list been loaded
-  error?: any; // last none error (if any)
+export interface State {
+  showSidenav: boolean;
+  isMobile: boolean;
 }
 
-export interface LayoutPartialState {
-  readonly [LAYOUT_FEATURE_KEY]: LayoutState;
-}
-
-export const initialState: LayoutState = {
-  list: [],
-  loaded: false
-};
-
-export function layoutReducer(
-  state: LayoutState = initialState,
-  action: LayoutAction
-): LayoutState {
-  switch (action.type) {
-    case LayoutActionTypes.LayoutLoaded: {
-      state = {
-        ...state,
-        list: action.payload,
-        loaded: true
-      };
-      break;
-    }
+@Store<State>({
+  showSidenav: false,
+  isMobile: true,
+})
+export class StateStore {
+  @Action(SetSidenav)
+  setSidenav(state: State, action: SetSidenav): State {
+    return { ...state, showSidenav: action.payload };
   }
-  return state;
+
+  @Action(ToggleSidenav)
+  toggleSidenavSuccess(state: State): State {
+    return { ...state, showSidenav: !state.showSidenav };
+  }
+
+  @Action(SetIsMobile)
+  setIsMobile(state: State, action: SetIsMobile): State {
+    return {
+      showSidenav: !action.payload,
+      isMobile: action.payload,
+    };
+  }
+}
+
+export function reducer(state, action) {
+  return createReducer(StateStore)(state, action);
 }

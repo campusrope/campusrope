@@ -1,21 +1,15 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { StoreModule } from '@ngrx/store';
+import { NgModule } from '@angular/core';
 import { EffectsModule } from '@ngrx/effects';
-import {
-  AUTH_FEATURE_KEY,
-  initialState as authInitialState,
-  authReducer
-} from './+state/auth.reducer';
-import { AuthEffects } from './+state/auth.effects';
+import { StoreModule } from '@ngrx/store';
+import { Effects } from './+state/auth.effects';
+import { reducer } from './+state/auth.reducer';
 
 @NgModule({
   imports: [
     CommonModule,
-    StoreModule.forFeature(AUTH_FEATURE_KEY, authReducer, {
-      initialState: authInitialState
-    }),
-    EffectsModule.forFeature([AuthEffects])
-  ]
+    StoreModule.forFeature('auth', reducer),
+    EffectsModule.forFeature([Effects]),
+  ],
 })
 export class StateAuthModule {}

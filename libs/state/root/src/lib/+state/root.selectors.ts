@@ -1,41 +1,13 @@
-import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { ROOT_FEATURE_KEY, RootState } from './root.reducer';
+import { createSelector } from '@ngrx/store';
+import { AuthState } from '@campusrope/state/auth';
 
-// Lookup the 'Root' feature state managed by NgRx
-const getRootState = createFeatureSelector<RootState>(ROOT_FEATURE_KEY);
-
-const getLoaded = createSelector(
-  getRootState,
-  (state: RootState) => state.loaded
-);
-const getError = createSelector(
-  getRootState,
-  (state: RootState) => state.error
+export const getAuthenticatedUser = createSelector(
+  AuthState.getUserId,
+  (userId, entities) => userId && entities[userId],
 );
 
-const getAllRoot = createSelector(
-  getRootState,
-  getLoaded,
-  (state: RootState, isLoaded) => {
-    return isLoaded ? state.list : [];
-  }
+export const getAuthenticatedUserLoading = createSelector(
+  AuthState.getUserId,
+  getAuthenticatedUser,
+  (userId, user) => userId && !user,
 );
-const getSelectedId = createSelector(
-  getRootState,
-  (state: RootState) => state.selectedId
-);
-const getSelectedRoot = createSelector(
-  getAllRoot,
-  getSelectedId,
-  (root, id) => {
-    const result = root.find(it => it['id'] === id);
-    return result ? Object.assign({}, result) : undefined;
-  }
-);
-
-export const rootQuery = {
-  getLoaded,
-  getError,
-  getAllRoot,
-  getSelectedRoot
-};

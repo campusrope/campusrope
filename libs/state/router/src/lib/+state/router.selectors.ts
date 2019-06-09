@@ -1,41 +1,39 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { ROUTER_FEATURE_KEY, RouterState } from './router.reducer';
+import { State } from './router.reducer';
 
-// Lookup the 'Router' feature state managed by NgRx
-const getRouterState = createFeatureSelector<RouterState>(ROUTER_FEATURE_KEY);
+const getState = createFeatureSelector<State>('router');
 
-const getLoaded = createSelector(
-  getRouterState,
-  (state: RouterState) => state.loaded
-);
-const getError = createSelector(
-  getRouterState,
-  (state: RouterState) => state.error
+export const getNavigationId = createSelector(
+  getState,
+  state => state.navigationId,
 );
 
-const getAllRouter = createSelector(
-  getRouterState,
-  getLoaded,
-  (state: RouterState, isLoaded) => {
-    return isLoaded ? state.list : [];
-  }
-);
-const getSelectedId = createSelector(
-  getRouterState,
-  (state: RouterState) => state.selectedId
-);
-const getSelectedRouter = createSelector(
-  getAllRouter,
-  getSelectedId,
-  (router, id) => {
-    const result = router.find(it => it['id'] === id);
-    return result ? Object.assign({}, result) : undefined;
-  }
+export const getUrlSnapshot = createSelector(
+  getState,
+  state => (state ? state.state : ({} as any)),
 );
 
-export const routerQuery = {
-  getLoaded,
-  getError,
-  getAllRouter,
-  getSelectedRouter
-};
+export const getUrl = createSelector(
+  getUrlSnapshot,
+  state => state.url,
+);
+
+export const getParams = createSelector(
+  getUrlSnapshot,
+  state => state.params,
+);
+
+export const getQueryParams = createSelector(
+  getUrlSnapshot,
+  state => state.queryParams,
+);
+
+export const getData = createSelector(
+  getUrlSnapshot,
+  state => state.data || {},
+);
+
+export const getGuarded = createSelector(
+  getUrlSnapshot,
+  state => state.guarded || false,
+);
