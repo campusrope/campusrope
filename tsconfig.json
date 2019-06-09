@@ -21,7 +21,8 @@
       "@campusrope/state/auth": ["libs/state/auth/src/index.ts"],
       "@campusrope/state/root": ["libs/state/root/src/index.ts"],
       "@campusrope/state/layout": ["libs/state/layout/src/index.ts"],
-      "@campusrope/state/router": ["libs/state/router/src/index.ts"]
+      "@campusrope/state/router": ["libs/state/router/src/index.ts"],
+      "@campusrope/models": ["libs/models/src/index.ts"]
     },
     "rootDir": "."
   },
