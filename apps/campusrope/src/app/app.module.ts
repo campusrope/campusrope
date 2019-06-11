@@ -6,8 +6,8 @@ import { RouterModule } from '@angular/router';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { NxModule } from '@nrwl/angular';
 import { SharedModule } from '@campusrope/shared';
-import { AngularMaterialModule } from '@campusrope/material';
 import { StateRootModule } from '@campusrope/state/root';
+import { AngularMaterialModule } from '@campusrope/material';
 import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
@@ -23,11 +23,11 @@ export function appFactoryName() {
   declarations: [AppComponent, HomePageComponent],
   imports: [
     BrowserModule,
-    AngularMaterialModule,
     BrowserAnimationsModule,
     NxModule.forRoot(),
     RouterModule.forRoot(APP_ROUTES, { initialNavigation: 'enabled' }),
     SharedModule.forRoot(),
+    AngularMaterialModule,
     CoreModule,
     StateRootModule,
     StoreDevtoolsModule.instrument({

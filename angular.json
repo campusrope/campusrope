@@ -415,6 +415,60 @@
         }
       },
       "schematics": {}
+    },
+    "testing": {
+      "projectType": "library",
+      "root": "libs/testing",
+      "sourceRoot": "libs/testing/src",
+      "prefix": "campusrope",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/testing/tsconfig.lib.json",
+              "libs/testing/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/testing/jest.config.js",
+            "tsConfig": "libs/testing/tsconfig.spec.json",
+            "setupFile": "libs/testing/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "features-auth": {
+      "projectType": "library",
+      "root": "libs/features/auth",
+      "sourceRoot": "libs/features/auth/src",
+      "prefix": "campusrope",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/features/auth/tsconfig.lib.json",
+              "libs/features/auth/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/features/auth/jest.config.js",
+            "tsConfig": "libs/features/auth/tsconfig.spec.json",
+            "setupFile": "libs/features/auth/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
     }
   },
   "cli": {

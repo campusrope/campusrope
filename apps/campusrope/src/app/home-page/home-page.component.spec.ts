@@ -1,8 +1,5 @@
-/* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
-
+import { StoreStub } from '@campusrope/testing';
 import { HomePageComponent } from './home-page.component';
 
 describe('HomePageComponent', () => {
@@ -11,9 +8,9 @@ describe('HomePageComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HomePageComponent ]
-    })
-    .compileComponents();
+      declarations: [HomePageComponent],
+      providers: [StoreStub.provider],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

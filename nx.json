@@ -43,6 +43,12 @@
     },
     "ngrx-actions": {
       "tags": []
+    },
+    "testing": {
+      "tags": []
+    },
+    "features-auth": {
+      "tags": []
     }
   }
 }
