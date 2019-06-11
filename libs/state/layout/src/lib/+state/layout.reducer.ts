@@ -1,4 +1,4 @@
-import { Action, createReducer, Store } from 'ngrx-actions';
+import { Action, createReducer, Store } from 'ngrx-actions/dist';
 import { SetIsMobile, SetSidenav, ToggleSidenav } from './layout.actions';
 
 export interface State {

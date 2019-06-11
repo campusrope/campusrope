@@ -1,5 +1,5 @@
 import { ActionReducer } from '@ngrx/store';
-import { Action, createReducer, Store } from 'ngrx-actions';
+import { Action, createReducer, Store } from 'ngrx-actions/dist';
 import { AuthIn, AuthOut } from './auth.actions';
 
 export interface State {

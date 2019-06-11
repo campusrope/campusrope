@@ -1,5 +1,5 @@
 import { Params } from '@angular/router';
-import { Data } from '@angular/router/src/config';
+import { Data } from '@angular/router';
 import { routerReducer, RouterReducerState } from '@ngrx/router-store';
 
 export interface UrlSnapshot {
