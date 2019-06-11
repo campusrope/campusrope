@@ -388,6 +388,33 @@
           }
         }
       }
+    },
+    "ngrx-actions": {
+      "projectType": "library",
+      "root": "libs/ngrx-actions",
+      "sourceRoot": "libs/ngrx-actions/src",
+      "prefix": "campusrope",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/ngrx-actions/tsconfig.lib.json",
+              "libs/ngrx-actions/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/ngrx-actions/jest.config.js",
+            "tsConfig": "libs/ngrx-actions/tsconfig.spec.json",
+            "setupFile": "libs/ngrx-actions/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
     }
   },
   "cli": {

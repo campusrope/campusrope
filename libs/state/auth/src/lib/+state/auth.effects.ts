@@ -7,7 +7,7 @@ import { AuthDataProxy } from '@campusrope/models';
 import { filterWith } from '@campusrope/shared';
 import { RouterState } from '@campusrope/state/router';
 import { User as FirebaseUser } from 'firebase';
-import { ofAction } from 'ngrx-actions/dist';
+import { ofAction } from '@campusrope/ngrx-actions';
 import { from } from 'rxjs';
 import { map, switchMap, tap } from 'rxjs/operators';
 import { AuthIn, AuthOut, SignOut, SignOutSuccess } from './auth.actions';

@@ -40,6 +40,9 @@
     },
     "models": {
       "tags": []
+    },
+    "ngrx-actions": {
+      "tags": []
     }
   }
 }

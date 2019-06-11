@@ -1,4 +1,4 @@
-import { Action, createReducer, Store } from 'ngrx-actions/dist';
+import { Action, createReducer, Store } from '@campusrope/ngrx-actions';
 import { SetIsMobile, SetSidenav, ToggleSidenav } from './layout.actions';
 
 export interface State {
