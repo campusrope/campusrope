@@ -3,7 +3,7 @@ import { Actions, Effect } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
 import { User } from '@campusrope/models';
 import { AuthState } from '@campusrope/state/auth';
-import { ofAction } from 'ngrx-actions';
+import { ofAction } from '@campusrope/ngrx-actions';
 import { of } from 'rxjs';
 import { catchError, filter, map, switchMap, withLatestFrom } from 'rxjs/operators';
 import { UsersService } from '../../service/users.service';

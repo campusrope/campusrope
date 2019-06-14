@@ -1,6 +1,6 @@
 import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
 import { User } from '@campusrope/models';
-import { Action, createReducer, Store } from 'ngrx-actions';
+import { Action, createReducer, Store } from '@campusrope/ngrx-actions';
 import { LoadBatch, LoadBatchSuccess } from '../pagination';
 import {
   Load,
