@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
-import { AuthState } from '@nx-mean-starter/state/auth';
+import { AuthState } from '@campusrope/state/auth';
 
 @Component({
   selector: 'app-auth-modal-page',

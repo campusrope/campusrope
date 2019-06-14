@@ -2,9 +2,9 @@ import { TestBed } from '@angular/core/testing';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { AuthState } from '@nx-mean-starter/state/auth';
-import { RouterState } from '@nx-mean-starter/state/router';
-import { StoreStub } from '@nx-mean-starter/testing';
+import { AuthState } from '@campusrope/state/auth';
+import { RouterState } from '@campusrope/state/router';
+import { StoreStub } from '@campusrope/testing';
 import { Observable, of } from 'rxjs';
 import { AuthGuard } from './auth.guard';
 

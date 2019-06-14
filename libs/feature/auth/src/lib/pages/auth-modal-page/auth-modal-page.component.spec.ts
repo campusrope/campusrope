@@ -4,8 +4,8 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { Actions } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
-import { SharedModule } from '@nx-mean-starter/shared';
-import { StoreStub } from '@nx-mean-starter/testing';
+import { SharedModule } from '@campusrope/shared';
+import { StoreStub } from '@campusrope/testing';
 import { Subject } from 'rxjs';
 import { AuthModalPageComponent } from './auth-modal-page.component';
 

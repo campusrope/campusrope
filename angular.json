@@ -443,18 +443,18 @@
       },
       "schematics": {}
     },
-    "features-auth": {
+    "feature-auth": {
       "projectType": "library",
-      "root": "libs/features/auth",
-      "sourceRoot": "libs/features/auth/src",
+      "root": "libs/feature/auth",
+      "sourceRoot": "libs/feature/auth/src",
       "prefix": "campusrope",
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "libs/features/auth/tsconfig.lib.json",
-              "libs/features/auth/tsconfig.spec.json"
+              "libs/feature/auth/tsconfig.lib.json",
+              "libs/feature/auth/tsconfig.spec.json"
             ],
             "exclude": ["**/node_modules/**"]
           }
@@ -462,9 +462,9 @@
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "libs/features/auth/jest.config.js",
-            "tsConfig": "libs/features/auth/tsconfig.spec.json",
-            "setupFile": "libs/features/auth/src/test-setup.ts"
+            "jestConfig": "libs/feature/auth/jest.config.js",
+            "tsConfig": "libs/feature/auth/tsconfig.spec.json",
+            "setupFile": "libs/feature/auth/src/test-setup.ts"
           }
         }
       },
