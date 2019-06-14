@@ -22,6 +22,7 @@
       "@campusrope/state/root": ["libs/state/root/src/index.ts"],
       "@campusrope/state/layout": ["libs/state/layout/src/index.ts"],
       "@campusrope/state/router": ["libs/state/router/src/index.ts"],
+      "@campusrope/state/users": ["libs/state/users/src/index.ts"],
       "@campusrope/models": ["libs/models/src/index.ts"],
       "@campusrope/ngrx-actions": ["libs/ngrx-actions/src/index.ts"],
       "@campusrope/testing": ["libs/testing/src/index.ts"],

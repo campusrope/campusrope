@@ -38,6 +38,9 @@
     "state-router": {
       "tags": []
     },
+    "state-users": {
+      "tags": []
+    },
     "models": {
       "tags": []
     },

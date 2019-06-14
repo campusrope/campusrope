@@ -5,6 +5,7 @@ import { StoreModule } from '@ngrx/store';
 import { StateAuthModule } from '@campusrope/state/auth';
 import { StateLayoutModule } from '@campusrope/state/layout';
 import { StateRouterModule } from '@campusrope/state/router';
+import { StateUsersModule } from '@campusrope/state/users';
 import { reducerProvider, reducerToken } from './+state/root.reducer';
 import { SelectEffects } from './+state/root.effects';
 
@@ -15,6 +16,7 @@ import { SelectEffects } from './+state/root.effects';
     EffectsModule.forRoot([SelectEffects]),
     StateAuthModule,
     StateRouterModule,
+    StateUsersModule,
     StateLayoutModule,
   ],
   providers: [reducerProvider],
