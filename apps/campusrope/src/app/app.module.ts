@@ -31,7 +31,7 @@ export function appFactoryName() {
     CoreModule,
     StateRootModule,
     StoreDevtoolsModule.instrument({
-      name: 'web-app',
+      name: 'campusrope',
       logOnly: environment.production,
     }),
     AngularFireModule.initializeApp(environment.firebase),
