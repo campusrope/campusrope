@@ -3,6 +3,9 @@
             (openedChangeSidenav)="openedChangeSidenav($event)">
   <app-sidenav-page sidenav></app-sidenav-page>
   <main [@fadeRouter]="o.activatedRouteData" class="animation-container" style="display: flex">
+    <span class="transition-icons" style="left: -8px;">
+      <i class="material-icons font-size-35">chevron_left</i>
+    </span>
     <div class="pane-width">
       <campusrope-left-pane></campusrope-left-pane>
     </div>
@@ -10,5 +13,8 @@
     <div class="pane-width">
       <campusrope-right-pane></campusrope-right-pane>
     </div>
+    <span class="transition-icons" style="right: -8px;">
+      <i class="material-icons font-size-35">chevron_right</i>
+    </span>
   </main>
 </app-layout> 
