@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { FeatureAuthModule } from '@campusrope/feature/auth';
 import { AngularMaterialModule } from '@campusrope/material';
 import { SharedModule } from '@campusrope/shared';
-import { LayoutComponent, NavbarComponent, UserSidenavCardComponent } from './layout/components';
+import { LayoutComponent, NavbarComponent, UserSidenavCardComponent,LeftPaneComponent,RightPaneComponent } from './layout/components';
 import { LayoutPageComponent, SidenavPageComponent } from './layout/pages';
 
 @NgModule({
@@ -14,6 +14,8 @@ import { LayoutPageComponent, SidenavPageComponent } from './layout/pages';
     LayoutPageComponent,
     NavbarComponent,
     UserSidenavCardComponent,
+    LeftPaneComponent,
+    RightPaneComponent,
     SidenavPageComponent,
   ],
   exports: [LayoutPageComponent],

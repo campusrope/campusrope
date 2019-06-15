@@ -24,7 +24,12 @@
             "tsConfig": "apps/campusrope/tsconfig.app.json",
             "assets": [
               "apps/campusrope/src/favicon.ico",
-              "apps/campusrope/src/assets"
+              "apps/campusrope/src/assets",
+              {
+                "glob": "**/*",
+                "input": "node_modules/ngx-auth-firebaseui/assets/",
+                "output": "./assets/"
+                }
             ],
             "styles": ["apps/campusrope/src/styles.scss"],
             "scripts": [],
