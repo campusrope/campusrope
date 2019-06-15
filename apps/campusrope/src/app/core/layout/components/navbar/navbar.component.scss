@@ -8,9 +8,6 @@ app-navbar {
 }
 
 .app-navbar-header {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
   padding: 8px 16px;
   box-sizing: border-box;
   height: 100%;
@@ -24,6 +21,10 @@ app-navbar {
 
 .app-logo {
   height: 40px;
+}
+
+.menu-button{
+  float: right;
 }
 
 .app-navbar-link {
