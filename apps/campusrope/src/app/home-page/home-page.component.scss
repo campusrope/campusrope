@@ -1,0 +1,19 @@
+.home-menu-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.home-menu-container button{
+    margin: 20px 0px;
+    width: 220px;
+    border: 1px solid rgb(129, 122, 122);
+    box-shadow: none;
+    padding: 10px 16px!important; 
+}   
+
+.home-menu-container button i{
+    font-size: 35px;
+    float: left;
+    color: #FF0000; 
+}
