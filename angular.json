@@ -29,7 +29,7 @@
                 "glob": "**/*",
                 "input": "node_modules/ngx-auth-firebaseui/assets/",
                 "output": "./assets/"
-                }
+              }
             ],
             "styles": ["apps/campusrope/src/styles.scss"],
             "scripts": [],
@@ -496,6 +496,33 @@
             "jestConfig": "libs/feature/auth/jest.config.js",
             "tsConfig": "libs/feature/auth/tsconfig.spec.json",
             "setupFile": "libs/feature/auth/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "pages-login": {
+      "projectType": "library",
+      "root": "libs/pages/login",
+      "sourceRoot": "libs/pages/login/src",
+      "prefix": "campusrope",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/pages/login/tsconfig.lib.json",
+              "libs/pages/login/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/pages/login/jest.config.js",
+            "tsConfig": "libs/pages/login/tsconfig.spec.json",
+            "setupFile": "libs/pages/login/src/test-setup.ts"
           }
         }
       },

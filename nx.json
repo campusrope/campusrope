@@ -52,6 +52,9 @@
     },
     "features-auth": {
       "tags": []
+    },
+    "pages-login": {
+      "tags": []
     }
   }
 }

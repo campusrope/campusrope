@@ -26,7 +26,8 @@
       "@campusrope/models": ["libs/models/src/index.ts"],
       "@campusrope/ngrx-actions": ["libs/ngrx-actions/src/index.ts"],
       "@campusrope/testing": ["libs/testing/src/index.ts"],
-      "@campusrope/feature/auth": ["libs/feature/auth/src/index.ts"]
+      "@campusrope/feature/auth": ["libs/feature/auth/src/index.ts"],
+      "@campusrope/pages/login": ["libs/pages/login/src/index.ts"]
     },
     "rootDir": "."
   },
