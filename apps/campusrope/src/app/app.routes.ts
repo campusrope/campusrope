@@ -6,6 +6,7 @@ export const APP_ROUTES: Routes = [
   {
     path: 'login',
     loadChildren: () =>
-      import('@campusrope/pages/login').then(m => m.PagesLoginModule),
+      import('@campusrope/pages/login')
+        .then(m => m.PagesLoginModule)
   },
 ];

@@ -7,7 +7,7 @@
 .home-menu-container button{
     margin: 20px 0px;
     width: 220px;
-    border: 1px solid rgb(129, 122, 122);
+    border: 1px solid #FF0000;                                                                  
     box-shadow: none;
     padding: 10px 16px!important; 
 }   
@@ -16,6 +16,11 @@
     float: left;
 }
 
+.home-menu-btn span {
+    font-family: Arial!important;
+    font-size: 15px!important; 
+}
+
 .center-pane-background{
     background: #EDEDED;
-}
+}                                                                                                                                                                                                                                                                                                                                                                                                               
