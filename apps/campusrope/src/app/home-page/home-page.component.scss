@@ -6,10 +6,11 @@
 
 .home-menu-container button{
     margin: 20px 0px;
-    width: 220px;
-    border: 1px solid #FF0000;                                                                  
+    width: 260px;
+    border-radius: 10px;
+    border: 1px solid #FF0000;
     box-shadow: none;
-    padding: 10px 16px!important; 
+    padding: 15px 20px !important; 
 }   
 
 .home-menu-container button img{
@@ -17,8 +18,9 @@
 }
 
 .home-menu-btn span {
-    font-family: Arial!important;
-    font-size: 15px!important; 
+    font-family: inherit;
+    font-size: 16px !important;
+    letter-spacing: 1px;
 }
 
 .center-pane-background{
