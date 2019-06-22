@@ -8,7 +8,7 @@ export interface State {
 
 @Store<State>({
   showSidenav: false,
-  isMobile: true,
+  isMobile: true
 })
 export class StateStore {
   @Action(SetSidenav)
@@ -25,7 +25,7 @@ export class StateStore {
   setIsMobile(state: State, action: SetIsMobile): State {
     return {
       showSidenav: !action.payload,
-      isMobile: action.payload,
+      isMobile: action.payload
     };
   }
 }

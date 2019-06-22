@@ -5,35 +5,35 @@ const getState = createFeatureSelector<State>('router');
 
 export const getNavigationId = createSelector(
   getState,
-  state => state.navigationId,
+  state => state.navigationId
 );
 
 export const getUrlSnapshot = createSelector(
   getState,
-  state => (state ? state.state : ({} as any)),
+  state => (state ? state.state : ({} as any))
 );
 
 export const getUrl = createSelector(
   getUrlSnapshot,
-  state => state.url,
+  state => state.url
 );
 
 export const getParams = createSelector(
   getUrlSnapshot,
-  state => state.params,
+  state => state.params
 );
 
 export const getQueryParams = createSelector(
   getUrlSnapshot,
-  state => state.queryParams,
+  state => state.queryParams
 );
 
 export const getData = createSelector(
   getUrlSnapshot,
-  state => state.data || {},
+  state => state.data || {}
 );
 
 export const getGuarded = createSelector(
   getUrlSnapshot,
-  state => state.guarded || false,
+  state => state.guarded || false
 );

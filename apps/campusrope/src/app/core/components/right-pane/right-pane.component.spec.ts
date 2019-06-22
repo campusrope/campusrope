@@ -11,9 +11,8 @@ describe('RightPaneComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RightPaneComponent ]
-    })
-    .compileComponents();
+      declarations: [RightPaneComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

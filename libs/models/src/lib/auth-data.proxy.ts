@@ -5,7 +5,7 @@ import {
   checkString,
   throwIsArray,
   throwNotObject,
-  throwNull2NonNull,
+  throwNull2NonNull
 } from './proxy-helpers';
 
 export class AuthDataProxy {

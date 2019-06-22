@@ -4,11 +4,14 @@ import { LocalStorageService } from './local-storage.service';
 describe('Service: LocalStorage', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [LocalStorageService],
+      providers: [LocalStorageService]
     });
   });
 
-  it('should ...', inject([LocalStorageService], (service: LocalStorageService) => {
-    expect(service).toBeTruthy();
-  }));
+  it('should ...', inject(
+    [LocalStorageService],
+    (service: LocalStorageService) => {
+      expect(service).toBeTruthy();
+    }
+  ));
 });

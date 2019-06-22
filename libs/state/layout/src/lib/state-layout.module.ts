@@ -9,7 +9,7 @@ import { reducer } from './+state/layout.reducer';
   imports: [
     CommonModule,
     StoreModule.forFeature('layout', reducer),
-    EffectsModule.forFeature([Effects]),
-  ],
+    EffectsModule.forFeature([Effects])
+  ]
 })
 export class StateLayoutModule {}

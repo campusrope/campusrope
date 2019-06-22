@@ -7,13 +7,13 @@ import { DropzoneDirective } from './directives/dropzone.directive';
 @NgModule({
   imports: [CommonModule, HttpClientModule, InfiniteScrollModule],
   declarations: [DropzoneDirective],
-  exports: [HttpClientModule, DropzoneDirective, InfiniteScrollModule],
+  exports: [HttpClientModule, DropzoneDirective, InfiniteScrollModule]
 })
 export class SharedModule {
   public static forRoot(): ModuleWithProviders {
     return {
       ngModule: SharedModule,
-      providers: [],
+      providers: []
     };
   }
 }

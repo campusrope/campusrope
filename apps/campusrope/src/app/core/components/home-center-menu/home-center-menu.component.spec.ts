@@ -11,9 +11,8 @@ describe('HomeCenterMenuComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HomeCenterMenuComponent ]
-    })
-    .compileComponents();
+      declarations: [HomeCenterMenuComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

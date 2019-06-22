@@ -3,7 +3,8 @@ import { RouterStateSerializer } from '@ngrx/router-store';
 
 import { UrlSnapshot } from './router.reducer';
 
-export class CustomRouterStateSerializer implements RouterStateSerializer<UrlSnapshot> {
+export class CustomRouterStateSerializer
+  implements RouterStateSerializer<UrlSnapshot> {
   serialize(routerState: RouterStateSnapshot): UrlSnapshot {
     let route = routerState.root;
 
@@ -13,7 +14,7 @@ export class CustomRouterStateSerializer implements RouterStateSerializer<UrlSna
 
     const {
       url,
-      root: { queryParams },
+      root: { queryParams }
     } = routerState;
     const { params, data, routeConfig } = route;
     const guarded = !!routeConfig && !!routeConfig.canActivate;
@@ -26,5 +27,5 @@ export class CustomRouterStateSerializer implements RouterStateSerializer<UrlSna
 
 export const provider = {
   provide: RouterStateSerializer,
-  useClass: CustomRouterStateSerializer,
+  useClass: CustomRouterStateSerializer
 };

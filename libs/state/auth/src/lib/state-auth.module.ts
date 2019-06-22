@@ -9,7 +9,7 @@ import { reducer } from './+state/auth.reducer';
   imports: [
     CommonModule,
     StoreModule.forFeature('auth', reducer),
-    EffectsModule.forFeature([Effects]),
-  ],
+    EffectsModule.forFeature([Effects])
+  ]
 })
 export class StateAuthModule {}

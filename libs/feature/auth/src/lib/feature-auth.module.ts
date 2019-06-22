@@ -7,8 +7,14 @@ import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
 import { AuthModalPageComponent } from './pages';
 
 @NgModule({
-  imports: [CommonModule, SharedModule, ReactiveFormsModule, NgxAuthFirebaseUIModule,AngularMaterialModule],
+  imports: [
+    CommonModule,
+    SharedModule,
+    ReactiveFormsModule,
+    NgxAuthFirebaseUIModule,
+    AngularMaterialModule
+  ],
   declarations: [AuthModalPageComponent],
-  entryComponents: [AuthModalPageComponent],
+  entryComponents: [AuthModalPageComponent]
 })
 export class FeatureAuthModule {}

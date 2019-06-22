@@ -11,10 +11,10 @@ import { reducerProvider, reducerToken } from './+state/reducer';
   imports: [
     CommonModule,
     StoreModule.forFeature('users', reducerToken, {
-      metaReducers: [AuthState.signOutMetaReducer],
+      metaReducers: [AuthState.signOutMetaReducer]
     }),
-    EffectsModule.forFeature([EntitiesEffects, PaginationEffects]),
+    EffectsModule.forFeature([EntitiesEffects, PaginationEffects])
   ],
-  providers: [reducerProvider, AuthInterceptor.provider],
+  providers: [reducerProvider, AuthInterceptor.provider]
 })
 export class StateUsersModule {}

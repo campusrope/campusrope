@@ -8,7 +8,7 @@ export { RouterLink } from '@angular/router';
   // tslint:disable-next-line:directive-selector
   selector: '[routerLink]',
   // tslint:disable-next-line:no-host-metadata-property
-  host: { '(click)': 'onClick()' },
+  host: { '(click)': 'onClick()' }
 })
 export class RouterLinkDirectiveStub {
   // tslint:disable-next-line:no-input-rename

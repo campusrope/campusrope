@@ -6,7 +6,7 @@ export function asyncRetryError<T = any>(
   data: T = {} as any,
   error: any = new Error(),
   delayTime = 10,
-  failsCount = 1,
+  failsCount = 1
 ): Observable<T> {
   return throwError(error).pipe(
     materialize(),
@@ -18,7 +18,7 @@ export function asyncRetryError<T = any>(
       return notification;
     }),
     delay(delayTime),
-    dematerialize(),
+    dematerialize()
   );
 }
 

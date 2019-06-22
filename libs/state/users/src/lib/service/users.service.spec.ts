@@ -8,7 +8,7 @@ describe('Service: Users', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [UsersService],
+      providers: [UsersService]
     });
 
     service = TestBed.get(UsersService);

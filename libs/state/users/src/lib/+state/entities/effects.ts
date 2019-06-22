@@ -5,7 +5,13 @@ import { User } from '@campusrope/models';
 import { AuthState } from '@campusrope/state/auth';
 import { ofAction } from '@campusrope/ngrx-actions';
 import { of } from 'rxjs';
-import { catchError, filter, map, switchMap, withLatestFrom } from 'rxjs/operators';
+import {
+  catchError,
+  filter,
+  map,
+  switchMap,
+  withLatestFrom
+} from 'rxjs/operators';
 import { UsersService } from '../../service/users.service';
 import {
   Load,
@@ -15,7 +21,7 @@ import {
   PatchOne,
   PatchOneSuccess,
   Select,
-  ServerError,
+  ServerError
 } from './actions';
 import { EntitiesState } from './reducer';
 import { getEntities } from './selectors';
@@ -29,7 +35,7 @@ export class EntitiesEffects {
     ofAction(Select),
     withLatestFrom(this.entities$),
     filter(([action, entities]) => !entities[action.id]),
-    map(([action]: [Select, any]) => new Load(action.id)),
+    map(([action]: [Select, any]) => new Load(action.id))
   );
 
   @Effect()
@@ -39,9 +45,9 @@ export class EntitiesEffects {
     switchMap((user: Partial<User>) =>
       this.service.patchMe(user).pipe(
         map((updatedUser: User) => new PatchOneSuccess(updatedUser)),
-        catchError(err => of(new ServerError(err))),
-      ),
-    ),
+        catchError(err => of(new ServerError(err)))
+      )
+    )
   );
 
   @Effect()
@@ -50,9 +56,9 @@ export class EntitiesEffects {
     switchMap(() =>
       this.service.getMe().pipe(
         map((user: User) => new LoadSuccess(user)),
-        catchError(err => of(new ServerError(err))),
-      ),
-    ),
+        catchError(err => of(new ServerError(err)))
+      )
+    )
   );
 
   @Effect()
@@ -61,9 +67,9 @@ export class EntitiesEffects {
     switchMap(action =>
       this.service.getOne(action.id).pipe(
         map(user => new LoadSuccess(user)),
-        catchError(err => of(new ServerError(err))),
-      ),
-    ),
+        catchError(err => of(new ServerError(err)))
+      )
+    )
   );
 
   @Effect()
@@ -72,14 +78,14 @@ export class EntitiesEffects {
     switchMap(() =>
       this.service.getBatch().pipe(
         map(user => new LoadAllSuccess(user)),
-        catchError(err => of(new ServerError(err))),
-      ),
-    ),
+        catchError(err => of(new ServerError(err)))
+      )
+    )
   );
 
   constructor(
     private store: Store<EntitiesState>,
     private actions$: Actions,
-    private service: UsersService,
+    private service: UsersService
   ) {}
 }

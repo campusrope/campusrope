@@ -11,12 +11,14 @@ export class SelectEffects {
   navigated$ = this.actions$.pipe(
     ofType<RouterNavigatedAction<RouterState.UrlSnapshot>>(ROUTER_NAVIGATED),
     map(action => this.getSelectAction(action)),
-    filter(action => !!action),
+    filter(action => !!action)
   );
 
   constructor(private actions$: Actions) {}
 
-  getSelectAction(action: RouterNavigatedAction<RouterState.UrlSnapshot>): Action {
+  getSelectAction(
+    action: RouterNavigatedAction<RouterState.UrlSnapshot>
+  ): Action {
     const navigation = action.payload.routerState.url.split('/')[1];
     const id = action.payload.routerState.params['id'];
     if (!id) {

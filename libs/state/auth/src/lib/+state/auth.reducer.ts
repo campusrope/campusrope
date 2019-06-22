@@ -11,7 +11,7 @@ export interface State {
 export const initialState = {
   uid: null,
   isAnonymous: false,
-  ready: false,
+  ready: false
 };
 
 @Store<State>(initialState)
@@ -21,7 +21,7 @@ export class StateStore {
     return {
       ...state,
       ...action.authData,
-      ready: true,
+      ready: true
     };
   }
 
@@ -30,7 +30,7 @@ export class StateStore {
     return {
       ...state,
       ...initialState,
-      ready: true,
+      ready: true
     };
   }
 }
@@ -40,8 +40,13 @@ export function reducer(state, action) {
 }
 
 /** Clears storage on SignOut */
-export function signOutMetaReducer(_reducer: ActionReducer<any>): ActionReducer<any> {
+export function signOutMetaReducer(
+  _reducer: ActionReducer<any>
+): ActionReducer<any> {
   return function(state, action) {
-    return _reducer(action.type === '[Auth] SignOut Success' ? undefined : state, action);
+    return _reducer(
+      action.type === '[Auth] SignOut Success' ? undefined : state,
+      action
+    );
   };
 }

@@ -6,7 +6,9 @@ describe('CustomValidatorsService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: CustomValidatorsService = TestBed.get(CustomValidatorsService);
+    const service: CustomValidatorsService = TestBed.get(
+      CustomValidatorsService
+    );
     expect(service).toBeTruthy();
   });
 });

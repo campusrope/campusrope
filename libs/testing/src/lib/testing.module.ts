@@ -6,6 +6,6 @@ import { RouterLinkDirectiveStub } from './stubs';
 /// Dummy module to satisfy Angular Language service. Never used.
 @NgModule({
   declarations: [RouterLinkDirectiveStub],
-  imports: [CommonModule],
+  imports: [CommonModule]
 })
 export class TestingModule {}

@@ -10,8 +10,8 @@ export const environment = {
     databaseURL: 'https://nx-mean-starter.firebaseio.com',
     projectId: 'nx-mean-starter',
     storageBucket: 'nx-mean-starter.appspot.com',
-    messagingSenderId: '924583777956',
-  },
+    messagingSenderId: '924583777956'
+  }
 };
 
 /*

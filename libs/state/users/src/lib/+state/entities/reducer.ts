@@ -10,7 +10,7 @@ import {
   PatchOne,
   PatchOneSuccess,
   Select,
-  ServerError,
+  ServerError
 } from './actions';
 
 export interface EntitiesState extends EntityState<User> {
@@ -22,14 +22,14 @@ export interface EntitiesState extends EntityState<User> {
 
 export const entitiesAdapter: EntityAdapter<User> = createEntityAdapter<User>({
   selectId: (entity: User) => entity._id,
-  sortComparer: false,
+  sortComparer: false
 });
 
 export const initialState = entitiesAdapter.getInitialState({
   selectedId: undefined,
   loading: false,
   saving: false,
-  error: undefined,
+  error: undefined
 });
 
 @Store<EntitiesState>(initialState)
@@ -45,10 +45,13 @@ export class EntitiesStore {
   }
 
   @Action(PatchOneSuccess)
-  updateOneSuccess(state: EntitiesState, action: PatchOneSuccess): EntitiesState {
+  updateOneSuccess(
+    state: EntitiesState,
+    action: PatchOneSuccess
+  ): EntitiesState {
     return entitiesAdapter.updateOne(
       { id: action.user._id, changes: action.user },
-      { ...state, saving: false, error: undefined },
+      { ...state, saving: false, error: undefined }
     );
   }
 
@@ -59,12 +62,23 @@ export class EntitiesStore {
 
   @Action(LoadSuccess)
   upsertOne(state: EntitiesState, action: LoadSuccess): EntitiesState {
-    return entitiesAdapter.upsertOne(action.user, { ...state, loading: false, error: undefined });
+    return entitiesAdapter.upsertOne(action.user, {
+      ...state,
+      loading: false,
+      error: undefined
+    });
   }
 
   @Action(LoadAllSuccess, LoadBatchSuccess)
-  upsertMany(state: EntitiesState, action: LoadAllSuccess | LoadBatchSuccess): EntitiesState {
-    return entitiesAdapter.upsertMany(action.users, { ...state, loading: false, error: undefined });
+  upsertMany(
+    state: EntitiesState,
+    action: LoadAllSuccess | LoadBatchSuccess
+  ): EntitiesState {
+    return entitiesAdapter.upsertMany(action.users, {
+      ...state,
+      loading: false,
+      error: undefined
+    });
   }
 
   @Action(ServerError)

@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   selector: 'campusrope-layout',
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.scss'],
-  animations: [fadeRouter],
+  animations: [fadeRouter]
 })
 export class LayoutComponent implements OnInit {
   isMobile$: Observable<boolean>;
@@ -28,5 +28,4 @@ export class LayoutComponent implements OnInit {
   openedChangeSidenav(value: boolean) {
     this.store.dispatch(new LayoutState.SetSidenav(value));
   }
-
 }

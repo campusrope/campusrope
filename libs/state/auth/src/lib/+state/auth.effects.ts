@@ -24,28 +24,34 @@ export class Effects {
         return new AuthIn(authState);
       }
       return new AuthOut();
-    }),
+    })
   );
 
   @Effect()
   signOut$ = this.actions$.pipe(
     ofAction(SignOut),
-    filterWith(this.store.select(getAuthenticated), (authenticated: boolean) => authenticated),
+    filterWith(
+      this.store.select(getAuthenticated),
+      (authenticated: boolean) => authenticated
+    ),
     switchMap(() => from(this.afa.auth.signOut())),
-    map(() => new SignOutSuccess()),
+    map(() => new SignOutSuccess())
   );
 
   @Effect({ dispatch: false })
   redirectOnSingOutIfGuarded$ = this.actions$.pipe(
     ofAction(SignOutSuccess),
-    filterWith(this.store.select(RouterState.getGuarded), (guarded: boolean) => guarded),
-    tap(() => this.router.navigate(['/'])),
+    filterWith(
+      this.store.select(RouterState.getGuarded),
+      (guarded: boolean) => guarded
+    ),
+    tap(() => this.router.navigate(['/']))
   );
 
   constructor(
     private actions$: Actions,
     private afa: AngularFireAuth,
     private router: Router,
-    private store: Store<State | RouterState.State>,
+    private store: Store<State | RouterState.State>
   ) {}
 }

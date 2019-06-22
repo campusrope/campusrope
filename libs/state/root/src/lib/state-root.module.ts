@@ -17,8 +17,8 @@ import { SelectEffects } from './+state/root.effects';
     StateAuthModule,
     StateRouterModule,
     StateUsersModule,
-    StateLayoutModule,
+    StateLayoutModule
   ],
-  providers: [reducerProvider],
+  providers: [reducerProvider]
 })
 export class StateRootModule {}

@@ -9,8 +9,8 @@ import { provider } from './+state/serializer';
   imports: [
     CommonModule,
     StoreRouterConnectingModule.forRoot(),
-    StoreModule.forFeature('router', reducer),
+    StoreModule.forFeature('router', reducer)
   ],
-  providers: [provider],
+  providers: [provider]
 })
 export class StateRouterModule {}

@@ -13,16 +13,22 @@ import { HomeCenterMenuComponent } from './components/home-center-menu/home-cent
 import { CORE_ROUTES } from './core.routes';
 
 @NgModule({
-  imports: [CommonModule, SharedModule, FeatureAuthModule, RouterModule.forChild(CORE_ROUTES), AngularMaterialModule],
-  
-declarations: [
+  imports: [
+    CommonModule,
+    SharedModule,
+    FeatureAuthModule,
+    RouterModule.forChild(CORE_ROUTES),
+    AngularMaterialModule
+  ],
+
+  declarations: [
     LayoutComponent,
     DrawerComponent,
     LeftPaneComponent,
     RightPaneComponent,
     HomeCenterMenuComponent,
-    HomeComponent,
+    HomeComponent
   ],
-  exports: [LayoutComponent],
+  exports: [LayoutComponent]
 })
 export class CoreModule {}

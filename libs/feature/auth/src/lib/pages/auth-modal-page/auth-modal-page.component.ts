@@ -7,12 +7,12 @@ import { AuthState } from '@campusrope/state/auth';
   selector: 'app-auth-modal-page',
   templateUrl: './auth-modal-page.component.html',
   styleUrls: ['./auth-modal-page.component.scss'],
-  encapsulation: ViewEncapsulation.None,
+  encapsulation: ViewEncapsulation.None
 })
 export class AuthModalPageComponent implements OnInit {
   constructor(
     private store: Store<AuthState.State>,
-    private dialogRef: MatDialogRef<AuthModalPageComponent, boolean>,
+    private dialogRef: MatDialogRef<AuthModalPageComponent, boolean>
   ) {}
 
   ngOnInit() {

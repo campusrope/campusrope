@@ -32,13 +32,13 @@ export function appFactoryName() {
     CoreModule,
     StoreDevtoolsModule.instrument({
       name: 'campusrope',
-      logOnly: environment.production,
+      logOnly: environment.production
     }),
     AngularFireModule.initializeApp(environment.firebase),
     NgxAuthFirebaseUIModule.forRoot(environment.firebase, appFactoryName, {
-      enableFirestoreSync: false,
-    }),
+      enableFirestoreSync: false
+    })
   ],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}

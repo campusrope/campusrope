@@ -16,22 +16,24 @@ export class Effects {
 
   @Effect()
   setIsMobile$ = defer(() =>
-    this.breakpointObserver.observe([Breakpoints.Small, Breakpoints.XSmall]).pipe(
-      map(result => result.matches),
-      map(isMobile => new SetIsMobile(isMobile)),
-    ),
+    this.breakpointObserver
+      .observe([Breakpoints.Small, Breakpoints.XSmall])
+      .pipe(
+        map(result => result.matches),
+        map(isMobile => new SetIsMobile(isMobile))
+      )
   );
 
   @Effect()
   closeSidenavOnNavigationIfMobile$ = this.actions$.pipe(
     ofType(ROUTER_NAVIGATION),
     filterWith(this.isMobile$, (isMobile: boolean) => isMobile),
-    map(() => new SetSidenav(false)),
+    map(() => new SetSidenav(false))
   );
 
   constructor(
     private actions$: Actions,
     private store: Store<State>,
-    private breakpointObserver: BreakpointObserver,
+    private breakpointObserver: BreakpointObserver
   ) {}
 }

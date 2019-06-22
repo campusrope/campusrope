@@ -26,14 +26,14 @@ export class PaginationEffects {
           }
         }),
         map((users: User[]) => new LoadBatchSuccess(users)),
-        catchError(err => of(new ServerError(err))),
-      ),
-    ),
+        catchError(err => of(new ServerError(err)))
+      )
+    )
   );
 
   constructor(
     private store: Store<State>,
     private actions$: Actions,
-    private service: UsersService,
+    private service: UsersService
   ) {}
 }

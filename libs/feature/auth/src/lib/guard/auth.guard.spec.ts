@@ -15,7 +15,7 @@ describe('AuthGuard', () => {
 
   beforeEach(() => {
     const matDialogStub = {
-      open: jest.fn(() => ({ beforeClosed })),
+      open: jest.fn(() => ({ beforeClosed }))
     };
 
     TestBed.configureTestingModule({
@@ -23,8 +23,8 @@ describe('AuthGuard', () => {
         AuthGuard,
         StoreStub.provider,
         { provide: MatDialog, useValue: matDialogStub },
-        { provide: Router, useValue: { navigate: jest.fn() } },
-      ],
+        { provide: Router, useValue: { navigate: jest.fn() } }
+      ]
     });
 
     guard = TestBed.get(AuthGuard);

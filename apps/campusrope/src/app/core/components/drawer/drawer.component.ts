@@ -13,7 +13,7 @@ import { map } from 'rxjs/operators';
   selector: 'campusrope-drawer',
   templateUrl: './drawer.component.html',
   styleUrls: ['./drawer.component.scss'],
-  animations: [fadeInOut],
+  animations: [fadeInOut]
 })
 export class DrawerComponent implements OnInit {
   ready$: Observable<boolean>;
@@ -22,11 +22,14 @@ export class DrawerComponent implements OnInit {
 
   get display$(): Observable<boolean> {
     return combineLatest(this.ready$, this.loading$).pipe(
-      map(([ready, loading]) => ready && !loading),
+      map(([ready, loading]) => ready && !loading)
     );
   }
 
-  constructor(private store: Store<RootState.State>, private dialog: MatDialog) {}
+  constructor(
+    private store: Store<RootState.State>,
+    private dialog: MatDialog
+  ) {}
 
   ngOnInit() {
     this.ready$ = this.store.select(AuthState.getReady);
@@ -41,5 +44,4 @@ export class DrawerComponent implements OnInit {
   singOut() {
     this.store.dispatch(new AuthState.SignOut());
   }
-
 }

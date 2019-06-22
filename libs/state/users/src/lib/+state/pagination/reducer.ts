@@ -9,16 +9,19 @@ export interface PaginationState {
 
 export const initialState: PaginationState = {
   ids: [],
-  done: false,
+  done: false
 };
 
 @Store<PaginationState>(initialState)
 export class StateStore {
   @Action(LoadBatchSuccess)
-  upsertMany(state: PaginationState, action: LoadBatchSuccess): PaginationState {
+  upsertMany(
+    state: PaginationState,
+    action: LoadBatchSuccess
+  ): PaginationState {
     return {
       ...state,
-      ids: [...state.ids, ...action.users.map((user: User) => user._id)],
+      ids: [...state.ids, ...action.users.map((user: User) => user._id)]
     };
   }
 
@@ -26,7 +29,7 @@ export class StateStore {
   end(state: PaginationState): PaginationState {
     return {
       ...state,
-      done: true,
+      done: true
     };
   }
 }

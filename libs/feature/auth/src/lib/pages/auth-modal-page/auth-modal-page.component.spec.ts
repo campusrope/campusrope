@@ -21,9 +21,9 @@ describe('AuthModalPageComponent', () => {
       providers: [
         StoreStub.provider,
         { provide: Actions, useValue: new Subject() },
-        { provide: MatDialogRef, useValue: { close: jest.fn() } },
+        { provide: MatDialogRef, useValue: { close: jest.fn() } }
       ],
-      schemas: [NO_ERRORS_SCHEMA],
+      schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
   }));
 

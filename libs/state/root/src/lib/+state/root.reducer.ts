@@ -7,12 +7,14 @@ import { UsersState } from '@campusrope/state/users';
 export interface State {
   router: RouterState.State;
   auth: AuthState.State;
-  users:UsersState.State
+  users: UsersState.State;
 }
 
 export const reducers: ActionReducerMap<any> = {};
 
-export const reducerToken = new InjectionToken<ActionReducerMap<any>>('Reducers');
+export const reducerToken = new InjectionToken<ActionReducerMap<any>>(
+  'Reducers'
+);
 
 export function getReducers() {
   return reducers;
@@ -20,5 +22,5 @@ export function getReducers() {
 
 export const reducerProvider = {
   provide: reducerToken,
-  useFactory: getReducers,
+  useFactory: getReducers
 };
