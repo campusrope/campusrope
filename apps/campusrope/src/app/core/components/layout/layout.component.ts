@@ -15,9 +15,9 @@ import { map } from 'rxjs/operators';
 export class LayoutComponent implements OnInit {
   isMobile$: Observable<boolean>;
   showSidenav$: Observable<boolean>;
-  routes:String[] = ['','/helpline','/trending-news']
-  currentRoutePosition:String;
-  routeChangeCounter:number = 0;
+  routes: String[] = ['', '/helpline', '/trending-news'];
+  currentRoutePosition: String;
+  routeChangeCounter: number = 0;
 
   constructor(
     private store: Store<LayoutState.State>,
@@ -29,26 +29,20 @@ export class LayoutComponent implements OnInit {
     this.showSidenav$ = this.store.select(LayoutState.getShowSidenav);
   }
 
-  get isDesktop$(){
-    return this.isMobile$.pipe(map((value:boolean)=> !value))
-  }
-
-  toggleSidenav() {
-    this.store.dispatch(new LayoutState.ToggleSidenav());
+  get isDesktop$() {
+    return this.isMobile$.pipe(map((value: boolean) => !value));
   }
 
   openedChangeSidenav(value: boolean) {
     this.store.dispatch(new LayoutState.SetSidenav(value));
   }
 
-  navigateToDirection(direction:number) {
+  navigateToDirection(direction: number) {
     this.routeChangeCounter = this.routeChangeCounter + direction;
-    if (direction === -1 && 
-        this.routeChangeCounter < 0) { 
-          this.routeChangeCounter = this.routes.length - 1; 
+    if (direction === -1 && this.routeChangeCounter < 0) {
+      this.routeChangeCounter = this.routes.length - 1;
     }
-    if (direction === 1 && 
-        !this.routes[this.routeChangeCounter]) { 
+    if (direction === 1 && !this.routes[this.routeChangeCounter]) {
       this.routeChangeCounter = 0;
     }
     this.currentRoutePosition = this.routes[this.routeChangeCounter];

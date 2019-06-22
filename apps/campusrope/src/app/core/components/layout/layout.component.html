@@ -1,27 +1,39 @@
-<main  class="main-stage" style="display: flex" [@fadeRouter]="o.activatedRouteData">
+<div class="layout-container">
+    <mat-drawer-container>
+        <mat-drawer class="mat-elevation-z4 app-sidenav" fixedTopGap="56" fixedInViewport="true"
+                 [mode]="'over'" [opened]="showSidenav$ | async"
+                 [position]="'end'"
+                     (openedStart)="openedChangeSidenav(true)" (closedStart)="openedChangeSidenav(false)">
+                     <campusrope-drawer></campusrope-drawer>
+        </mat-drawer>
+      
+        <mat-drawer-content>
+          <main  class="main-stage" style="display: flex" [@fadeRouter]="o.activatedRouteData">
+              <span *ngIf="isDesktop$ | async" class="left-btn" (click)="navigateToDirection(-1)">
+                  <img src="assets/left-icon.png" alt="">
+                </span>
+              
+                <div class="pane-width pane-background" *ngIf="isDesktop$ | async">
+                  <campusrope-left-pane></campusrope-left-pane>
+                </div>
+              
+                <div class="width-100 center-pane-background"
+                (swipeleft)="navigateToDirection(-1)"
+                (swiperight)="navigateToDirection(1)">
+                    <router-outlet #o="outlet"></router-outlet>
+                </div>
+              
+                <div class="pane-width pane-background" *ngIf="isDesktop$ | async">
+                  <campusrope-right-pane></campusrope-right-pane>
+                </div>
+              
+                <span class="right-btn"
+                *ngIf="isDesktop$ | async"
+                (click)="navigateToDirection(1)">
+                    <img src="assets/right-icon.png" alt="">
+              </span>
+          </main>
+        </mat-drawer-content>
+      </mat-drawer-container>
+    </div>
 
-  <span *ngIf="isDesktop$ | async" class="left-btn" (click)="navigateToDirection(-1)">
-    <img src="assets/left-icon.png" alt="">
-  </span>
-
-  <div class="pane-width pane-background" *ngIf="isDesktop$ | async">
-    <campusrope-left-pane></campusrope-left-pane>
-  </div>
-
-  <div class="width-100 center-pane-background"
-  (swipeleft)="navigateToDirection(-1)"
-  (swiperight)="navigateToDirection(1)">
-      <router-outlet #o="outlet"></router-outlet>
-  </div>
-
-  <div class="pane-width pane-background" *ngIf="isDesktop$ | async">
-    <campusrope-right-pane></campusrope-right-pane>
-  </div>
-
-  <span class="right-btn"
-  *ngIf="isDesktop$ | async"
-  (click)="navigateToDirection(1)">
-      <img src="assets/right-icon.png" alt="">
-</span>
-
-</main>

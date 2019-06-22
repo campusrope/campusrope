@@ -1,10 +1,7 @@
-import {
-  Component,
-  EventEmitter,
-  OnInit,
-  Output,
-  ViewEncapsulation
-} from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+
+import { Store } from '@ngrx/store';
+import { LayoutState } from '@campusrope/state/layout';
 @Component({
   selector: 'campusrope-appbar',
   templateUrl: './appbar.component.html',
@@ -12,9 +9,11 @@ import {
   encapsulation: ViewEncapsulation.None
 })
 export class AppbarComponent implements OnInit {
-  @Output() toggleSidenav = new EventEmitter<void>();
-
-  constructor() {}
+  constructor(private store: Store<LayoutState.State>) {}
 
   ngOnInit() {}
+
+  toggleSidenav() {
+    this.store.dispatch(new LayoutState.ToggleSidenav());
+  }
 }

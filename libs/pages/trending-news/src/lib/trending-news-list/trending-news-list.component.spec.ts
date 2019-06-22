@@ -11,9 +11,8 @@ describe('TrendingNewsListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TrendingNewsListComponent ]
-    })
-    .compileComponents();
+      declarations: [TrendingNewsListComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

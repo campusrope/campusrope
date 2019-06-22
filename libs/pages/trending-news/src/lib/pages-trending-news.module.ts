@@ -5,10 +5,7 @@ import { TRENDING_NEWS_ROUTES } from './pages-trending-news.routes';
 import { TrendingNewsListComponent } from './trending-news-list/trending-news-list.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule.forChild(TRENDING_NEWS_ROUTES)
-  ],
+  imports: [CommonModule, RouterModule.forChild(TRENDING_NEWS_ROUTES)],
   declarations: [TrendingNewsListComponent],
   exports: [TrendingNewsListComponent],
   entryComponents: [TrendingNewsListComponent]
