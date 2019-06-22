@@ -1,19 +1,53 @@
 .pane-width{
-    width: 35%; 
+    width: 35%;
 }
 
-.transition-icons{
-    position: fixed;
-    top: 40%;
-    background-color: #ffffff;
+.left-btn{
+    left: -45px;
+    position: absolute;
+    right: 94.44%;
+    top: 30%;
     border-radius: 43%;
-    height: 85px; 
+    height: 85px;
     width: 80px;
     cursor: pointer;
+    background: #FFFFFF;
+    transform: rotate(-180deg);
+}
+
+.right-btn{
+  position: absolute;
+  right: -45px;
+  top: 30%;
+  border-radius: 43%;
+  height: 85px;
+  width: 80px;
+  cursor: pointer;
+  background: #FFFFFF;
+  transform: rotate(-180deg);
+}
+
+.left-btn img{
+  position: absolute;
+  left: 13.35%;
+  top: 30.69%;
+  transform: rotate(-180deg);
+}
+
+.right-btn img{
+  position: absolute;
+  right: 14.96%;
+  top: 30.33%;
+  bottom: 0%;
+  transform: rotate(-180deg);
 }
 
 .pane-background{
     background: #CDCDCD;
+}
+
+.center-pane-background{
+  background: #EDEDED;
 }
 
 mat-drawer-container {

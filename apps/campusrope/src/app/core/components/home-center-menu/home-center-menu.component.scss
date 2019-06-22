@@ -5,24 +5,25 @@
 }
 
 .home-menu-container button{
-    margin: 20px 0px;
-    width: 260px;
-    border-radius: 10px;
-    border: 1px solid #FF0000;
-    box-shadow: none;
-    padding: 15px 20px !important; 
-}   
+      margin: 20px 0px;
+      width: 302px;
+      height: 79px;
+      border-radius: 11px;
+      border: 1px solid #FF0000;
+      box-shadow: none;
+}
 
 .home-menu-container button img{
-    float: left;
+        position: absolute;
+        left: 8.33%;
+        width: 33px;
+        height: 36px;
 }
 
 .home-menu-btn span {
-    font-family: inherit;
-    font-size: 16px !important;
-    letter-spacing: 1px;
+      font-family: Arial;
+      font-size: 20px;
+      position: relative;
+      left: 11.34%;
+      line-height: 23px;
 }
-
-.center-pane-background{
-    background: #EDEDED;
-}                                                                                                                                                                                                                                                                                                                                                                                                               
