@@ -1,17 +1,27 @@
 <main  class="main-stage" style="display: flex" [@fadeRouter]="o.activatedRouteData">
-  <span class="left-btn">
+
+  <span *ngIf="isDesktop$ | async" class="left-btn" (click)="navigateToDirection(-1)">
     <img src="assets/left-icon.png" alt="">
   </span>
-  <div class="pane-width pane-background">
+
+  <div class="pane-width pane-background" *ngIf="isDesktop$ | async">
     <campusrope-left-pane></campusrope-left-pane>
   </div>
-  <div class="width-100 center-pane-background">
+
+  <div class="width-100 center-pane-background"
+  (swipeleft)="navigateToDirection(-1)"
+  (swiperight)="navigateToDirection(1)">
       <router-outlet #o="outlet"></router-outlet>
   </div>
-  <div class="pane-width pane-background">
+
+  <div class="pane-width pane-background" *ngIf="isDesktop$ | async">
     <campusrope-right-pane></campusrope-right-pane>
   </div>
-  <span class="right-btn" (click)="rightChevClicked()">
+
+  <span class="right-btn"
+  *ngIf="isDesktop$ | async"
+  (click)="navigateToDirection(1)">
       <img src="assets/right-icon.png" alt="">
-  </span>
+</span>
+
 </main>
