@@ -27,7 +27,10 @@
       "@campusrope/testing": ["libs/testing/src/index.ts"],
       "@campusrope/feature/auth": ["libs/feature/auth/src/index.ts"],
       "@campusrope/pages/login": ["libs/pages/login/src/index.ts"],
-      "@campusrope/pages/helpline": ["libs/pages/helpline/src/index.ts"]
+      "@campusrope/pages/helpline": ["libs/pages/helpline/src/index.ts"],
+      "@campusrope/pages/trending-news": [
+        "libs/pages/trending-news/src/index.ts"
+      ]
     },
     "rootDir": "."
   },

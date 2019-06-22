@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
 export class LayoutComponent implements OnInit {
   isMobile$: Observable<boolean>;
   showSidenav$: Observable<boolean>;
+  routes:String[] = ['','/helpline','/trending-news']
 
   constructor(
     private store: Store<LayoutState.State>,

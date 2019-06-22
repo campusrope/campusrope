@@ -4,7 +4,6 @@ import { RouterModule } from '@angular/router';
 import { FeatureAuthModule } from '@campusrope/feature/auth';
 import { AngularMaterialModule } from '@campusrope/material';
 import { SharedModule } from '@campusrope/shared';
-import { HomeComponent } from './components/home/home.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { DrawerComponent } from './components/drawer/drawer.component';
 import { LeftPaneComponent } from './components/left-pane/left-pane.component';
@@ -26,8 +25,7 @@ import { CORE_ROUTES } from './core.routes';
     DrawerComponent,
     LeftPaneComponent,
     RightPaneComponent,
-    HomeCenterMenuComponent,
-    HomeComponent
+    HomeCenterMenuComponent
   ],
   exports: [LayoutComponent]
 })

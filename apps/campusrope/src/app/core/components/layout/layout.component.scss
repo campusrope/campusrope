@@ -26,3 +26,9 @@ mat-drawer-container {
     height: 100%;
     top:54px;// height of appbar;
 }
+
+.center-pane{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

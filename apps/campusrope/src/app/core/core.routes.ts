@@ -8,7 +8,12 @@ const CENTER_PANEL_ROUTES: Routes = [
     path: 'helpline',
     loadChildren: () =>
       import('@campusrope/pages/helpline').then(m => m.PagesHelplineModule)
-  }
+  },
+  {
+    path: 'trending-news',
+    loadChildren: () =>
+      import('@campusrope/pages/trending-news').then(m => m.PagesTrendingNewsModule)
+  },
 ];
 
 export const CORE_ROUTES: Routes = [

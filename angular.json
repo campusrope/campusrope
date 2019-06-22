@@ -528,6 +528,33 @@
         }
       },
       "schematics": {}
+    },
+    "pages-trending-news": {
+      "projectType": "library",
+      "root": "libs/pages/trending-news",
+      "sourceRoot": "libs/pages/trending-news/src",
+      "prefix": "campusrope",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/pages/trending-news/tsconfig.lib.json",
+              "libs/pages/trending-news/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/pages/trending-news/jest.config.js",
+            "tsConfig": "libs/pages/trending-news/tsconfig.spec.json",
+            "setupFile": "libs/pages/trending-news/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
     }
   },
   "cli": {
