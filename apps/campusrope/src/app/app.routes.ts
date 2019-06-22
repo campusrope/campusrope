@@ -3,7 +3,6 @@ import { Routes } from '@angular/router';
 export const APP_ROUTES: Routes = [
   {
     path: '',
-    pathMatch: 'full',
     loadChildren: () => import('./core').then(m => m.CoreModule)
   },
   {

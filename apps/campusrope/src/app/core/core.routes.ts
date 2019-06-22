@@ -3,13 +3,17 @@ import { LayoutComponent } from './components/layout/layout.component';
 import { HomeCenterMenuComponent } from './components/home-center-menu/home-center-menu.component';
 
 const CENTER_PANEL_ROUTES: Routes = [
-  { path: '', pathMatch: 'full', component: HomeCenterMenuComponent }
+  { path: '', component: HomeCenterMenuComponent },
+  {
+    path: 'helpline',
+    loadChildren: () =>
+      import('@campusrope/pages/helpline').then(m => m.PagesHelplineModule)
+  }
 ];
 
 export const CORE_ROUTES: Routes = [
   {
     path: '',
-    pathMatch: 'full',
     component: LayoutComponent,
     children: CENTER_PANEL_ROUTES
   }

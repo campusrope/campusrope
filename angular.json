@@ -501,6 +501,33 @@
         }
       },
       "schematics": {}
+    },
+    "pages-helpline": {
+      "projectType": "library",
+      "root": "libs/pages/helpline",
+      "sourceRoot": "libs/pages/helpline/src",
+      "prefix": "campusrope",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/pages/helpline/tsconfig.lib.json",
+              "libs/pages/helpline/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/pages/helpline/jest.config.js",
+            "tsConfig": "libs/pages/helpline/tsconfig.spec.json",
+            "setupFile": "libs/pages/helpline/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
     }
   },
   "cli": {

@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { fadeRouter } from '@campusrope/shared';
 import { LayoutState } from '@campusrope/state/layout';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'campusrope-layout',
@@ -14,7 +15,10 @@ export class LayoutComponent implements OnInit {
   isMobile$: Observable<boolean>;
   showSidenav$: Observable<boolean>;
 
-  constructor(private store: Store<LayoutState.State>) {}
+  constructor(
+    private store: Store<LayoutState.State>,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.isMobile$ = this.store.select(LayoutState.getIsMobile);
@@ -27,5 +31,9 @@ export class LayoutComponent implements OnInit {
 
   openedChangeSidenav(value: boolean) {
     this.store.dispatch(new LayoutState.SetSidenav(value));
+  }
+
+  rightChevClicked() {
+    this.router.navigate(['/helpline']);
   }
 }
