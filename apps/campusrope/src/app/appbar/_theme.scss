@@ -5,11 +5,11 @@
     $background: map-get($theme, background);
     $foreground: map-get($theme, foreground);
   
-    app-navbar {
+    campusrope-appbar {
       color: mat-color($primary, default-contrast);
   
-      .app-navbar,
-      .app-navbar-header {
+      .campusrope-appbar,
+      .app-bar-header {
         background: #27007A;
       }
     }
