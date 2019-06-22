@@ -12,15 +12,15 @@ import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { APP_ROUTES } from './app.routes';
+import { AppbarComponent } from './appbar/appbar.component';
 import { CoreModule } from './core';
-import { HomePageComponent } from './home-page/home-page.component';
 
 export function appFactoryName() {
   return 'campusrope';
 }
 
 @NgModule({
-  declarations: [AppComponent, HomePageComponent],
+  declarations: [AppComponent, AppbarComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -28,8 +28,8 @@ export function appFactoryName() {
     RouterModule.forRoot(APP_ROUTES, { initialNavigation: 'enabled' }),
     SharedModule.forRoot(),
     AngularMaterialModule,
-    CoreModule,
     StateRootModule,
+    CoreModule,
     StoreDevtoolsModule.instrument({
       name: 'campusrope',
       logOnly: environment.production,

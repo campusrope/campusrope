@@ -10,12 +10,12 @@ import { combineLatest, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-sidenav-page',
-  templateUrl: './sidenav-page.component.html',
-  styleUrls: ['./sidenav-page.component.scss'],
+  selector: 'campusrope-drawer',
+  templateUrl: './drawer.component.html',
+  styleUrls: ['./drawer.component.scss'],
   animations: [fadeInOut],
 })
-export class SidenavPageComponent implements OnInit {
+export class DrawerComponent implements OnInit {
   ready$: Observable<boolean>;
   loading$: Observable<boolean>;
   user$: Observable<User>;
@@ -41,4 +41,5 @@ export class SidenavPageComponent implements OnInit {
   singOut() {
     this.store.dispatch(new AuthState.SignOut());
   }
+
 }

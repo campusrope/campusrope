@@ -1,7 +1,8 @@
+/* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { MatDialog } from '@angular/material/dialog';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { SharedModule } from '@campusrope/shared';
+import { By } from '@angular/platform-browser';
+import { DebugElement } from '@angular/core';
+
 import { LayoutComponent } from './layout.component';
 
 describe('LayoutComponent', () => {
@@ -10,10 +11,9 @@ describe('LayoutComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [NoopAnimationsModule, SharedModule],
-      declarations: [LayoutComponent],
-      providers: [{ provide: MatDialog, useValue: { open: jest.fn() } }],
-    }).compileComponents();
+      declarations: [ LayoutComponent ]
+    })
+    .compileComponents();
   }));
 
   beforeEach(() => {

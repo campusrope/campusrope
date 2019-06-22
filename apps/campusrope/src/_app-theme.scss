@@ -1,6 +1,5 @@
 @import 'libs/shared/styles/mixins';
-@import 'apps/campusrope/src/app/core/layout/components/navbar/theme';
-@import 'apps/campusrope/src/app/core/layout/components/user-sidenav-card/theme';
+@import 'apps/campusrope/src/app/appbar/theme';
 
 @mixin app-theme($theme, $config) {
   $primary: map-get($theme, primary);
@@ -11,5 +10,4 @@
 
   @include shared-theme($theme, $config);
   @include navbar-theme($theme, $config);
-  @include user-sidenav-card-theme($theme, $config);
 }

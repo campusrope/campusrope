@@ -1,12 +1,13 @@
 import { Routes } from '@angular/router';
-import { HomePageComponent } from './home-page/home-page.component';
+import { LayoutComponent } from './core';
 
 export const APP_ROUTES: Routes = [
-  { path: '', component: HomePageComponent },
+  { path: '', component: LayoutComponent },
   {
     path: 'login',
     loadChildren: () =>
       import('@campusrope/pages/login')
-        .then(m => m.PagesLoginModule)
+      
+  .then(m => m.PagesLoginModule)
   },
 ];

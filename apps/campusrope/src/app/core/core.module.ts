@@ -4,20 +4,25 @@ import { RouterModule } from '@angular/router';
 import { FeatureAuthModule } from '@campusrope/feature/auth';
 import { AngularMaterialModule } from '@campusrope/material';
 import { SharedModule } from '@campusrope/shared';
-import { LayoutComponent, NavbarComponent, UserSidenavCardComponent,LeftPaneComponent,RightPaneComponent } from './layout/components';
-import { LayoutPageComponent, SidenavPageComponent } from './layout/pages';
+import { HomeComponent } from './components/home/home.component';
+import { LayoutComponent } from './components/layout/layout.component';
+import { DrawerComponent } from './components/drawer/drawer.component';
+import { LeftPaneComponent } from './components/left-pane/left-pane.component';
+import { RightPaneComponent } from './components/right-pane/right-pane.component';
+import { HomeCenterMenuComponent } from './components/home-center-menu/home-center-menu.component';
+import { CORE_ROUTES } from './core.routes';
 
 @NgModule({
-  imports: [CommonModule, SharedModule, FeatureAuthModule, RouterModule, AngularMaterialModule],
-  declarations: [
+  imports: [CommonModule, SharedModule, FeatureAuthModule, RouterModule.forChild(CORE_ROUTES), AngularMaterialModule],
+  
+declarations: [
     LayoutComponent,
-    LayoutPageComponent,
-    NavbarComponent,
-    UserSidenavCardComponent,
+    DrawerComponent,
     LeftPaneComponent,
     RightPaneComponent,
-    SidenavPageComponent,
+    HomeCenterMenuComponent,
+    HomeComponent,
   ],
-  exports: [LayoutPageComponent],
+  exports: [LayoutComponent],
 })
 export class CoreModule {}

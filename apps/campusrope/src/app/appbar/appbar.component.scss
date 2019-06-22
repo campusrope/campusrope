@@ -1,0 +1,48 @@
+campusrope-appbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    height: 56px;
+  }
+  
+  .app-title{
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 36px !important;
+    font-family: "Berkshire Swash", cursive !important;
+    margin: 0 !important;
+    line-height: 38px !important;
+    padding-left: 50px;
+  }
+  
+  .app-bar-header {
+    padding: 8px 0px;
+    box-sizing: border-box;
+    height: 100%;
+  
+    > .mat-button {
+      &:last-child {
+        margin-left: auto;
+      }
+    }
+  }
+  
+  .app-logo {
+    height: 40px;
+  }
+  
+  .menu-button{
+    float: right;
+  }
+  
+  .app-navbar-link {
+    text-decoration: inherit;
+    flex: 1;
+  }
+  
+  .app-navbar {
+    display: none;
+  }
+  
