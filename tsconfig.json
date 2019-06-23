@@ -30,7 +30,9 @@
       "@campusrope/pages/helpline": ["libs/pages/helpline/src/index.ts"],
       "@campusrope/pages/trending-news": [
         "libs/pages/trending-news/src/index.ts"
-      ]
+      ],
+      "@campusrope/admin": ["libs/admin/src/index.ts"],
+      "@campusrope/pages/admin": ["libs/pages/admin/src/index.ts"]
     },
     "rootDir": "."
   },
