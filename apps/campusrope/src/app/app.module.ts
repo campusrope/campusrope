@@ -14,13 +14,14 @@ import { AppComponent } from './app.component';
 import { APP_ROUTES } from './app.routes';
 import { AppbarComponent } from './appbar/appbar.component';
 import { CoreModule } from './core';
+import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 
 export function appFactoryName() {
   return 'campusrope';
 }
 
 @NgModule({
-  declarations: [AppComponent, AppbarComponent],
+  declarations: [AppComponent, AppbarComponent,NotFoundPageComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

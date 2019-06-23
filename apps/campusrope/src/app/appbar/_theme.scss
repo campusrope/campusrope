@@ -1,17 +1,16 @@
 @mixin navbar-theme($theme, $config) {
-    $primary: map-get($theme, primary);
-    $accent: map-get($theme, accent);
-    $warn: map-get($theme, warn);
-    $background: map-get($theme, background);
-    $foreground: map-get($theme, foreground);
-  
-    campusrope-appbar {
-      color: mat-color($primary, default-contrast);
-  
-      .campusrope-appbar,
-      .app-bar-header {
-        background: #27007A;
-      }
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  campusrope-appbar {
+    color: mat-color($primary, default-contrast);
+
+    .campusrope-appbar,
+    .app-bar-header {
+      background: #27007a;
     }
   }
-  
+}

@@ -1,19 +1,26 @@
-<div [@fadeInOut]="'in'" class="animation-container" *ngIf="(display$ | async); else: spinner">
+<div
+  [@fadeInOut]="'in'"
+  class="animation-container"
+  *ngIf="(display$ | async); else spinner"
+>
   <mat-nav-list>
     <a mat-list-item [routerLink]="['/']">
       <h4 mat-line>Home</h4>
       <p mat-line>Starting Page</p>
     </a>
-    <a mat-list-item [routerLink]="['/users']">
-      <h4 mat-line>Users</h4>
-      <p mat-line>Page with list of all users</p>
-    </a>
-    <a *ngIf="(user$ | async)" (click)="singOut()" mat-list-item><h4 mat-line>Sing Out</h4></a>
+    <a *ngIf="(user$ | async)" (click)="singOut()" mat-list-item
+      ><h4 mat-line>Sing Out</h4></a
+    >
   </mat-nav-list>
 </div>
 
 <ng-template #spinner>
-  <div [@fadeInOut]="'in'" class="animation-container" fxLayout="row" fxLayoutAlign="center center">
+  <div
+    [@fadeInOut]="'in'"
+    class="animation-container"
+    fxLayout="row"
+    fxLayoutAlign="center center"
+  >
     <mat-spinner></mat-spinner>
   </div>
 </ng-template>
