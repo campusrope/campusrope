@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 
 export const APP_ROUTES: Routes = [
   {
@@ -11,8 +12,12 @@ export const APP_ROUTES: Routes = [
       import('@campusrope/pages/login').then(m => m.PagesLoginModule)
   },
   {
-    path: 'admins',
+    path: 'admin',
     loadChildren: () =>
       import('@campusrope/pages/admin').then(m => m.PagesAdminModule)
+  },
+  {
+    path: '**',
+    component:NotFoundPageComponent
   }
 ];
