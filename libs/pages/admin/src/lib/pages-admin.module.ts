@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 import { ADMIN_ROUTES } from './pages-admin.routes';
 
 @NgModule({
-  imports: [CommonModule,RouterModule.forChild(ADMIN_ROUTES)],
+  imports: [CommonModule, RouterModule.forChild(ADMIN_ROUTES)],
   declarations: [AdminListComponent],
   exports: [AdminListComponent],
   entryComponents: [AdminListComponent]
