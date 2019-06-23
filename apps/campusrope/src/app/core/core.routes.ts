@@ -15,6 +15,11 @@ const CENTER_PANEL_ROUTES: Routes = [
       import('@campusrope/pages/trending-news').then(
         m => m.PagesTrendingNewsModule
       )
+  },
+  {
+    path: 'admins',
+    loadChildren: () =>
+      import('@campusrope/pages/admin').then(m => m.PagesAdminModule)
   }
 ];
 
