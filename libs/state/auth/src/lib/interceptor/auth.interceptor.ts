@@ -1,4 +1,4 @@
-import {
+/* import {
   HTTP_INTERCEPTORS,
   HttpEvent,
   HttpHandler,
@@ -6,7 +6,6 @@ import {
   HttpRequest
 } from '@angular/common/http';
 import { Injectable, Provider } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/auth';
 import { Observable } from 'rxjs';
 import { switchMap, take } from 'rxjs/operators';
 
@@ -20,7 +19,7 @@ export class AuthInterceptor implements HttpInterceptor {
     multi: true
   };
 
-  constructor(private afa: AngularFireAuth) {}
+  constructor() {}
 
   intercept(
     req: HttpRequest<any>,
@@ -38,3 +37,4 @@ export class AuthInterceptor implements HttpInterceptor {
     );
   }
 }
+ */

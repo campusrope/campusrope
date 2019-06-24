@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '@campusrope/shared';
 import { AngularMaterialModule } from '@campusrope/material';
-import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
 import { AuthModalPageComponent } from './pages';
 
 @NgModule({
@@ -11,7 +10,6 @@ import { AuthModalPageComponent } from './pages';
     CommonModule,
     SharedModule,
     ReactiveFormsModule,
-    NgxAuthFirebaseUIModule,
     AngularMaterialModule
   ],
   declarations: [AuthModalPageComponent],
