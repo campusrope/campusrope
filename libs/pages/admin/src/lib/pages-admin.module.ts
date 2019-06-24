@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularMaterialModule } from '@campusrope/material';
 import { AdminListComponent } from './admin-list/admin-list.component';
 import { AdminAddComponent } from './admin-add/admin-add.component';
@@ -11,6 +12,8 @@ import { ADMIN_ROUTES } from './pages-admin.routes';
   imports: [
     CommonModule,
     AngularMaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forChild(ADMIN_ROUTES)
   ],
   declarations: [
