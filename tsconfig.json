@@ -9,84 +9,41 @@
     "importHelpers": true,
     "target": "es5",
     "module": "es2015",
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-    "lib": [
-      "es2017",
-      "dom"
-    ],
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["es2017", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@campusrope/shared": [
-        "libs/shared/src/index.ts"
-      ],
-      "@campusrope/material": [
-        "libs/material/src/index.ts"
-      ],
-      "@campusrope/state/auth": [
-        "libs/state/auth/src/index.ts"
-      ],
-      "@campusrope/state/root": [
-        "libs/state/root/src/index.ts"
-      ],
-      "@campusrope/state/layout": [
-        "libs/state/layout/src/index.ts"
-      ],
-      "@campusrope/state/router": [
-        "libs/state/router/src/index.ts"
-      ],
-      "@campusrope/state/users": [
-        "libs/state/users/src/index.ts"
-      ],
-      "@campusrope/models": [
-        "libs/models/src/index.ts"
-      ],
-      "@campusrope/ngrx-actions": [
-        "libs/ngrx-actions/src/index.ts"
-      ],
-      "@campusrope/testing": [
-        "libs/testing/src/index.ts"
-      ],
-      "@campusrope/feature/auth": [
-        "libs/feature/auth/src/index.ts"
-      ],
-      "@campusrope/pages/login": [
-        "libs/pages/login/src/index.ts"
-      ],
-      "@campusrope/pages/helpline": [
-        "libs/pages/helpline/src/index.ts"
-      ],
+      "@campusrope/shared": ["libs/shared/src/index.ts"],
+      "@campusrope/material": ["libs/material/src/index.ts"],
+      "@campusrope/state/auth": ["libs/state/auth/src/index.ts"],
+      "@campusrope/state/root": ["libs/state/root/src/index.ts"],
+      "@campusrope/state/layout": ["libs/state/layout/src/index.ts"],
+      "@campusrope/state/router": ["libs/state/router/src/index.ts"],
+      "@campusrope/state/users": ["libs/state/users/src/index.ts"],
+      "@campusrope/models": ["libs/models/src/index.ts"],
+      "@campusrope/ngrx-actions": ["libs/ngrx-actions/src/index.ts"],
+      "@campusrope/testing": ["libs/testing/src/index.ts"],
+      "@campusrope/feature/auth": ["libs/feature/auth/src/index.ts"],
+      "@campusrope/pages/login": ["libs/pages/login/src/index.ts"],
+      "@campusrope/pages/helpline": ["libs/pages/helpline/src/index.ts"],
       "@campusrope/pages/trending-news": [
         "libs/pages/trending-news/src/index.ts"
       ],
-      "@campusrope/admin": [
-        "libs/admin/src/index.ts"
-      ],
-      "@campusrope/pages/admin": [
-        "libs/pages/admin/src/index.ts"
-      ],
-      "auth/auth": [
-        "api/auth/src",
-        "api/auth/src"
-      ],
+      "@campusrope/admin": ["libs/admin/src/index.ts"],
+      "@campusrope/pages/admin": ["libs/pages/admin/src/index.ts"],
+      "auth/auth": ["api/auth/src", "api/auth/src", "libs/api/auth/src"],
       "auth/auth/*": [
         "api/auth/src/*",
-        "api/auth/src/*"
+        "api/auth/src/*",
+        "libs/api/auth/src/*"
       ],
-      "api/auth": [
-        "libs/auth/src"
-      ],
-      "api/auth/*": [
-        "libs/auth/src/*"
-      ]
+      "api/auth": ["libs/auth/src"],
+      "api/auth/*": ["libs/auth/src/*"],
+      "@campusrope/schemas": ["libs/schemas/src/index.ts"]
     },
     "rootDir": "."
   },
-  "exclude": [
-    "node_modules",
-    "tmp"
-  ]
+  "exclude": ["node_modules", "tmp"]
 }
