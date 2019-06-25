@@ -17,7 +17,7 @@ const CENTER_PANEL_ROUTES: Routes = [
       )
   },
   {
-    path: 'admins',
+    path: 'admin',
     loadChildren: () =>
       import('@campusrope/pages/admin').then(m => m.PagesAdminModule)
   }
