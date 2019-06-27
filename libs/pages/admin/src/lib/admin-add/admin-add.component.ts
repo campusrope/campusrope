@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
+import { LocationService} from '../../../../../shared/src/'
 
 @Component({
   selector: 'campusrope-admin-add',
@@ -14,7 +15,7 @@ export class AdminAddComponent implements OnInit {
   options: string[] = ['One', 'Two', 'Three'];
   filteredOptions: Observable<string[]>;
 
-  constructor() { }
+  constructor(private locationService : LocationService) { }
 
   ngOnInit() {
     this.filteredOptions = this.myControl.valueChanges
@@ -28,6 +29,10 @@ export class AdminAddComponent implements OnInit {
     const filterValue = value.toLowerCase();
 
     return this.options.filter(option => option.toLowerCase().includes(filterValue));
+  }
+
+  goBack(): any {
+    this.locationService.goBack();
   }
 
 }

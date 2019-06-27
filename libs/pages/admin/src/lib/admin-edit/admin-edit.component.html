@@ -19,17 +19,18 @@
     <div style="display: flex;flex-direction: column;margin-top: 30px;">
         <h3 style="text-align: center">Select Control System</h3>
         <mat-checkbox
-            [checked]= "true" 
+            [checked]= "true"
             style="margin-bottom: 25px">Add Commercials</mat-checkbox>
         <mat-checkbox style="margin-bottom: 25px">Add Feed Contents</mat-checkbox>
         <mat-checkbox
-            [checked]= "true" 
+            [checked]= "true"
             style="margin-bottom: 25px">Helpline Directory</mat-checkbox>
         <mat-checkbox style="margin-bottom: 25px">Trending News</mat-checkbox>
     </div>
 
     <div class="example-button-row">
-      <button mat-flat-button>Cancel</button>
+      <button (click)="goBack()"
+          mat-flat-button>Cancel</button>
       <button mat-flat-button color="primary">Update</button>
     </div>
 

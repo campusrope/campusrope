@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { LocationService} from '../../../../../shared/src/'
 
 @Component({
   selector: 'campusrope-admin-edit',
@@ -8,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminEditComponent implements OnInit {
 
-  constructor() { }
+  constructor(private locationService : LocationService) { }
 
   ngOnInit() {
+  }
+
+  goBack(): any {
+    this.locationService.goBack();
   }
 
 }
