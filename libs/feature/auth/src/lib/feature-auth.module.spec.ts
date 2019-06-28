@@ -4,7 +4,7 @@ import { FeatureAuthModule } from './feature-auth.module';
 describe('FeatureAuthModule', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [FeatureAuthModule]
+      imports: [FeatureAuthModule],
     }).compileComponents();
   }));
 

@@ -6,7 +6,7 @@ import { QueryParams } from 'api-query-params';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UsersService {
   constructor(private http: HttpClient) {}
@@ -24,8 +24,6 @@ export class UsersService {
   }
 
   getBatch(params: QueryParams = {}): Observable<User[]> {
-    return this.http.get<User[]>(`api/users`, {
-      params: flattenObject(params)
-    });
+    return this.http.get<User[]>(`api/users`, { params: flattenObject(params) });
   }
 }

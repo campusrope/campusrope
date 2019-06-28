@@ -4,7 +4,14 @@
 
 export const environment = {
   production: false,
-  apiUrl:'http://localhost:3333/api'
+  apiUrl:'http://localhost:3333/api',
+  firebase: {
+    apiKey: 'AIzaSyDdE3ZPqNs5k1uV3ULyT4jU1euTlZCELKc',
+    authDomain: 'nx-mean-starter.firebaseapp.com',
+    databaseURL: 'https://nx-mean-starter.firebaseio.com',
+    projectId: 'nx-mean-starter',
+    storageBucket: 'nx-mean-starter.appspot.com',
+  },
 };
 
 /*

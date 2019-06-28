@@ -6,10 +6,7 @@ import { AuthInterceptor } from './auth.interceptor';
 describe('Service: AuthInterceptor', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [
-        AuthInterceptor,
-        { provide: Store, useValue: { select: jest.fn() } }
-      ]
+      providers: [AuthInterceptor, { provide: Store, useValue: { select: jest.fn() } }],
     });
   });
 

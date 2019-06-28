@@ -4,7 +4,7 @@ import { StateUsersModule } from './state-users.module';
 describe('StateUsersModule', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [StateUsersModule]
+      imports: [StateUsersModule],
     }).compileComponents();
   }));
 

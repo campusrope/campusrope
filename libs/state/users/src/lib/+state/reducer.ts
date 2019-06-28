@@ -10,14 +10,12 @@ export interface State {
 
 export const reducers = combineReducers<State>({
   entities: entitiesReducer,
-  pagination: paginationReducer
+  pagination: paginationReducer,
 });
 
 // export const reducers: ActionReducerMap<State> = {};
 
-export const reducerToken = new InjectionToken<ActionReducerMap<any>>(
-  'Reducers'
-);
+export const reducerToken = new InjectionToken<ActionReducerMap<any>>('Reducers');
 
 export function getReducers() {
   return reducers;
@@ -25,5 +23,5 @@ export function getReducers() {
 
 export const reducerProvider = {
   provide: reducerToken,
-  useFactory: getReducers
+  useFactory: getReducers,
 };

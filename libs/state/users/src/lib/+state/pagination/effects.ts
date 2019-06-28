@@ -3,7 +3,7 @@ import { Actions, Effect } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
 import { User } from '@campusrope/models';
 import { filterWith } from '@campusrope/shared';
-import { ofAction } from '@campusrope/ngrx-actions';
+import { ofAction } from 'ngrx-actions';
 import { of } from 'rxjs';
 import { catchError, concatMap, map, tap } from 'rxjs/operators';
 import { UsersService } from '../../service/users.service';
@@ -26,14 +26,14 @@ export class PaginationEffects {
           }
         }),
         map((users: User[]) => new LoadBatchSuccess(users)),
-        catchError(err => of(new ServerError(err)))
-      )
-    )
+        catchError(err => of(new ServerError(err))),
+      ),
+    ),
   );
 
   constructor(
     private store: Store<State>,
     private actions$: Actions,
-    private service: UsersService
+    private service: UsersService,
   ) {}
 }
