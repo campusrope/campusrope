@@ -5,12 +5,14 @@
 export const environment = {
   production: false,
   apiUrl:'http://localhost:3333/api',
-  firebase: {
-    apiKey: 'AIzaSyDdE3ZPqNs5k1uV3ULyT4jU1euTlZCELKc',
-    authDomain: 'nx-mean-starter.firebaseapp.com',
-    databaseURL: 'https://nx-mean-starter.firebaseio.com',
-    projectId: 'nx-mean-starter',
-    storageBucket: 'nx-mean-starter.appspot.com',
+  firebase:  {
+    apiKey: "AIzaSyAa728q8kqU6-C6eY5YRamkc6O6Sk3F1gY",
+    authDomain: "rope-1538054607266.firebaseapp.com",
+    databaseURL: "https://rope-1538054607266.firebaseio.com",
+    projectId: "rope-1538054607266",
+    storageBucket: "rope-1538054607266.appspot.com",
+    messagingSenderId: "988043376297",
+    appId: "1:988043376297:web:e5015ffde433693b"
   },
 };
 

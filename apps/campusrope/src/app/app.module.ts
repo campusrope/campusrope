@@ -12,6 +12,8 @@ import { AppComponent } from './app.component';
 import { APP_ROUTES } from './app.routes';
 import { AppbarComponent } from './appbar/appbar.component';
 import { CoreModule } from './core';
+import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
+import { AngularFireModule } from '@angular/fire';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 
 export function appFactoryName() {
@@ -24,6 +26,10 @@ export function appFactoryName() {
     BrowserModule,
     BrowserAnimationsModule,
     NxModule.forRoot(),
+    AngularFireModule.initializeApp(environment.firebase),
+    NgxAuthFirebaseUIModule.forRoot(environment.firebase, appFactoryName, {
+      enableFirestoreSync: false,
+    }),
     RouterModule.forRoot(APP_ROUTES, { initialNavigation: 'enabled' }),
     SharedModule.forRoot(),
     AngularMaterialModule,

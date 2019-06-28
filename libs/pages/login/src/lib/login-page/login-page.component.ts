@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { AuthModalPageComponent } from '@campusrope/feature/auth';
 
 @Component({
   selector: 'campusrope-login-page',
@@ -6,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent implements OnInit {
-  constructor() {}
+  constructor(private dialog: MatDialog) {}
 
   ngOnInit() {}
+
+  authenticate(){
+    this.dialog.open(AuthModalPageComponent);
+  }
 }
