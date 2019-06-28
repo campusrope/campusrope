@@ -1,5 +1,5 @@
 import { User } from '@campusrope/models';
-import { Action, createReducer, Store } from 'ngrx-actions';
+import { Action, createReducer, Store } from '@campusrope/ngrx-actions';
 import { LoadBatchEnd, LoadBatchSuccess } from './actions';
 
 export interface PaginationState {

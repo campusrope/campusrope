@@ -1,5 +1,5 @@
 import { ActionReducer } from '@ngrx/store';
-import { Action, createReducer, Store } from 'ngrx-actions';
+import { Action, createReducer, Store } from '@campusrope/ngrx-actions';
 import { AuthIn, AuthOut } from './actions';
 
 export interface State {
