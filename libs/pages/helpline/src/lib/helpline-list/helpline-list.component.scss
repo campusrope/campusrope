@@ -1,0 +1,17 @@
+.helpline-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  flex-direction: column;
+}
+
+.helpline-accordion-panel{
+  box-shadow: none;
+  border: 1px solid #FF0000;
+  box-sizing: border-box;
+  border-radius: 11px;
+}
+
+.helpline-accordion-panel .mat-expansion-panel-header-title {
+  justify-content: center;
+}

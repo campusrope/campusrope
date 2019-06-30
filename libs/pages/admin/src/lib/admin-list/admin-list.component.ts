@@ -24,7 +24,7 @@ export class AdminListComponent implements OnInit {
 
   ngOnInit() {}
 
-  displayedColumns: string[] = ['position', 'Admins', 'Control System'];
+  displayedColumns: string[] = [ 'Admins', 'Control System','Actions'];
   dataSource = ELEMENT_DATA;
 
 }
