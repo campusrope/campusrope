@@ -556,33 +556,6 @@
       },
       "schematics": {}
     },
-    "admin": {
-      "projectType": "library",
-      "root": "libs/admin",
-      "sourceRoot": "libs/admin/src",
-      "prefix": "campusrope",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/admin/tsconfig.lib.json",
-              "libs/admin/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/admin/jest.config.js",
-            "tsConfig": "libs/admin/tsconfig.spec.json",
-            "setupFile": "libs/admin/src/test-setup.ts"
-          }
-        }
-      },
-      "schematics": {}
-    },
     "pages-admin": {
       "projectType": "library",
       "root": "libs/pages/admin",
