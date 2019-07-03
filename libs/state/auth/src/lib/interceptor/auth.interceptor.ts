@@ -6,8 +6,7 @@ import {
   HttpRequest,
 } from '@angular/common/http';
 import { Injectable, Provider } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/auth';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { switchMap, take } from 'rxjs/operators';
 
 @Injectable()
@@ -18,16 +17,9 @@ export class AuthInterceptor implements HttpInterceptor {
     multi: true,
   };
 
-  constructor(private afa: AngularFireAuth) {}
+  constructor() {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    return this.afa.idToken.pipe(
-      take(1),
-      switchMap(jwt => {
-        const authHeader = `Bearer ${jwt}`;
-        const authReq = req.clone({ setHeaders: { Authorization: authHeader } });
-        return next.handle(authReq);
-      }),
-    );
+    return of(null)
   }
 }
