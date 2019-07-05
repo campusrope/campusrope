@@ -1,12 +1,10 @@
 import { Injectable } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { Actions, Effect } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
 import { AuthDataProxy } from '@campusrope/models';
 import { filterWith } from '@campusrope/shared';
 import { RouterState } from '@campusrope/state/router';
-import { User as FirebaseUser } from 'firebase';
 import { ofAction } from '@campusrope/ngrx-actions';
 import { from } from 'rxjs';
 import { map, switchMap, tap } from 'rxjs/operators';
@@ -16,7 +14,7 @@ import { getAuthenticated } from './selectors';
 
 @Injectable()
 export class Effects {
-  @Effect()
+ /*  @Effect()
   auth$ = this.afa.authState.pipe(
     map((firebaseUser: FirebaseUser) => {
       if (!!firebaseUser) {
@@ -25,15 +23,15 @@ export class Effects {
       }
       return new AuthOut();
     }),
-  );
+  ); */
 
-  @Effect()
+  /* @Effect()
   signOut$ = this.actions$.pipe(
     ofAction(SignOut),
     filterWith(this.store.select(getAuthenticated), (authenticated: boolean) => authenticated),
     switchMap(() => from(this.afa.auth.signOut())),
     map(() => new SignOutSuccess()),
-  );
+  ); */
 
   @Effect({ dispatch: false })
   redirectOnSingOutIfGuarded$ = this.actions$.pipe(
@@ -44,7 +42,6 @@ export class Effects {
 
   constructor(
     private actions$: Actions,
-    private afa: AngularFireAuth,
     private router: Router,
     private store: Store<State | RouterState.State>,
   ) {}
