@@ -3,6 +3,7 @@
   align-items: center;
   justify-content:center;
   flex-direction: column;
+  margin-bottom: 65px;
 }
 
 .helpline-accordion-panel{
@@ -55,4 +56,9 @@ line-height: 19px;
   font-weight: bold;
   font-size: 16px;
   line-height: 19px;
+}
+
+.mat-expansion-panel-body p {
+  margin : 10px 20px!important;
+  text-align: justify!important;
 }
