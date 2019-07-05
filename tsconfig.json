@@ -32,16 +32,7 @@
         "libs/pages/trending-news/src/index.ts"
       ],
       "@campusrope/admin": ["libs/admin/src/index.ts"],
-      "@campusrope/pages/admin": ["libs/pages/admin/src/index.ts"],
-      "auth/auth": ["api/auth/src", "api/auth/src", "libs/api/auth/src"],
-      "auth/auth/*": [
-        "api/auth/src/*",
-        "api/auth/src/*",
-        "libs/api/auth/src/*"
-      ],
-      "api/auth": ["libs/auth/src"],
-      "api/auth/*": ["libs/auth/src/*"],
-      "@campusrope/schemas": ["libs/schemas/src/index.ts"]
+      "@campusrope/pages/admin": ["libs/pages/admin/src/index.ts"]
     },
     "rootDir": "."
   },
