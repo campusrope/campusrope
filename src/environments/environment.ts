@@ -3,7 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  appName: 'Campusrope',
+  envName: 'DEV',
+  production: false,
+  test: false,
+  i18nPrefix: '',
 };
 
 /*

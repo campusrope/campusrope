@@ -5,15 +5,12 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-  },
-  /* {
-    path: 'about',
     loadChildren: () =>
-      import('./features/about/about.module').then(m => m.AboutModule)
-  }, */
+      import('./features/home/home.module').then(m => m.HomeModule)
+  },
   {
     path: '**',
-    redirectTo: '/'
+    redirectTo: ''
   }
 ];
 
@@ -21,7 +18,6 @@ const routes: Routes = [
   // useHash supports github.io demo page, remove in your app
   imports: [
     RouterModule.forRoot(routes, {
-      useHash: true,
       scrollPositionRestoration: 'enabled',
       preloadingStrategy: PreloadAllModules
     })

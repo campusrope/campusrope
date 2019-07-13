@@ -1,3 +1,7 @@
 export const environment = {
-  production: true
+  appName: 'Campusrope',
+  envName: 'PROD',
+  production: true,
+  test: false,
+  i18nPrefix: '/APP',
 };
