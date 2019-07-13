@@ -1,11 +1,31 @@
-<div class="Container">
-    <div class="Left" *ngIf="isDesktop$ | async">
-      <app-leftpane></app-leftpane>
-    </div>
-    <div class="Middle">
-      <app-centerpane></app-centerpane>
-    </div>
-    <div class="Right" *ngIf="isDesktop$ | async">
-      <app-rightpane></app-rightpane>
-    </div>
-    </div>
+<mat-drawer-container>
+    <mat-drawer class="mat-elevation-z4 app-sidenav" fixedTopGap="56" fixedInViewport="true" [mode]="'over'"
+        [opened]="showSidenav$ | async" [position]="'end'" (openedStart)="openedChangeSidenav(true)"
+        (closedStart)="openedChangeSidenav(false)">
+        <span>
+            i am in drawer
+        </span>
+    </mat-drawer>
+    <mat-drawer-content>
+        <div class="Container">
+            <button mat-button *ngIf="(isDesktop$ | async)" class="left-btn" (click)="navigateToDirection(-1)">
+              <img src="assets/left-icon.png" alt="" />
+            </button>
+            <div class="Left" *ngIf="isDesktop$ | async">
+              <app-leftpane></app-leftpane>
+            </div>
+            <div class="Middle"
+            (swipeleft)="navigateToDirection(-1)"
+            (swiperight)="navigateToDirection(1)"
+            >
+              <app-centerpane></app-centerpane>
+            </div>
+            <div class="Right" *ngIf="isDesktop$ | async">
+              <app-rightpane></app-rightpane>
+            </div>
+            <button mat-button class="right-btn" *ngIf="(isDesktop$ | async)" (click)="navigateToDirection(1)">
+              <img src="assets/right-icon.png" alt="" />
+            </button>
+          </div>
+    </mat-drawer-content>
+</mat-drawer-container>

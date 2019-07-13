@@ -31,6 +31,7 @@ WebKit inertia scrolling is being added here for any present/future devices that
 /*  Left and Right are set sizes while the Middle is set to flex one so it occupies all remaining space. This could be set as a width too if prefereable, perhaps using calc.*/
 .Left {
   width:20%;
+  z-index: 2;
   background-color: grey;
 }
 
@@ -40,5 +41,48 @@ WebKit inertia scrolling is being added here for any present/future devices that
 
 .Right {
   width: 20%;
+  z-index: 2;
   background-color: grey;
+}
+
+.left-btn {
+  left: -45px;
+  z-index: 100;
+  position: absolute;
+  right: 94.44%;
+  top: 30%;
+  border-radius: 43%;
+  height: 85px;
+  width: 80px;
+  cursor: pointer;
+  background: #ffffff;
+  transform: rotate(-180deg);
+}
+
+.right-btn {
+  position: absolute;
+  z-index: 100;
+  right: -45px;
+  top: 30%;
+  border-radius: 43%;
+  height: 85px;
+  width: 80px;
+  cursor: pointer;
+  background: #ffffff;
+  transform: rotate(-180deg);
+}
+
+.left-btn img {
+  position: absolute;
+  left: 13.35%;
+  top: 30.69%;
+  transform: rotate(-180deg);
+}
+
+.right-btn img {
+  position: absolute;
+  right: 14.96%;
+  top: 30.33%;
+  bottom: 0%;
+  transform: rotate(-180deg);
 }

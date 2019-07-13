@@ -52,6 +52,7 @@ import {
   ActionSettingsChangeLanguage,
   ActionSettingsChangeAnimationsPageDisabled
 } from './settings/settings.actions';
+import { SharedModule } from '../shared/shared.module';
 
 export {
   TitleService,
@@ -89,6 +90,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     // angular
     CommonModule,
     HttpClientModule,
+    SharedModule,
 
     // ngrx
     StoreModule.forRoot(reducers, { metaReducers }),
