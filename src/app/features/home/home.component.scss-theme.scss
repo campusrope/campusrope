@@ -9,9 +9,7 @@
   .Container {
     display: flex;
     overflow: hidden;
-    height: 100vh;
-    margin-top: -64px;
-    padding-top: 64px;
+    height: calc(100vh - 100px);
     position: relative;
     width: 100%;
     backface-visibility: hidden;
@@ -38,16 +36,17 @@ WebKit inertia scrolling is being added here for any present/future devices that
 /*  Left and Right are set sizes while the Middle is set to flex one so it occupies all remaining space. This could be set as a width too if prefereable, perhaps using calc.*/
 .Left {
   width:20%;
-  background-color: mat-color($background) !important;
+  background-color: #cdcdcd !important;
 }
 
 .Middle {
   flex: 1;
+  background-color: #ededed !important;
 }
 
 .Right {
   width: 20%;
-  background-color: mat-color($background) !important;
+  background-color: #cdcdcd !important;
 }
     
 }

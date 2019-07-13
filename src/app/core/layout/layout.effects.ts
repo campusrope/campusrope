@@ -11,7 +11,7 @@ import { LayoutState } from './layout.model';
 import { getIsMobile } from './layout.selectors';
 
 @Injectable()
-export class Effects {
+export class LayoutEffects {
   isMobile$: Observable<boolean> = this.store.pipe(select(getIsMobile));
 
   @Effect()

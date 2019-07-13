@@ -40,6 +40,7 @@ import { HttpErrorInterceptor } from './http-interceptors/http-error.interceptor
 import { GoogleAnalyticsEffects } from './google-analytics/google-analytics.effects';
 import { NotificationService } from './notifications/notification.service';
 import { SettingsEffects } from './settings/settings.effects';
+import { LayoutEffects } from './layout/layout.effects';
 import {
   selectSettingsLanguage,
   selectEffectiveTheme,
@@ -95,7 +96,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     EffectsModule.forRoot([
       AuthEffects,
       SettingsEffects,
-      GoogleAnalyticsEffects
+      GoogleAnalyticsEffects,
+      LayoutEffects
     ]),
     environment.production
       ? []

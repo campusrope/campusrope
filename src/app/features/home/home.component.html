@@ -1,11 +1,11 @@
 <div class="Container">
-    <div class="Left">
+    <div class="Left" *ngIf="isDesktop$ | async">
       <app-leftpane></app-leftpane>
     </div>
     <div class="Middle">
       <app-centerpane></app-centerpane>
     </div>
-    <div class="Right">
+    <div class="Right" *ngIf="isDesktop$ | async">
       <app-rightpane></app-rightpane>
     </div>
     </div>

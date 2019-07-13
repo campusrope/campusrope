@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Store , select} from '@ngrx/store';
+import { State } from '../../core/layout/layout.model';
+import { getIsMobile } from '../../core/layout/layout.selectors';
+import { map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -7,11 +12,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  private hasBackDrop = true;
+  isMobile$: Observable<boolean>;
 
-  constructor() { }
+  constructor(private store: Store<State>) { }
 
   ngOnInit() {
+    this.isMobile$ = this.store.pipe(select(getIsMobile));
+  }
+
+  get isDesktop$() {
+    return this.isMobile$.pipe(map((value: boolean) => !value));
   }
 
 }
