@@ -7,6 +7,7 @@ import { CoreModule } from './core/core.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ShellModule } from './shell/shell.module';
 
 @NgModule({
   imports: [
@@ -14,9 +15,10 @@ import { AppComponent } from './app.component';
     BrowserAnimationsModule,
     BrowserModule,
 
-    // core & shared
+    // core & shared & shell
     CoreModule,
     SharedModule,
+    ShellModule,
 
     // app
     AppRoutingModule

@@ -1,2 +1,5 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<router-outlet></router-outlet>
+<div [class]="'theme-wrapper ' + (theme$ | async)">
+    <app-appbar></app-appbar>
+    <router-outlet></router-outlet>
+</div>
