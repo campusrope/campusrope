@@ -1,3 +1,10 @@
+@import '../../../../node_modules/@angular/material/theming';
+
+@mixin app-home-component-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
 
   .Container {
     display: flex;
@@ -31,7 +38,7 @@ WebKit inertia scrolling is being added here for any present/future devices that
 /*  Left and Right are set sizes while the Middle is set to flex one so it occupies all remaining space. This could be set as a width too if prefereable, perhaps using calc.*/
 .Left {
   width:20%;
-  background-color: grey;
+  background-color: mat-color($background) !important;
 }
 
 .Middle {
@@ -40,5 +47,7 @@ WebKit inertia scrolling is being added here for any present/future devices that
 
 .Right {
   width: 20%;
-  background-color: grey;
+  background-color: mat-color($background) !important;
+}
+    
 }

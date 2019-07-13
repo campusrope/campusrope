@@ -16,10 +16,12 @@
 
 @import 'styles-reset.scss-theme';
 @import './app/app.component.scss-theme';
+@import './app/features/home/home.component.scss-theme.scss';
 
 @mixin custom-components-theme($theme) {
   @include app-styles-reset-theme($theme);
   @include app-app-component-theme($theme);
+  @include app-home-component-theme($theme);
 }
 
 .default-theme {
