@@ -1,0 +1,15 @@
+.example-card {
+    max-width: 350px;
+    padding-bottom: 0;
+  }
+  
+  .example-header-image {
+    background-size: cover;
+  }
+
+  .trending-news-container {
+    display: flex;
+    margin: 20px 20px 65px 20px;
+    flex-wrap:wrap;
+    justify-content : center;
+  }

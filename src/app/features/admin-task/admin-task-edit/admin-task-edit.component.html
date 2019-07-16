@@ -1,0 +1,38 @@
+<div style="display: flex;justify-content: center;margin-top: 100px">
+  <form class="example-form">
+    <p>
+      <mat-form-field appearance="outline" style="width:100%">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Placeholder" value="Santhosh Kumar">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+    </p>
+
+    <p>
+      <mat-form-field appearance="outline" style="width:100%">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Email" value="santhosh234@gmail.com">
+        <mat-icon matSuffix>email</mat-icon>
+      </mat-form-field>
+    </p>
+
+    <div style="display: flex;flex-direction: column;margin-top: 30px;">
+        <h3 style="text-align: center">Select Control System</h3>
+        <mat-checkbox
+            [checked]= "true"
+            style="margin-bottom: 25px">Add Commercials</mat-checkbox>
+        <mat-checkbox style="margin-bottom: 25px">Add Feed Contents</mat-checkbox>
+        <mat-checkbox
+            [checked]= "true"
+            style="margin-bottom: 25px">Helpline Directory</mat-checkbox>
+        <mat-checkbox style="margin-bottom: 25px">Trending News</mat-checkbox>
+    </div>
+
+    <div class="example-button-row">
+      <button (click)="goBack()"
+          mat-flat-button>Cancel</button>
+      <button mat-flat-button color="primary">Update</button>
+    </div>
+
+  </form>
+</div>

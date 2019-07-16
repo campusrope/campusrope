@@ -5,6 +5,7 @@ import { RightpaneComponent } from './rightpane/rightpane.component';
 import { CenterpaneComponent } from './centerpane/centerpane.component';
 import { AppbarComponent } from './appbar/appbar.component';
 import { SharedModule } from '../shared/shared.module';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -13,6 +14,7 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     CommonModule,
     SharedModule,
+    RouterModule,
   ],
   exports: [LeftpaneComponent, RightpaneComponent, CenterpaneComponent, AppbarComponent],
 })

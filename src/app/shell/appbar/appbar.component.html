@@ -1,6 +1,6 @@
 <mat-toolbar color="primary">
-    <img src="assets/app-back-icon.png" alt="" />
-    <h3 class="app-title">CampusRope</h3>
+    <img src="assets/app-back-icon.png" alt=""  (click)="goBack()"/>
+    <h3 class="app-title" [routerLink]="'/'">CampusRope</h3>
     <button mat-icon-button class="menu-button" (click)="toggleSidenav()">
             <fa-icon [icon]="['fa','bars']"></fa-icon>
     </button>

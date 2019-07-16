@@ -1,3 +1,4 @@
+
 <mat-drawer-container>
     <mat-drawer class="mat-elevation-z4 app-sidenav" fixedTopGap="56" fixedInViewport="true" [mode]="'over'"
         [opened]="showSidenav$ | async" [position]="'end'" (openedStart)="openedChangeSidenav(true)"
@@ -18,7 +19,7 @@
             (swipeleft)="navigateToDirection(-1)"
             (swiperight)="navigateToDirection(1)"
             >
-              <app-centerpane></app-centerpane>
+              <router-outlet></router-outlet>
             </div>
             <div class="Right" *ngIf="isDesktop$ | async">
               <app-rightpane></app-rightpane>

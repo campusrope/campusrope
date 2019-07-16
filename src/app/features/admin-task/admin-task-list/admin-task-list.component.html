@@ -1,0 +1,40 @@
+<div>
+    <button mat-mini-fab
+    routerLink="./add"
+    matTooltip="Add Admin"
+    class="custom-button">
+          <i class="material-icons">add</i>
+      </button>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8"
+    style="width: 92%;margin: 30px;position: relative;">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="Admins">
+    <th mat-header-cell *matHeaderCellDef> Admins </th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="Control System">
+    <th mat-header-cell *matHeaderCellDef> Control System </th>
+    <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+  </ng-container>
+
+    <!-- Actions Column -->
+    <ng-container matColumnDef="Actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let element;let i = index">
+          <mat-icon
+            [routerLink]="['edit',i]"
+            style="color:rgb(32, 25, 128);cursor: pointer;">edit</mat-icon>
+          <mat-icon style="color:red;float: right;cursor: pointer;">delete</mat-icon>
+      </td>
+    </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;let i = index"></tr>
+</table>
+</div>

@@ -1,0 +1,30 @@
+.home-menu-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .home-menu-container button {
+    margin: 20px 0px;
+    width: 302px;
+    height: 79px;
+    border-radius: 11px;
+    border: 1px solid #ff0000;
+    box-shadow: none;
+  }
+  
+  .home-menu-container button img {
+    position: absolute;
+    left: 8.33%;
+    width: 33px;
+    height: 36px;
+  }
+  
+  .home-menu-btn span {
+    font-family: Arial;
+    font-size: 20px;
+    position: relative;
+    left: 11.34%;
+    line-height: 23px;
+  }
+  

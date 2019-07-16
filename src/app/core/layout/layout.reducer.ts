@@ -20,7 +20,7 @@ export class StateStore {
   @Action(SetIsMobile)
   setIsMobile(state: LayoutState, action: SetIsMobile): LayoutState {
     return {
-      showSidenav: !action.payload,
+      showSidenav: state.showSidenav,
       isMobile: action.payload
     };
   }

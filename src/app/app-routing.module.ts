@@ -4,7 +4,6 @@ import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    pathMatch: 'full',
     loadChildren: () =>
       import('./features/home/home.module').then(m => m.HomeModule)
   },
@@ -12,6 +11,11 @@ const routes: Routes = [
     path: 'settings',
     loadChildren: () =>
       import('./features/settings/settings.module').then(m => m.SettingsModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () =>
+      import('./features/login/login.module').then(m => m.LoginModule)
   },
   {
     path: '**',

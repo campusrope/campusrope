@@ -1,0 +1,39 @@
+.login-title{
+  position: relative;
+  height: 37px;
+  top: 110px;
+  font-family: Times New Roman;
+  font-size: 40px;
+  line-height: 46px;
+  text-align: center;
+  color: #858585;
+}
+
+.google-btn-wrapper{
+  position: relative;
+  width: 528px;
+  height: 60px;
+  top: 230px;
+  background: #FFFFFF;
+  border: 0.5px solid #000000;
+  box-sizing: border-box;
+  border-radius: 64px;
+  cursor: pointer;
+}
+
+.google-btn-wrapper img{
+  float: left;
+}
+
+.google-btn-wrapper span{
+  position: absolute;
+  width: 100%;
+  left: 0px;
+  top: 18px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  text-align: center;
+  color: #000000;
+}
