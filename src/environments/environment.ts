@@ -4,6 +4,7 @@
 
 export const environment = {
   appName: 'Campusrope',
+  apiUrl: 'http://localhost:3000/v1',
   envName: 'DEV',
   production: false,
   test: false,

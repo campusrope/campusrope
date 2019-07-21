@@ -14,6 +14,8 @@ export class LoginComponent implements OnInit {
   ngOnInit() {}
 
   getGoogleUri() {
-
+    this.authService.requestGoogleRedirectUri().subscribe((res:any)=>{
+      window.location = res.redirect_uri;
+    });
   }
 }

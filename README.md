@@ -1,27 +1,76 @@
-# App
+# campusrope
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.0.
+Frontend React/Redux app for campusrope
 
-## Development server
+# Welcome to CampusRope
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Introduction
 
-## Code scaffolding
+### "Social network has eroded all the barriers between an artist and a consumer through which consumers can themselves be the artist, creating a dynamic relationship between the two."
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+This project is licenced under GNU GPL V3 which gurantees the four freedoms that every user should have:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+- the freedom to use the software for any purpose,
+- the freedom to change the software to suit your needs,
+- the freedom to share the software with your friends and neighbors, and
+- the freedom to share the changes you make.
 
-## Running unit tests
+#
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### About Us
 
-## Running end-to-end tests
+Social network plays an important role in our day to day life,
+and it is an inevitable part of our evolution.
+We are building a social network which is powered by the wisdom of the crowd.
+We believe that we can exponentially **raise the standard of living** through this technology by strengthening the foundational infrastructure of our society.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## Our Goals
 
-## Further help
+> ### 1. Providing social networking platform for NGOs -
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+We believe that NGOs are an integral part of our society as they play important roles like:-
+
+- Brings the concerns of citizens to the concerned authority.
+- Provides a variety of humanitarian services.
+- Task oriented and driven by people with a common interest.
+- Advocate and monitor policies of private, public and government
+  sectors.
+- For public welfare and relief during emergencies.
+
+As an initiative, we are creating a web portal to remove communication barriers and provide technological assistance to increase the productivity of NGOs
+
+#
+
+> ### 2. Facilitating E-governance -
+
+Aiming to strengthen the relationship between government and citizens using technology, we are integrating various stand-alone systems and services of government and private organizations. The objectives are to make administrations more transparent, speedy and accountable while addressing the society's needs and expectations through efficient public services and effective interaction between the people, businesses and government through digital services.
+
+#
+
+> ### 3. Raising awareness -
+>
+> Using social media to raise awareness through mass communication and facilitating awareness campaigns, legal empowerment and NGO support to provide social justice.
+
+#
+
+> ### 4. Data analytics for the greater good -
+
+- Data driven social service organisation & administrations
+- Facilitate communication through proper channels
+
+#
+
+> ### 5. Advance problem solving -
+>
+> Through collaborative work of the open source community we aim to -
+
+- Put an end to human surveillance in general
+- Free ourselves from digital manipulation
+- Faclitate healthy technological evolution
+- Strengthen sustainable development
+- Decentralise the internet
+
+#
+
+> A small difference now can make a huge difference later.
