@@ -12,7 +12,7 @@ import { LocationService } from '../../../core/location/location.service';
 export class AdminTaskAddComponent implements OnInit {
 
   myControl = new FormControl();
-  options: string[] = ['One', 'Two', 'Three'];
+  options: string[] = ['santhosh123@gmail.com', 'ravi67@gmail.com', 'sundar@gmail.com'];
   filteredOptions: Observable<string[]>;
 
   constructor(private locationService: LocationService) { }

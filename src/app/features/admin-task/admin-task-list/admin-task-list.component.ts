@@ -1,17 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
 const ELEMENT_DATA  = [
-  {name: 'Hydrogen', symbol: 'H'},
-  { name: 'Helium',  symbol: 'He'},
-  {name: 'Lithium',  symbol: 'Li'},
-  { name: 'Beryllium', symbol: 'Be'},
-  { name: 'Boron', symbol: 'B'},
-  { name: 'Carbon',  symbol: 'C'},
-  { name: 'Nitrogen',  symbol: 'N'},
-  { name: 'Oxygen',  symbol: 'O'},
-  { name: 'Fluorine', symbol: 'F'},
-  { name: 'Neon', symbol: 'Ne'},
-
+  {name: 'Santhosh Kumar', controlSystems: 'Helpline, Trending News'},
+  { name: 'Shantanu',  controlSystems: 'Add Commercials, Add Contents'},
+  {name: 'Ravi',  controlSystems: 'Helpline, Trending News'},
+  {name: 'Santhosh Kumar', controlSystems: 'Helpline, Trending News'},
+  { name: 'Shantanu',  controlSystems: 'Add Commercials, Add Contents'},
+  {name: 'Ravi',  controlSystems: 'Helpline, Trending News'}
 ];
 
 @Component({
@@ -22,7 +17,7 @@ const ELEMENT_DATA  = [
 export class AdminTaskListComponent implements OnInit {
 
   displayedColumns: string[] = [ 'Admins', 'Control System', 'Actions'];
-  dataSource = ELEMENT_DATA;
+  adminList = ELEMENT_DATA;
   constructor() {}
 
   ngOnInit() {}

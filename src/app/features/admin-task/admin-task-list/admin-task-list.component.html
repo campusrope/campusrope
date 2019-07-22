@@ -5,8 +5,8 @@
     class="custom-button">
           <i class="material-icons">add</i>
       </button>
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8"
-    style="width: 92%;margin: 30px;position: relative;">
+  <table mat-table [dataSource]="adminList" class="mat-elevation-z8"
+    style="width: 98%;margin: 10px;position: relative;">
 
   <!--- Note that these columns can be defined in any order.
         The actual rendered columns are set as a property on the row definition" -->
@@ -17,10 +17,10 @@
     <td mat-cell *matCellDef="let element"> {{element.name}} </td>
   </ng-container>
 
-  <!-- Symbol Column -->
+  <!-- Control System Column -->
   <ng-container matColumnDef="Control System">
     <th mat-header-cell *matHeaderCellDef> Control System </th>
-    <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+    <td mat-cell *matCellDef="let element"> {{element.controlSystems}} </td>
   </ng-container>
 
     <!-- Actions Column -->
