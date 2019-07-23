@@ -8,6 +8,7 @@ import { AdminTaskListComponent } from './admin-task-list/admin-task-list.compon
 import { AdminTaskAddComponent } from './admin-task-add/admin-task-add.component';
 import { AdminTaskEditComponent } from './admin-task-edit/admin-task-edit.component';
 import { LocationService } from 'src/app/core/location/location.service';
+import { AdminTaskService } from './admin-task.service';
 @NgModule({
   imports: [
     CommonModule,
@@ -22,7 +23,8 @@ import { LocationService } from 'src/app/core/location/location.service';
     AdminTaskEditComponent
   ],
   providers : [
-    LocationService
+    LocationService,
+    AdminTaskService
   ],
 })
 export class AdminTaskModule {}
