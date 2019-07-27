@@ -10,6 +10,7 @@ import {
   RouterStateSerializer
 } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
+import { EntityDataModule } from '@ngrx/data';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
@@ -53,6 +54,7 @@ import {
   ActionSettingsChangeAnimationsPageDisabled
 } from './settings/settings.actions';
 import { SharedModule } from '../shared/shared.module';
+import {entityConfig} from './entity-metadata';
 
 export {
   TitleService,
@@ -93,6 +95,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     SharedModule,
 
     // ngrx
+    EntityDataModule.forRoot(entityConfig),
     StoreModule.forRoot(reducers, { metaReducers }),
     StoreRouterConnectingModule.forRoot(),
     EffectsModule.forRoot([
