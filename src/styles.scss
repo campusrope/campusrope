@@ -1,22 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
-@import './styles-variables';
+@import "./styles-variables";
 
-@import '../node_modules/bootstrap/scss/bootstrap-reboot';
-@import '../node_modules/bootstrap/scss/bootstrap-grid';
-@import 'styles-reset';
+@import "../node_modules/bootstrap/scss/bootstrap-reboot";
+@import "../node_modules/bootstrap/scss/bootstrap-grid";
+@import "styles-reset";
 
-@import '../node_modules/@angular/material/theming';
+@import "../node_modules/@angular/material/theming";
 
 @include mat-core();
 
-@import './themes/default-theme';
-@import './themes/light-theme';
-@import './themes/black-theme';
-@import './themes/nature-theme';
+@import "./themes/default-theme";
+@import "./themes/light-theme";
+@import "./themes/black-theme";
+@import "./themes/nature-theme";
 
-@import 'styles-reset.scss-theme';
-@import './app/app.component.scss-theme';
-@import './app/features/home/home.component.scss-theme.scss';
+@import "styles-reset.scss-theme";
+@import "./app/app.component.scss-theme";
+@import "./app/features/home/home.component.scss-theme.scss";
 
 @mixin custom-components-theme($theme) {
   @include app-styles-reset-theme($theme);

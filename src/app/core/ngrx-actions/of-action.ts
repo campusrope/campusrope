@@ -1,8 +1,8 @@
-import { Action } from '@ngrx/store';
-import { filter } from 'rxjs/operators';
-import { OperatorFunction } from 'rxjs';
+import { Action } from "@ngrx/store";
+import { filter } from "rxjs/operators";
+import { OperatorFunction } from "rxjs";
 
-import { ActionType } from './symbols';
+import { ActionType } from "./symbols";
 
 export function ofAction<T extends Action>(
   allowedType: ActionType<T>

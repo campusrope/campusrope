@@ -1,13 +1,13 @@
-import { authLogin, authLogout } from './auth.actions';
+import { authLogin, authLogout } from "./auth.actions";
 
-describe('Auth Actions', () => {
-  it('should create ActionAuthLogin action', () => {
+describe("Auth Actions", () => {
+  it("should create ActionAuthLogin action", () => {
     const action = authLogin();
-    expect(action.type).toEqual('[Auth] Login');
+    expect(action.type).toEqual("[Auth] Login");
   });
 
-  it('should create ActionAuthLogout action', () => {
+  it("should create ActionAuthLogout action", () => {
     const action = authLogout();
-    expect(action.type).toEqual('[Auth] Logout');
+    expect(action.type).toEqual("[Auth] Logout");
   });
 });

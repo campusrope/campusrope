@@ -1,14 +1,14 @@
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Injectable } from '@angular/core';
-import { Actions, Effect, ofType } from '@ngrx/effects';
-import { ROUTER_NAVIGATION } from '@ngrx/router-store';
-import { select, Store } from '@ngrx/store';
-import { filterWith } from '../rxjs-utils';
-import { defer, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { SetIsMobile, SetSidenav } from './layout.actions';
-import { LayoutState } from './layout.model';
-import { getIsMobile } from './layout.selectors';
+import { BreakpointObserver, Breakpoints } from "@angular/cdk/layout";
+import { Injectable } from "@angular/core";
+import { Actions, Effect, ofType } from "@ngrx/effects";
+import { ROUTER_NAVIGATION } from "@ngrx/router-store";
+import { select, Store } from "@ngrx/store";
+import { filterWith } from "../rxjs-utils";
+import { defer, Observable } from "rxjs";
+import { map } from "rxjs/operators";
+import { SetIsMobile, SetSidenav } from "./layout.actions";
+import { LayoutState } from "./layout.model";
+import { getIsMobile } from "./layout.selectors";
 
 @Injectable()
 export class LayoutEffects {

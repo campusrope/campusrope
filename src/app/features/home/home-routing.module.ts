@@ -1,33 +1,35 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
 
-import { HomeComponent } from './home.component';
-import { CenterpaneComponent } from 'src/app/shell/centerpane/centerpane.component';
+import { HomeComponent } from "./home.component";
+import { CenterpaneComponent } from "src/app/shell/centerpane/centerpane.component";
 
 const routes: Routes = [
   {
-    path: '',
+    path: "",
     component: HomeComponent,
     children: [
       {
-        path: '',
+        path: "",
         component: CenterpaneComponent
       },
       {
-        path: 'admin-task',
+        path: "admin-task",
         loadChildren: () =>
-          import('../admin-task/admin-task.module').then(m => m.AdminTaskModule)
+          import("../admin-task/admin-task.module").then(m => m.AdminTaskModule)
       },
       {
-        path: 'trending-news',
+        path: "trending-news",
         loadChildren: () =>
-          import('../trending-news/trending-news.module').then(m => m.TrendingNewsModule)
+          import("../trending-news/trending-news.module").then(
+            m => m.TrendingNewsModule
+          )
       },
       {
-        path: 'helpline',
+        path: "helpline",
         loadChildren: () =>
-          import('../helpline/helpline.module').then(m => m.HelplineModule)
-      },
+          import("../helpline/helpline.module").then(m => m.HelplineModule)
+      }
     ]
   }
 ];

@@ -1,7 +1,7 @@
-import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { LayoutState } from './layout.model';
+import { createFeatureSelector, createSelector } from "@ngrx/store";
+import { LayoutState } from "./layout.model";
 
-const getState = createFeatureSelector<LayoutState>('layout');
+const getState = createFeatureSelector<LayoutState>("layout");
 
 export const getIsMobile = createSelector(
   getState,

@@ -1,25 +1,25 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule, PreloadAllModules } from "@angular/router";
 
 const routes: Routes = [
   {
-    path: '',
+    path: "",
     loadChildren: () =>
-      import('./features/home/home.module').then(m => m.HomeModule)
+      import("./features/home/home.module").then(m => m.HomeModule)
   },
   {
-    path: 'settings',
+    path: "settings",
     loadChildren: () =>
-      import('./features/settings/settings.module').then(m => m.SettingsModule)
+      import("./features/settings/settings.module").then(m => m.SettingsModule)
   },
   {
-    path: 'login',
+    path: "login",
     loadChildren: () =>
-      import('./features/login/login.module').then(m => m.LoginModule)
+      import("./features/login/login.module").then(m => m.LoginModule)
   },
   {
-    path: '**',
-    redirectTo: ''
+    path: "**",
+    redirectTo: ""
   }
 ];
 
@@ -27,7 +27,7 @@ const routes: Routes = [
   // useHash supports github.io demo page, remove in your app
   imports: [
     RouterModule.forRoot(routes, {
-      scrollPositionRestoration: 'enabled',
+      scrollPositionRestoration: "enabled",
       preloadingStrategy: PreloadAllModules
     })
   ],

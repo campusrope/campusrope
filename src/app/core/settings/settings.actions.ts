@@ -1,16 +1,16 @@
-import { Action } from '@ngrx/store';
+import { Action } from "@ngrx/store";
 
-import { Language } from './settings.model';
+import { Language } from "./settings.model";
 
 export enum SettingsActionTypes {
-  CHANGE_LANGUAGE = '[Settings] Change Language',
-  CHANGE_THEME = '[Settings] Change Theme',
-  CHANGE_AUTO_NIGHT_AUTO_MODE = '[Settings] Change Auto Night Mode',
-  CHANGE_STICKY_HEADER = '[Settings] Change Sticky Header',
-  CHANGE_ANIMATIONS_PAGE = '[Settings] Change Animations Page',
-  CHANGE_ANIMATIONS_PAGE_DISABLED = '[Settings] Change Animations Page Disabled',
-  CHANGE_ANIMATIONS_ELEMENTS = '[Settings] Change Animations Elements',
-  CHANGE_HOUR = '[Settings] Change Hours'
+  CHANGE_LANGUAGE = "[Settings] Change Language",
+  CHANGE_THEME = "[Settings] Change Theme",
+  CHANGE_AUTO_NIGHT_AUTO_MODE = "[Settings] Change Auto Night Mode",
+  CHANGE_STICKY_HEADER = "[Settings] Change Sticky Header",
+  CHANGE_ANIMATIONS_PAGE = "[Settings] Change Animations Page",
+  CHANGE_ANIMATIONS_PAGE_DISABLED = "[Settings] Change Animations Page Disabled",
+  CHANGE_ANIMATIONS_ELEMENTS = "[Settings] Change Animations Elements",
+  CHANGE_HOUR = "[Settings] Change Hours"
 }
 
 export class ActionSettingsChangeLanguage implements Action {

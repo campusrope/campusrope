@@ -1,6 +1,6 @@
-import { ActionType } from './symbols';
+import { ActionType } from "./symbols";
 
-export const NGRX_ACTIONS_META = '__ngrx__actions__';
+export const NGRX_ACTIONS_META = "__ngrx__actions__";
 
 export interface StoreMetadata {
   initialState?: any;

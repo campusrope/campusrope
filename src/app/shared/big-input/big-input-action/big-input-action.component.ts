@@ -4,27 +4,27 @@ import {
   Output,
   EventEmitter,
   ChangeDetectionStrategy
-} from '@angular/core';
+} from "@angular/core";
 
 @Component({
-  selector: 'app-big-input-action',
-  templateUrl: './big-input-action.component.html',
-  styleUrls: ['./big-input-action.component.scss'],
+  selector: "app-big-input-action",
+  templateUrl: "./big-input-action.component.html",
+  styleUrls: ["./big-input-action.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BigInputActionComponent {
   @Input()
   disabled = false;
   @Input()
-  fontSet = '';
+  fontSet = "";
   @Input()
-  fontIcon = '';
+  fontIcon = "";
   @Input()
-  faIcon = '';
+  faIcon = "";
   @Input()
-  label = '';
+  label = "";
   @Input()
-  color = '';
+  color = "";
 
   @Output()
   action = new EventEmitter<void>();

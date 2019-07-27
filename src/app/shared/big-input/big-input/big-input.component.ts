@@ -1,9 +1,9 @@
-import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from "@angular/core";
 
 @Component({
-  selector: 'app-big-input',
-  templateUrl: './big-input.component.html',
-  styleUrls: ['./big-input.component.scss'],
+  selector: "app-big-input",
+  templateUrl: "./big-input.component.html",
+  styleUrls: ["./big-input.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BigInputComponent {
@@ -11,7 +11,7 @@ export class BigInputComponent {
   placeholder: string;
 
   @Input()
-  value = '';
+  value = "";
   @Input()
   disabled = false;
 

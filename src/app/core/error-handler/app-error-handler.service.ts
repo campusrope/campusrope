@@ -1,9 +1,9 @@
-import { Injectable, ErrorHandler } from '@angular/core';
-import { HttpErrorResponse } from '@angular/common/http';
+import { Injectable, ErrorHandler } from "@angular/core";
+import { HttpErrorResponse } from "@angular/common/http";
 
-import { environment } from '../../../environments/environment';
+import { environment } from "../../../environments/environment";
 
-import { NotificationService } from '../notifications/notification.service';
+import { NotificationService } from "../notifications/notification.service";
 
 /** Application-wide error handler that adds a UI notification to the error handling
  * provided by the default Angular ErrorHandler.
@@ -15,10 +15,10 @@ export class AppErrorHandler extends ErrorHandler {
   }
 
   handleError(error: Error | HttpErrorResponse) {
-    let displayMessage = 'An error occurred.';
+    let displayMessage = "An error occurred.";
 
     if (!environment.production) {
-      displayMessage += ' See console for details.';
+      displayMessage += " See console for details.";
     }
 
     this.notificationsService.error(displayMessage);

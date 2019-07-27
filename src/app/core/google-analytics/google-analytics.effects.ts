@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
-import { Effect } from '@ngrx/effects';
-import { tap, filter } from 'rxjs/operators';
+import { Injectable } from "@angular/core";
+import { Router, NavigationEnd } from "@angular/router";
+import { Effect } from "@ngrx/effects";
+import { tap, filter } from "rxjs/operators";
 
 @Injectable()
 export class GoogleAnalyticsEffects {
@@ -11,8 +11,8 @@ export class GoogleAnalyticsEffects {
   pageView = this.router.events.pipe(
     filter(event => event instanceof NavigationEnd),
     tap((event: NavigationEnd) => {
-      (<any>window).ga('set', 'page', event.urlAfterRedirects);
-      (<any>window).ga('send', 'pageview');
+      (<any>window).ga("set", "page", event.urlAfterRedirects);
+      (<any>window).ga("send", "pageview");
     })
   );
 }

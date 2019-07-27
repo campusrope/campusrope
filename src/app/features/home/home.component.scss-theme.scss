@@ -1,4 +1,4 @@
-@import '../../../../node_modules/@angular/material/theming';
+@import "../../../../node_modules/@angular/material/theming";
 
 @mixin app-home-component-theme($theme) {
   $primary: map-get($theme, primary);
@@ -14,39 +14,38 @@
     width: 100%;
     backface-visibility: hidden;
     will-change: overflow;
-}
-/*All the scrollable sections should overflow and be whatever height they need to be. As they are flex-items (due to being inside a flex container) they could be made to stretch full height at all times if needed.
+  }
+  /*All the scrollable sections should overflow and be whatever height they need to be. As they are flex-items (due to being inside a flex container) they could be made to stretch full height at all times if needed.
 WebKit inertia scrolling is being added here for any present/future devices that are able to make use of it.
 */
-.Left,
-.Middle,
-.Right {
+  .Left,
+  .Middle,
+  .Right {
     overflow: auto;
     height: auto;
-    padding: .5rem;
+    padding: 0.5rem;
     -webkit-overflow-scrolling: touch;
     -ms-overflow-style: none;
-}
-/*Entirely optional – just wanted to remove the scrollbar on WebKit browsers as I find them ugly*/
-.Left::-webkit-scrollbar,
-.Middle::-webkit-scrollbar,
-.Right::-webkit-scrollbar {
+  }
+  /*Entirely optional – just wanted to remove the scrollbar on WebKit browsers as I find them ugly*/
+  .Left::-webkit-scrollbar,
+  .Middle::-webkit-scrollbar,
+  .Right::-webkit-scrollbar {
     display: none;
-}
-/*  Left and Right are set sizes while the Middle is set to flex one so it occupies all remaining space. This could be set as a width too if prefereable, perhaps using calc.*/
-.Left {
-  width:20%;
-  background-color: #cdcdcd !important;
-}
+  }
+  /*  Left and Right are set sizes while the Middle is set to flex one so it occupies all remaining space. This could be set as a width too if prefereable, perhaps using calc.*/
+  .Left {
+    width: 20%;
+    background-color: #cdcdcd !important;
+  }
 
-.Middle {
-  flex: 1;
-  background-color: #ededed !important;
-}
+  .Middle {
+    flex: 1;
+    background-color: #ededed !important;
+  }
 
-.Right {
-  width: 20%;
-  background-color: #cdcdcd !important;
-}
-    
+  .Right {
+    width: 20%;
+    background-color: #cdcdcd !important;
+  }
 }

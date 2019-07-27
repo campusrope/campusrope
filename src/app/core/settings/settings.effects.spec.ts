@@ -1,27 +1,27 @@
-import * as assert from 'assert';
-import { OverlayContainer } from '@angular/cdk/overlay';
-import { TranslateService } from '@ngx-translate/core';
-import { Actions, getEffectsMetadata } from '@ngrx/effects';
-import { TestScheduler } from 'rxjs/testing';
-import { Store } from '@ngrx/store';
-import { of } from 'rxjs';
+import * as assert from "assert";
+import { OverlayContainer } from "@angular/cdk/overlay";
+import { TranslateService } from "@ngx-translate/core";
+import { Actions, getEffectsMetadata } from "@ngrx/effects";
+import { TestScheduler } from "rxjs/testing";
+import { Store } from "@ngrx/store";
+import { of } from "rxjs";
 
 import {
   AnimationsService,
   AppState,
   LocalStorageService,
   TitleService
-} from '../core.module';
+} from "../core.module";
 
-import { SettingsEffects, SETTINGS_KEY } from './settings.effects';
-import { SettingsState } from './settings.model';
-import { ActionSettingsChangeTheme, SettingsActions } from './settings.actions';
+import { SettingsEffects, SETTINGS_KEY } from "./settings.effects";
+import { SettingsState } from "./settings.model";
+import { ActionSettingsChangeTheme, SettingsActions } from "./settings.actions";
 
 const scheduler = new TestScheduler((actual, expected) =>
   assert.deepStrictEqual(actual, expected)
 );
 
-describe('SettingsEffects', () => {
+describe("SettingsEffects", () => {
   let router: any;
   let localStorageService: jasmine.SpyObj<LocalStorageService>;
   let overlayContainer: jasmine.SpyObj<OverlayContainer>;
@@ -39,22 +39,22 @@ describe('SettingsEffects', () => {
         pipe() {}
       }
     };
-    localStorageService = jasmine.createSpyObj('LocalStorageService', [
-      'setItem'
+    localStorageService = jasmine.createSpyObj("LocalStorageService", [
+      "setItem"
     ]);
-    overlayContainer = jasmine.createSpyObj('OverlayContainer', [
-      'getContainerElement'
+    overlayContainer = jasmine.createSpyObj("OverlayContainer", [
+      "getContainerElement"
     ]);
-    titleService = jasmine.createSpyObj('TitleService', ['setTitle']);
-    animationsService = jasmine.createSpyObj('AnimationsService', [
-      'updateRouteAnimationType'
+    titleService = jasmine.createSpyObj("TitleService", ["setTitle"]);
+    animationsService = jasmine.createSpyObj("AnimationsService", [
+      "updateRouteAnimationType"
     ]);
-    translateService = jasmine.createSpyObj('TranslateService', ['use']);
-    store = jasmine.createSpyObj('store', ['pipe']);
+    translateService = jasmine.createSpyObj("TranslateService", ["use"]);
+    store = jasmine.createSpyObj("store", ["pipe"]);
   });
 
-  describe('persistSettings', () => {
-    it('should not dispatch any action', () => {
+  describe("persistSettings", () => {
+    it("should not dispatch any action", () => {
       const actions = new Actions<SettingsActions>();
       const effect = new SettingsEffects(
         actions,
@@ -72,24 +72,24 @@ describe('SettingsEffects', () => {
     });
   });
 
-  it('should call methods on LocalStorageService for PERSIST action', () => {
+  it("should call methods on LocalStorageService for PERSIST action", () => {
     scheduler.run(helpers => {
       const { cold } = helpers;
 
       const settings: SettingsState = {
-        language: 'en',
+        language: "en",
         pageAnimations: true,
         elementsAnimations: true,
-        theme: 'default',
-        nightTheme: 'default',
+        theme: "default",
+        nightTheme: "default",
         autoNightMode: false,
         stickyHeader: false,
         pageAnimationsDisabled: true,
         hour: 12
       };
       store.pipe.and.returnValue(of(settings));
-      const persistAction = new ActionSettingsChangeTheme({ theme: 'DEFAULT' });
-      const source = cold('a', { a: persistAction });
+      const persistAction = new ActionSettingsChangeTheme({ theme: "DEFAULT" });
+      const source = cold("a", { a: persistAction });
       const actions = new Actions(source);
       const effect = new SettingsEffects(
         actions,

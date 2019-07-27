@@ -1,11 +1,11 @@
 /* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { By } from "@angular/platform-browser";
+import { DebugElement } from "@angular/core";
 
-import { HelplineListComponent } from './helpline-list.component';
+import { HelplineListComponent } from "./helpline-list.component";
 
-describe('HelplineListComponent', () => {
+describe("HelplineListComponent", () => {
   let component: HelplineListComponent;
   let fixture: ComponentFixture<HelplineListComponent>;
 
@@ -21,7 +21,7 @@ describe('HelplineListComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

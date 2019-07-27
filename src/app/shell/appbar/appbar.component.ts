@@ -1,17 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { LayoutState } from '../../core/layout/layout.model';
-import { ToggleSidenav } from 'src/app/core/layout/layout.actions';
-import { LocationService } from '../../core/location/location.service';
+import { Component, OnInit } from "@angular/core";
+import { Store } from "@ngrx/store";
+import { LayoutState } from "../../core/layout/layout.model";
+import { ToggleSidenav } from "src/app/core/layout/layout.actions";
+import { LocationService } from "../../core/location/location.service";
 
 @Component({
-  selector: 'app-appbar',
-  templateUrl: './appbar.component.html',
-  styleUrls: ['./appbar.component.scss']
+  selector: "app-appbar",
+  templateUrl: "./appbar.component.html",
+  styleUrls: ["./appbar.component.scss"]
 })
 export class AppbarComponent implements OnInit {
-
-  constructor(private store: Store<LayoutState>,private locationService:LocationService) {}
+  constructor(
+    private store: Store<LayoutState>,
+    private locationService: LocationService
+  ) {}
 
   ngOnInit() {}
 
@@ -22,5 +24,4 @@ export class AppbarComponent implements OnInit {
   goBack() {
     this.locationService.goBack();
   }
-
 }

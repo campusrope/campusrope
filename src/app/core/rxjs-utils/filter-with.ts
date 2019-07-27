@@ -1,5 +1,5 @@
-import { Observable, ObservableInput } from 'rxjs';
-import { filter, map, withLatestFrom } from 'rxjs/operators';
+import { Observable, ObservableInput } from "rxjs";
+import { filter, map, withLatestFrom } from "rxjs/operators";
 
 export function filterWith<T, S>(
   input: ObservableInput<T>,

@@ -1,13 +1,13 @@
-import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
-import { ofType, createEffect, Actions } from '@ngrx/effects';
-import { tap } from 'rxjs/operators';
+import { Injectable } from "@angular/core";
+import { Router } from "@angular/router";
+import { ofType, createEffect, Actions } from "@ngrx/effects";
+import { tap } from "rxjs/operators";
 
-import { LocalStorageService } from '../local-storage/local-storage.service';
+import { LocalStorageService } from "../local-storage/local-storage.service";
 
-import { authLogin, authLogout } from './auth.actions';
+import { authLogin, authLogout } from "./auth.actions";
 
-export const AUTH_KEY = 'AUTH';
+export const AUTH_KEY = "AUTH";
 
 @Injectable()
 export class AuthEffects {
@@ -33,7 +33,7 @@ export class AuthEffects {
       this.actions$.pipe(
         ofType(authLogout),
         tap(() => {
-          this.router.navigate(['']);
+          this.router.navigate([""]);
           this.localStorageService.setItem(AUTH_KEY, {
             isAuthenticated: false
           });

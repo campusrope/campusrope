@@ -1,8 +1,8 @@
-import { Action } from '@ngrx/store';
-import { materialize } from 'rxjs/operators';
+import { Action } from "@ngrx/store";
+import { materialize } from "rxjs/operators";
 
-import { NGRX_ACTIONS_META, StoreMetadata } from './internals';
-import { NgrxSelect } from './select';
+import { NGRX_ACTIONS_META, StoreMetadata } from "./internals";
+import { NgrxSelect } from "./select";
 
 export function createReducer<TState = any>(
   store:
@@ -16,7 +16,7 @@ export function createReducer<TState = any>(
 
   if (!klass.hasOwnProperty(NGRX_ACTIONS_META)) {
     throw new Error(
-      'A reducer can be created from a @Store decorated class only.'
+      "A reducer can be created from a @Store decorated class only."
     );
   }
 

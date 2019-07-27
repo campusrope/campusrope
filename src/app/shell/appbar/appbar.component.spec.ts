@@ -1,16 +1,15 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { AppbarComponent } from './appbar.component';
+import { AppbarComponent } from "./appbar.component";
 
-describe('AppbarComponent', () => {
+describe("AppbarComponent", () => {
   let component: AppbarComponent;
   let fixture: ComponentFixture<AppbarComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AppbarComponent ]
-    })
-    .compileComponents();
+      declarations: [AppbarComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +18,7 @@ describe('AppbarComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

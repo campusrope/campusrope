@@ -1,4 +1,4 @@
-import { ensureStoreMetadata } from './internals';
+import { ensureStoreMetadata } from "./internals";
 
 export function Store<TState>(
   initialState?: TState

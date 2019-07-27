@@ -1,6 +1,6 @@
-import { Action, createReducer, Store } from '../ngrx-actions';
-import { SetIsMobile, SetSidenav, ToggleSidenav } from './layout.actions';
-import { LayoutState } from './layout.model';
+import { Action, createReducer, Store } from "../ngrx-actions";
+import { SetIsMobile, SetSidenav, ToggleSidenav } from "./layout.actions";
+import { LayoutState } from "./layout.model";
 
 @Store<LayoutState>({
   showSidenav: false,

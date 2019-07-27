@@ -1,5 +1,5 @@
-import { ensureStoreMetadata } from './internals';
-import { ActionType } from './symbols';
+import { ensureStoreMetadata } from "./internals";
+import { ActionType } from "./symbols";
 
 export function Action(...actionsKlasses: ActionType[]) {
   return function(
@@ -15,9 +15,7 @@ export function Action(...actionsKlasses: ActionType[]) {
 
       if (meta.actions[type]) {
         throw new Error(
-          `@Action for '${type}' is defined multiple times in functions '${
-            meta.actions[type].fn
-          }' and '${name}'`
+          `@Action for '${type}' is defined multiple times in functions '${meta.actions[type].fn}' and '${name}'`
         );
       }
 

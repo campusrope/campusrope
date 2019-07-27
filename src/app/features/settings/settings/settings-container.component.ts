@@ -1,8 +1,8 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { Store, select } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { Component, OnInit, ChangeDetectionStrategy } from "@angular/core";
+import { Store, select } from "@ngrx/store";
+import { Observable } from "rxjs";
 
-import { ROUTE_ANIMATIONS_ELEMENTS } from '../../../core/core.module';
+import { ROUTE_ANIMATIONS_ELEMENTS } from "../../../core/core.module";
 
 import {
   ActionSettingsChangeAnimationsElements,
@@ -11,14 +11,14 @@ import {
   ActionSettingsChangeLanguage,
   ActionSettingsChangeTheme,
   ActionSettingsChangeStickyHeader
-} from '../../../core/settings/settings.actions';
-import { SettingsState, State } from '../../../core/settings/settings.model';
-import { selectSettings } from '../../../core/settings/settings.selectors';
+} from "../../../core/settings/settings.actions";
+import { SettingsState, State } from "../../../core/settings/settings.model";
+import { selectSettings } from "../../../core/settings/settings.selectors";
 
 @Component({
-  selector: 'app-settings',
-  templateUrl: './settings-container.component.html',
-  styleUrls: ['./settings-container.component.scss'],
+  selector: "app-settings",
+  templateUrl: "./settings-container.component.html",
+  styleUrls: ["./settings-container.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SettingsContainerComponent implements OnInit {
@@ -26,21 +26,21 @@ export class SettingsContainerComponent implements OnInit {
   settings$: Observable<SettingsState>;
 
   themes = [
-    { value: 'DEFAULT-THEME', label: 'blue' },
-    { value: 'LIGHT-THEME', label: 'light' },
-    { value: 'NATURE-THEME', label: 'nature' },
-    { value: 'BLACK-THEME', label: 'dark' }
+    { value: "DEFAULT-THEME", label: "blue" },
+    { value: "LIGHT-THEME", label: "light" },
+    { value: "NATURE-THEME", label: "nature" },
+    { value: "BLACK-THEME", label: "dark" }
   ];
 
   languages = [
-    { value: 'en', label: 'en' },
-    { value: 'de', label: 'de' },
-    { value: 'sk', label: 'sk' },
-    { value: 'fr', label: 'fr' },
-    { value: 'es', label: 'es' },
-    { value: 'pt-br', label: 'pt-br' },
-    { value: 'zh-cn', label: 'zh-cn' },
-    { value: 'he', label: 'he' }
+    { value: "en", label: "en" },
+    { value: "de", label: "de" },
+    { value: "sk", label: "sk" },
+    { value: "fr", label: "fr" },
+    { value: "es", label: "es" },
+    { value: "pt-br", label: "pt-br" },
+    { value: "zh-cn", label: "zh-cn" },
+    { value: "he", label: "he" }
   ];
 
   constructor(private store: Store<State>) {}

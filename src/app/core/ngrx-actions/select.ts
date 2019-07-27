@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { Store, Selector } from '@ngrx/store';
+import { Injectable } from "@angular/core";
+import { Store, Selector } from "@ngrx/store";
 
 @Injectable()
 export class NgrxSelect {
@@ -26,17 +26,17 @@ export function Select<TState = any, TValue = any>(
   ...paths: string[]
 ) {
   return function(target: any, name: string): void {
-    const selectorFnName = '__' + name + '__selector';
+    const selectorFnName = "__" + name + "__selector";
     let fn: Selector<TState, TValue>;
     // Nothing here? Use propery name as selector
     if (!selectorOrFeature) {
       selectorOrFeature = name;
     }
     // Handle string vs Selector<TState, TValue>
-    if (typeof selectorOrFeature === 'string') {
+    if (typeof selectorOrFeature === "string") {
       const propsArray = paths.length
         ? [selectorOrFeature, ...paths]
-        : selectorOrFeature.split('.');
+        : selectorOrFeature.split(".");
       fn = fastPropGetter(propsArray);
     } else {
       fn = selectorOrFeature;
@@ -45,16 +45,16 @@ export function Select<TState = any, TValue = any>(
     const createSelect = () => {
       const store = NgrxSelect.store;
       if (!store) {
-        throw new Error('NgrxSelect not connected to store!');
+        throw new Error("NgrxSelect not connected to store!");
       }
       return store.select(fn);
     };
 
     if (target[selectorFnName]) {
       throw new Error(
-        'You cannot use @Select decorator and a ' +
+        "You cannot use @Select decorator and a " +
           selectorFnName +
-          ' property.'
+          " property."
       );
     }
 
@@ -88,13 +88,13 @@ export function Select<TState = any, TValue = any>(
  */
 export function fastPropGetter(paths: string[]): (x: any) => any {
   const segments = paths;
-  let seg = 'store.' + segments[0],
+  let seg = "store." + segments[0],
     i = 0;
   const l = segments.length;
   let expr = seg;
   while (++i < l) {
-    expr = expr + ' && ' + (seg = seg + '.' + segments[i]);
+    expr = expr + " && " + (seg = seg + "." + segments[i]);
   }
-  const fn = new Function('store', 'return ' + expr + ';');
+  const fn = new Function("store", "return " + expr + ";");
   return <(x: any) => any>fn;
 }

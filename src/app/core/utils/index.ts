@@ -1,1 +1,1 @@
-export * from './flatten-object';
+export * from "./flatten-object";

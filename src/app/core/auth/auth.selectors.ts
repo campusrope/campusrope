@@ -1,7 +1,7 @@
-import { createSelector } from '@ngrx/store';
+import { createSelector } from "@ngrx/store";
 
-import { selectAuthState } from '../core.state';
-import { AuthState } from './auth.models';
+import { selectAuthState } from "../core.state";
+import { AuthState } from "./auth.models";
 
 export const selectAuth = createSelector(
   selectAuthState,

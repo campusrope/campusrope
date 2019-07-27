@@ -5,20 +5,20 @@ import {
   Injector,
   Inject,
   Optional
-} from '@angular/core';
+} from "@angular/core";
 import {
   Store,
   StoreModule,
   ReducerManager,
   combineReducers
-} from '@ngrx/store';
+} from "@ngrx/store";
 
-import { NgrxSelect } from './select';
-import { createReducer } from './factory';
+import { NgrxSelect } from "./select";
+import { createReducer } from "./factory";
 
-export const STORE_TOKEN = new InjectionToken<any>('STORE_TOKEN');
+export const STORE_TOKEN = new InjectionToken<any>("STORE_TOKEN");
 export const FEATURE_STORE_TOKEN = new InjectionToken<any>(
-  'FEATURE_STORE_TOKEN'
+  "FEATURE_STORE_TOKEN"
 );
 
 @NgModule({
@@ -73,7 +73,7 @@ export class NgrxActionsModule {
     }
 
     if (featureReducers) {
-      if (typeof featureReducers.key !== 'string') {
+      if (typeof featureReducers.key !== "string") {
         featureReducers.reducers = featureReducers.key;
         featureReducers.key = undefined;
       }

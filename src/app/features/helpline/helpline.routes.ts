@@ -1,6 +1,6 @@
-import { Routes } from '@angular/router';
-import { HelplineListComponent } from './helpline-list/helpline-list.component';
+import { Routes } from "@angular/router";
+import { HelplineListComponent } from "./helpline-list/helpline-list.component";
 
 export const HELPLINE_ROUTES: Routes = [
-  { path: '', pathMatch: 'full', component: HelplineListComponent }
+  { path: "", pathMatch: "full", component: HelplineListComponent }
 ];

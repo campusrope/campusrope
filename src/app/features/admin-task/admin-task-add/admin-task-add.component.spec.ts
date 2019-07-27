@@ -1,19 +1,18 @@
 /* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { By } from "@angular/platform-browser";
+import { DebugElement } from "@angular/core";
 
-import { AdminAddComponent } from './admin-add.component';
+import { AdminAddComponent } from "./admin-add.component";
 
-describe('AdminAddComponent', () => {
+describe("AdminAddComponent", () => {
   let component: AdminAddComponent;
   let fixture: ComponentFixture<AdminAddComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AdminAddComponent ]
-    })
-    .compileComponents();
+      declarations: [AdminAddComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -22,7 +21,7 @@ describe('AdminAddComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

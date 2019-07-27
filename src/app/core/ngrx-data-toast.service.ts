@@ -1,31 +1,31 @@
-import { Injectable } from '@angular/core';
-import { Actions, ofType } from '@ngrx/effects';
+import { Injectable } from "@angular/core";
+import { Actions, ofType } from "@ngrx/effects";
 import {
   EntityAction,
   EntityCacheAction,
   ofEntityOp,
   OP_ERROR,
   OP_SUCCESS
-} from '@ngrx/data';
-import { filter } from 'rxjs/operators';
-import { NotificationService } from './notifications/notification.service';
+} from "@ngrx/data";
+import { filter } from "rxjs/operators";
+import { NotificationService } from "./notifications/notification.service";
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: "root" })
 export class NgrxDataToastService {
-
   constructor(actions$: Actions, private toast: NotificationService) {
-    actions$.pipe(
-      ofEntityOp(),
-      filter(
+    actions$
+      .pipe(
+        ofEntityOp(),
+        filter(
           (ea: EntityAction) =>
             ea.payload.entityOp.endsWith(OP_SUCCESS) ||
             ea.payload.entityOp.endsWith(OP_ERROR)
+        )
       )
-    )
-    // this service never dies so no need to unsubscribe
-    .subscribe(action =>
-      this.toast.default( `${action.payload.entityName} action`)
-    );
+      // this service never dies so no need to unsubscribe
+      .subscribe(action =>
+        this.toast.default(`${action.payload.entityName} action`)
+      );
     actions$
       .pipe(
         ofType(
@@ -34,9 +34,7 @@ export class NgrxDataToastService {
         )
       )
       .subscribe((action: any) =>
-        this.toast.default( `${action.payload.entityName} action`)
+        this.toast.default(`${action.payload.entityName} action`)
       );
-
   }
-
 }
