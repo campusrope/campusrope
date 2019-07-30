@@ -9,9 +9,9 @@
     (openedStart)="openedChangeSidenav(true)"
     (closedStart)="openedChangeSidenav(false)"
   >
-    <span>
-      i am in drawer
-    </span>
+  <mat-nav-list>
+    <a mat-list-item [routerLink]="['login']"> login </a>
+  </mat-nav-list>
   </mat-drawer>
   <mat-drawer-content>
     <div class="Container">

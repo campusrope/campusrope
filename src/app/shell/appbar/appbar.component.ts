@@ -1,8 +1,10 @@
 import { Component, OnInit } from "@angular/core";
-import { Store } from "@ngrx/store";
-import { LayoutState } from "../../core/layout/layout.model";
+import { Store, select } from "@ngrx/store";
 import { ToggleSidenav } from "src/app/core/layout/layout.actions";
 import { LocationService } from "../../core/location/location.service";
+import { Observable } from "rxjs";
+import { selectIsAuthenticated } from "src/app/core/core.module";
+import { AppState } from "../../core/core.state";
 
 @Component({
   selector: "app-appbar",
@@ -10,10 +12,13 @@ import { LocationService } from "../../core/location/location.service";
   styleUrls: ["./appbar.component.scss"]
 })
 export class AppbarComponent implements OnInit {
+  isAuthenticated$: Observable<boolean>;
   constructor(
-    private store: Store<LayoutState>,
+    private store: Store<AppState>,
     private locationService: LocationService
-  ) {}
+  ) {
+    this.isAuthenticated$ = this.store.pipe(select(selectIsAuthenticated));
+  }
 
   ngOnInit() {}
 

@@ -85,3 +85,9 @@ WebKit inertia scrolling is being added here for any present/future devices that
   bottom: 0%;
   transform: rotate(-180deg);
 }
+
+.app-sidenav {
+  width: 20%;
+  min-width: 200px;
+  max-width: 300px;
+}
