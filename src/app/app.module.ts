@@ -8,7 +8,7 @@ import { CoreModule } from "./core/core.module";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { ShellModule } from "./shell/shell.module";
-import {StateModule} from "./state/state.module";
+import { StateModule } from "./state/state.module";
 
 @NgModule({
   imports: [

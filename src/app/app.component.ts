@@ -4,10 +4,7 @@ import { Store, select } from "@ngrx/store";
 import { Observable } from "rxjs";
 
 import { environment as env } from "../environments/environment";
-import {
-  routeAnimations,
-  LocalStorageService,
-} from  "./core/core.module";
+import { routeAnimations, LocalStorageService } from "./core/core.module";
 
 import {
   AppState,

@@ -17,7 +17,10 @@ import {
   selectRouterState
 } from "./core.state";
 import { AuthEffects } from "../state/auth/auth.effects";
-import { selectIsAuthenticated, selectAuth } from "../state/auth/auth.selectors";
+import {
+  selectIsAuthenticated,
+  selectAuth
+} from "../state/auth/auth.selectors";
 import { authLogin, authLogout } from "../state/auth/auth.actions";
 import { CustomSerializer } from "./router/custom-serializer";
 
@@ -57,22 +60,22 @@ export {
   declarations: [],
   imports: [
     CommonModule,
-     // ngrx
-     EntityDataModule.forRoot(entityConfig),
-     StoreModule.forRoot(reducers, { metaReducers }),
-     StoreRouterConnectingModule.forRoot(),
-     EffectsModule.forRoot([
-       AuthEffects,
-       SettingsEffects,
-       GoogleAnalyticsEffects,
-       LayoutEffects
-     ]),
-     environment.production
-       ? []
-       : StoreDevtoolsModule.instrument({
-           name: "Campusrope"
-         }),
+    // ngrx
+    EntityDataModule.forRoot(entityConfig),
+    StoreModule.forRoot(reducers, { metaReducers }),
+    StoreRouterConnectingModule.forRoot(),
+    EffectsModule.forRoot([
+      AuthEffects,
+      SettingsEffects,
+      GoogleAnalyticsEffects,
+      LayoutEffects
+    ]),
+    environment.production
+      ? []
+      : StoreDevtoolsModule.instrument({
+          name: "Campusrope"
+        })
   ],
   providers: [{ provide: RouterStateSerializer, useClass: CustomSerializer }]
 })
-export class StateModule { }
+export class StateModule {}

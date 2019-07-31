@@ -12,7 +12,7 @@ import {
   ActionSettingsChangeTheme,
   ActionSettingsChangeStickyHeader
 } from "../../../state/settings/settings.actions";
-import { SettingsState} from "../../../state/settings/settings.model";
+import { SettingsState } from "../../../state/settings/settings.model";
 import { selectSettings } from "../../../state/settings/settings.selectors";
 import { AppState } from "../../../state/core.state";
 

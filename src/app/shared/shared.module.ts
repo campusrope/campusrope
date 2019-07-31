@@ -6,12 +6,7 @@ import { TranslateModule } from "@ngx-translate/core";
 import { MaterialModule } from "./material/material.module";
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    TranslateModule,
-    MaterialModule,
-  ],
+  imports: [CommonModule, FormsModule, TranslateModule, MaterialModule],
   declarations: [],
   exports: [
     CommonModule,

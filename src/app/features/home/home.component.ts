@@ -4,7 +4,7 @@ import { Store, select } from "@ngrx/store";
 import { map } from "rxjs/operators";
 import { Router } from "@angular/router";
 import { AppState } from "../../state/core.state";
-import {getIsMobile, getShowSidenav, SetSidenav} from "../../state";
+import { getIsMobile, getShowSidenav, SetSidenav } from "../../state";
 
 @Component({
   selector: "app-home",
