@@ -67,7 +67,6 @@ import { MatTableModule } from "@angular/material/table";
     MatExpansionModule,
     MatFormFieldModule,
     MatGridListModule,
-    MatIconModule,
     MatInputModule,
     MatListModule,
     MatMenuModule,
