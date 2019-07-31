@@ -4,7 +4,7 @@ import { LayoutState } from "./layout.model";
 
 @Store<LayoutState>({
   showSidenav: false,
-  isMobile: true
+  isMobile: false
 })
 export class StateStore {
   @Action(SetSidenav)

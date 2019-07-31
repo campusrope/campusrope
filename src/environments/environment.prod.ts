@@ -3,5 +3,6 @@ export const environment = {
   envName: "PROD",
   production: true,
   test: false,
-  i18nPrefix: "/APP"
+  i18nPrefix: "/APP",
+  apiUrl: "http://localhost:3000/v1"
 };
