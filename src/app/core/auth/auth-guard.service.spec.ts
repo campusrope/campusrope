@@ -2,10 +2,10 @@ import { TestBed } from "@angular/core/testing";
 import { Store } from "@ngrx/store";
 import { provideMockStore, MockStore } from "@ngrx/store/testing";
 
-import { AppState } from "../core.state";
+import { AppState } from "../../state/core.state";
 
 import { AuthGuardService } from "./auth-guard.service";
-import { AuthState } from "./auth.models";
+import { AuthState } from "../../state/auth/auth.models";
 
 describe("AuthGuardService", () => {
   let authGuardService: AuthGuardService;

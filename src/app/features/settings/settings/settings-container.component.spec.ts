@@ -14,7 +14,7 @@ import {
   ActionSettingsChangeAutoNightMode,
   ActionSettingsChangeTheme,
   ActionSettingsChangeStickyHeader
-} from "../../../core/settings/settings.actions";
+} from "../../../state/settings/settings.actions";
 import { TranslateModule } from "@ngx-translate/core";
 
 describe("SettingsComponent", () => {

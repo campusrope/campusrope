@@ -15,9 +15,9 @@ import {
 } from "rxjs/operators";
 
 import { selectSettingsState } from "../core.state";
-import { LocalStorageService } from "../local-storage/local-storage.service";
-import { AnimationsService } from "../animations/animations.service";
-import { TitleService } from "../title/title.service";
+import { LocalStorageService } from "../../core/local-storage/local-storage.service";
+import { AnimationsService } from "../../core/animations/animations.service";
+import { TitleService } from "../../core/title/title.service";
 
 import {
   SettingsActionTypes,
@@ -30,7 +30,7 @@ import {
   selectPageAnimations,
   selectElementsAnimations
 } from "./settings.selectors";
-import { State } from "./settings.model";
+import { AppState } from "../core.state";
 
 export const SETTINGS_KEY = "SETTINGS";
 
@@ -40,7 +40,7 @@ const INIT = of("app-init-effect-trigger");
 export class SettingsEffects {
   constructor(
     private actions$: Actions<SettingsActions>,
-    private store: Store<State>,
+    private store: Store<AppState>,
     private router: Router,
     private overlayContainer: OverlayContainer,
     private localStorageService: LocalStorageService,

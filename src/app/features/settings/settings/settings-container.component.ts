@@ -11,9 +11,10 @@ import {
   ActionSettingsChangeLanguage,
   ActionSettingsChangeTheme,
   ActionSettingsChangeStickyHeader
-} from "../../../core/settings/settings.actions";
-import { SettingsState, State } from "../../../core/settings/settings.model";
-import { selectSettings } from "../../../core/settings/settings.selectors";
+} from "../../../state/settings/settings.actions";
+import { SettingsState} from "../../../state/settings/settings.model";
+import { selectSettings } from "../../../state/settings/settings.selectors";
+import { AppState } from "../../../state/core.state";
 
 @Component({
   selector: "app-settings",
@@ -43,7 +44,7 @@ export class SettingsContainerComponent implements OnInit {
     { value: "he", label: "he" }
   ];
 
-  constructor(private store: Store<State>) {}
+  constructor(private store: Store<AppState>) {}
 
   ngOnInit() {
     this.settings$ = this.store.pipe(select(selectSettings));

@@ -1,4 +1,3 @@
-import { AppState } from "../core.module";
 
 export const NIGHT_MODE_THEME = "BLACK-THEME";
 
@@ -14,8 +13,4 @@ export interface SettingsState {
   pageAnimationsDisabled: boolean;
   elementsAnimations: boolean;
   hour: number;
-}
-
-export interface State extends AppState {
-  settings: SettingsState;
 }

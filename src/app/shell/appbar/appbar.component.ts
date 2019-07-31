@@ -1,10 +1,10 @@
 import { Component, OnInit } from "@angular/core";
 import { Store, select } from "@ngrx/store";
-import { ToggleSidenav } from "src/app/core/layout/layout.actions";
+import { ToggleSidenav } from "src/app/state/layout/layout.actions";
 import { LocationService } from "../../core/location/location.service";
 import { Observable } from "rxjs";
-import { selectIsAuthenticated } from "src/app/core/core.module";
-import { AppState } from "../../core/core.state";
+import { AppState } from "../../state/core.state";
+import { selectIsAuthenticated } from "src/app/state";
 
 @Component({
   selector: "app-appbar",

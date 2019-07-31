@@ -1,4 +1,4 @@
-import { Action, createReducer, Store } from "../ngrx-actions";
+import { Action, createReducer, Store } from "../../core/ngrx-actions";
 import { SetIsMobile, SetSidenav, ToggleSidenav } from "./layout.actions";
 import { LayoutState } from "./layout.model";
 

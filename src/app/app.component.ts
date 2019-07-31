@@ -4,18 +4,20 @@ import { Store, select } from "@ngrx/store";
 import { Observable } from "rxjs";
 
 import { environment as env } from "../environments/environment";
-
 import {
   routeAnimations,
-  AppState,
   LocalStorageService,
+} from  "./core/core.module";
+
+import {
+  AppState,
   selectIsAuthenticated,
   ActionSettingsChangeAnimationsPageDisabled,
   selectSettingsStickyHeader,
   selectSettingsLanguage,
   selectEffectiveTheme,
   ActionSettingsChangeLanguage
-} from "./core/core.module";
+} from "./state";
 
 @Component({
   selector: "app-root",

@@ -1,14 +1,10 @@
 import { Component, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
 import { Store, select } from "@ngrx/store";
-import { State } from "../../core/layout/layout.model";
-import {
-  getIsMobile,
-  getShowSidenav
-} from "../../core/layout/layout.selectors";
 import { map } from "rxjs/operators";
-import { SetSidenav } from "../../core/layout/layout.actions";
 import { Router } from "@angular/router";
+import { AppState } from "../../state/core.state";
+import {getIsMobile, getShowSidenav, SetSidenav} from "../../state";
 
 @Component({
   selector: "app-home",
@@ -20,9 +16,9 @@ export class HomeComponent implements OnInit {
   showSidenav$: Observable<boolean>;
   routes: string[] = ["", "/helpline", "/trending-news"];
   currentRoutePosition: string;
-  routeChangeCounter: number = 0;
+  routeChangeCounter = 0;
 
-  constructor(private store: Store<State>, private router: Router) {}
+  constructor(private store: Store<AppState>, private router: Router) {}
 
   ngOnInit() {
     this.isMobile$ = this.store.pipe(select(getIsMobile));
