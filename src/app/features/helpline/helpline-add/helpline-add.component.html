@@ -1,46 +1,71 @@
 <div class="helpline-container">
     <h3 class="text-center">Add New Content</h3>
-    <mat-form-field>
-      <input matInput placeholder="Headline">
-    </mat-form-field>
+    <form [formGroup]="formGroup" class="form" (ngSubmit)="onHeadlineAdd()">
+      <mat-form-field>
+        <input matInput placeholder="Headline" formControlName="headline">
+          <mat-error *ngIf="!formGroup.controls['headline'].valid
+            && formGroup.controls['headline'].touched">
+              {{ titleAlert }}
+          </mat-error>
+      </mat-form-field>
 
-    <mat-form-field>
-      <textarea matInput placeholder="Description"></textarea>
-    </mat-form-field>
+      <mat-form-field>
+        <textarea matInput placeholder="Description" formControlName="description"></textarea>
+        <mat-error *ngIf="!formGroup.controls['description'].valid
+            && formGroup.controls['description'].touched">
+              {{ titleAlert }}
+        </mat-error>
+      </mat-form-field>
 
-    <mat-form-field>
-        <input matInput placeholder="Headline Number">
-    </mat-form-field>
+      <mat-form-field>
+          <input matInput placeholder="Headline Number" formControlName="headlineNumber">
+          <mat-error *ngIf="!formGroup.controls['headlineNumber'].valid
+            && formGroup.controls['headlineNumber'].touched">
+              {{ titleAlert }}
+          </mat-error>
+      </mat-form-field>
 
-    <mat-form-field>
-        <input matInput placeholder="Website Link">
-    </mat-form-field>
+      <mat-form-field>
+          <input matInput placeholder="Website Link" formControlName="websiteLink">
+          <mat-error *ngIf="!formGroup.controls['websiteLink'].valid
+            && formGroup.controls['websiteLink'].touched">
+              {{ titleAlert }}
+          </mat-error>
+      </mat-form-field>
 
-    <mat-form-field>
-        <input matInput placeholder="File Online Complaint Link">
-    </mat-form-field>
+      <mat-form-field>
+          <input matInput placeholder="File Online Complaint Link" formControlName="fileOnlineComplaintLink">
+      </mat-form-field>
 
-    <mat-form-field>
-        <input matInput placeholder="Twitter Link">
-    </mat-form-field>
+      <mat-form-field>
+          <input matInput placeholder="Twitter Link" formControlName="twitterLink">
+          <mat-error *ngIf="!formGroup.controls['twitterLink'].valid
+            && formGroup.controls['twitterLink'].touched">
+              {{ titleAlert }}
+          </mat-error>
+      </mat-form-field>
 
-    <mat-form-field>
-        <input matInput placeholder="Facebook Link">
-    </mat-form-field>
+      <mat-form-field>
+          <input matInput placeholder="Facebook Link" formControlName="facebookLink">
+          <mat-error *ngIf="!formGroup.controls['facebookLink'].valid
+            && formGroup.controls['facebookLink'].touched">
+            {{ titleAlert }}
+        </mat-error>
+      </mat-form-field>
 
-    <mat-form-field>
-        <input matInput placeholder="Instagram Link">
-    </mat-form-field>
+      <mat-form-field>
+          <input matInput placeholder="Instagram Link" formControlName="instagramLink">
+      </mat-form-field>
 
-    <mat-form-field>
-        <input matInput placeholder="Whats app Link">
-    </mat-form-field>
+      <mat-form-field>
+          <input matInput placeholder="Whats app Link" formControlName="whatsappLink">
+      </mat-form-field>
 
-    <div class="example-button-row">
-        <button (click)="goBack()" mat-flat-button>Cancel</button>
-        <button mat-flat-button color="primary">
-          Post
-        </button>
+      <div class="example-button-row">
+          <button (click)="goBack()" mat-flat-button>Cancel</button>
+          <button mat-flat-button color="primary" type="submit">
+            Post
+          </button>
       </div>
-
-  </div>
+    </form>
+</div>
