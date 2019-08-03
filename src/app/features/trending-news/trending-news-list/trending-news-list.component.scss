@@ -4,10 +4,27 @@
 }
 
 .example-header-image {
+  background-image: url('../../../../assets/wire.png');
   background-size: cover;
 }
 
 .trending-news-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.trending-news-add-btn {
+  margin-left: 30px
+}
+
+.trending-news-header{
+  display: flex;
+  align-items: center;
+}
+
+.trending-news-card-wrapper{
   display: flex;
   margin: 20px 20px 65px 20px;
   flex-wrap: wrap;
