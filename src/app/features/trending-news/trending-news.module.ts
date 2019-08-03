@@ -4,6 +4,7 @@ import { RouterModule } from "@angular/router";
 import { TRENDING_NEWS_ROUTES } from "./trending-news.routes";
 import { TrendingNewsListComponent } from "./trending-news-list/trending-news-list.component";
 import { SharedModule } from "src/app/shared/shared.module";
+import { TrendingNewsAddComponent } from "./trending-news-add/trending-news-add.component";
 
 @NgModule({
   imports: [
@@ -11,7 +12,10 @@ import { SharedModule } from "src/app/shared/shared.module";
     SharedModule,
     RouterModule.forChild(TRENDING_NEWS_ROUTES)
   ],
-  declarations: [TrendingNewsListComponent],
+  declarations: [
+    TrendingNewsListComponent,
+    TrendingNewsAddComponent
+  ],
   exports: [],
   entryComponents: [TrendingNewsListComponent]
 })

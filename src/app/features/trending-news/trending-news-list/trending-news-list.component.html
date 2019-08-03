@@ -1,4 +1,21 @@
 <div class="trending-news-container">
+    <mat-form-field style="margin: 20px 0">
+        <mat-label>Select State</mat-label>
+        <mat-select>
+          <mat-option>None</mat-option>
+          <mat-option value="option1">Option 1</mat-option>
+          <mat-option value="option2">Option 2</mat-option>
+          <mat-option value="option3">Option 3</mat-option>
+        </mat-select>
+      </mat-form-field>
+          <button
+        mat-mini-fab
+        routerLink="./add"
+        matTooltip="Add Trending News"
+        class="custom-button"
+      >
+        <i class="material-icons">add</i>
+      </button>
   <div
     *ngFor="
       let trendingNewsData of trendingNewsList;
