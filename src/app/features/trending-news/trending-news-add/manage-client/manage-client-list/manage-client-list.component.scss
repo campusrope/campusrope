@@ -1,0 +1,17 @@
+.manage-client-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.list-wrapper-repeat {
+  display: flex;
+  align-items: center;
+  margin-top:15px; 
+}
+
+.example-header-image {
+  background-image: url('../../../../../../assets/wire.png');
+  background-size: cover;
+}
