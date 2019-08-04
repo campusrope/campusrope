@@ -1,0 +1,18 @@
+.topic-list-wrapper{
+  display: flex;
+  flex-direction: column;
+}
+.topic-list-header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.topic-card {
+  margin: 15px 15px 0px 15px;
+  text-align: center;
+  cursor: pointer;  
+  box-shadow: none!important;
+  border: 1px solid #ff0000;
+  box-sizing: border-box;
+  border-radius: 11px;
+}
