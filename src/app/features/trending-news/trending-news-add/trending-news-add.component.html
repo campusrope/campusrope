@@ -1,32 +1,45 @@
 <div class="trending-news-container">
     <h3 class="text-center">Add News</h3>
-    <mat-form-field>
-      <input matInput placeholder="Headline">
-    </mat-form-field>
-
-    <mat-form-field>
-      <textarea matInput placeholder="Embed Youtube Video"></textarea>
-    </mat-form-field>
-
-    <mat-form-field>
-      <mat-select placeholder="State">
-        <mat-option value="option">Option</mat-option>
-        <mat-option value="one">One</mat-option>
-        <mat-option value="two">Two</mat-option>
-      </mat-select>
-    </mat-form-field>
-
-    <mat-form-field appearance="legacy">
-        <mat-label>Manage Client</mat-label>
-        <input matInput placeholder="Search Client">
-        <mat-icon matSuffix>search</mat-icon>
+    <form [formGroup]="formGroup" class="form" (ngSubmit)="onTrendingNewsAdd()">
+      <mat-form-field>
+        <input matInput placeholder="Headline" formControlName="headline">
+          <mat-error *ngIf="!formGroup.controls['headline'].valid
+            && formGroup.controls['headline'].touched">
+            {{ titleAlert }}
+          </mat-error>
       </mat-form-field>
 
-    <div class="example-button-row">
-        <button (click)="goBack()" mat-flat-button>Cancel</button>
-        <button mat-flat-button color="primary">
-          Post
-        </button>
-      </div>
+      <mat-form-field>
+        <textarea matInput placeholder="Embed Youtube Video" formControlName="embedYoutubeVideo"></textarea>
+        <mat-error *ngIf="!formGroup.controls['embedYoutubeVideo'].valid
+          && formGroup.controls['embedYoutubeVideo'].touched">
+          {{ titleAlert }}
+        </mat-error>
+      </mat-form-field>
 
+      <mat-form-field>
+        <mat-select placeholder="State" formControlName="state">
+          <mat-option value="option">Option</mat-option>
+          <mat-option value="one">One</mat-option>
+          <mat-option value="two">Two</mat-option>
+        </mat-select>
+        <mat-error *ngIf="!formGroup.controls['state'].valid
+          && formGroup.controls['state'].touched">
+          {{ titleAlert }}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="legacy">
+          <mat-label>Manage Client</mat-label>
+          <input matInput placeholder="Search Client" formControlName="searchClient">
+          <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+
+      <div class="example-button-row">
+          <button (click)="goBack()" mat-flat-button>Cancel</button>
+          <button mat-flat-button color="primary" type="submit">
+            Post
+          </button>
+      </div>
+    </form>
   </div>
