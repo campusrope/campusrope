@@ -2,13 +2,14 @@
   <div class="topic-list-header">
     <button
             mat-mini-fab
+            (click)="openDialog()"
             matTooltip="Add Topic"
           >
             <i class="material-icons">add</i>
           </button>
   </div>
   <mat-card
-    class="topic-card" 
+    class="topic-card"
     *ngFor="let topicData of topics">
     {{topicData.topic}}
   </mat-card>
