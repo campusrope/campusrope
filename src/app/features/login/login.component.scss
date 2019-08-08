@@ -1,71 +1,28 @@
-.login-title {
-  position: relative;
-  height: 37px;
-  top: 110px;
-  font-family: Times New Roman;
-  font-size: 40px;
-  line-height: 46px;
-  text-align: center;
-  color: #858585;
-}
 
-.google-btn-wrapper {
-  position: relative;
-  width: 428px;
-  height: 60px;
-  top: 230px;
-  background: #ffffff;
-  border: 0.5px solid #000000;
-  box-sizing: border-box;
-  border-radius: 64px;
-  cursor: pointer;
-}
+      :host {
+        display: flex;
+        justify-content: center;
+      }
 
-.google-btn-wrapper img {
-  float: left;
-}
+      .mat-form-field {
+        width: 100%;
+        min-width: 300px;
+      }
 
-.google-btn-wrapper span {
-  position: absolute;
-  width: 100%;
-  left: 0px;
-  top: 18px;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 300;
-  font-size: 18px;
-  text-align: center;
-  color: #000000;
-}
-.login-container {
-  height: 100%;
-  width: 100%;
-  align-items: center;
-  display: flex;
-}
+      mat-card-title,
+      mat-card-content {
+        display: flex;
+        justify-content: center;
+      }
 
-form {
-  width: 100%;
-}
+      .error {
+        padding: 16px;
+        width: 300px;
+        color: white;
+        background-color: red;
+      }
 
-.login-content {
-  width: 100%;
-}
-
-.login-toolbar {
-  justify-content: center;
-}
-
-.mat-form-field {
-  width: 100%;
-  display: block;
-}
-
-.mat-dialog-actions {
-  margin-top: 15px;
-}
-
-.center {
-  margin-top: -20px;
-  text-align: center;
-}
+      .button {
+        display: flex;
+        justify-content: flex-end;
+      }

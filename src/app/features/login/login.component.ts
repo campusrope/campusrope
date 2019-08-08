@@ -8,7 +8,6 @@ import { Router } from "@angular/router";
   styleUrls: ["./login.component.scss"]
 })
 export class LoginComponent {
-  public infoMsg: String;
   public errorMsg: String;
   loginForm: FormGroup;
 
@@ -21,12 +20,12 @@ export class LoginComponent {
       password: [
         "",
         Validators.compose([Validators.required, Validators.minLength(4)])
-      ],
-      rememberMe: false
+      ]
     });
   }
 
   onSubmit(values) {
-    if (this.loginForm.invalid) return;
+    if (this.loginForm.invalid) { return; }
+    console.log(values)
   }
 }
