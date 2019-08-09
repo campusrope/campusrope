@@ -8,20 +8,22 @@
     >
       <p>
         <mat-form-field>
-          <mat-icon matPrefix>person_outline</mat-icon>
+          <mat-icon matSuffix>person_outline</mat-icon>
           <input type="text" matInput placeholder="Username" formControlName="username">
+          <mat-error *ngIf="hasError('username', 'required')">Username is required</mat-error>
+          <mat-error *ngIf="hasError('username', 'minlength')">Username should contain atleast 6 character</mat-error>
+          <mat-error *ngIf="hasError('username', 'maxlength')">You have more than 20 characters</mat-error>
         </mat-form-field>
       </p>
 
       <p>
         <mat-form-field>
-          <mat-icon matPrefix>lock_outline</mat-icon>
+          <mat-icon matSuffix>lock_outline</mat-icon>
           <input type="password" matInput placeholder="Password" formControlName="password">
+          <mat-error *ngIf="hasError('password', 'required')">Password is required</mat-error>
+          <mat-error *ngIf="hasError('password', 'minlength')">Password should contain atleast 4 character</mat-error>
+          <mat-error *ngIf="hasError('password', 'maxlength')">You have more than 15 characters</mat-error>
         </mat-form-field>
-      </p>
-
-      <p *ngIf="errorMsg" class="error">
-        {{ errorMsg }}
       </p>
 
       <div class="button">
