@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { LocationService } from "src/app/core/location/location.service";
 import { TrendingNewsService } from "../trending-news.service";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: "app-trending-news-edit",
@@ -12,15 +13,21 @@ export class TrendingNewsEditComponent implements OnInit {
 
   formGroup: FormGroup;
   titleAlert = "This field is required";
+  selectedNewsData: any;
 
   constructor(
     private locationService: LocationService,
     private formBuilder: FormBuilder,
-    private trendingNewsService: TrendingNewsService
+    private trendingNewsService: TrendingNewsService,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
     this.createForm();
+    this.route.params.subscribe(params => {
+      this.selectedNewsData = this.trendingNewsService.getTrendingNewsById(+params.id);
+      this.setSelectedNewsData();
+    });
   }
 
   createForm() {
@@ -32,13 +39,25 @@ export class TrendingNewsEditComponent implements OnInit {
     });
   }
 
+  setSelectedNewsData() {
+    this.formGroup.patchValue({
+      headline: this.selectedNewsData.description
+    });
+  }
+
   goBack(): any {
     this.locationService.goBack();
   }
 
   onTrendingNewsUpdate(): any {
     if (!this.formGroup.valid) { return; }
-    console.log(this.formGroup.value);
+    const data = {
+      id : this.selectedNewsData.id,
+      description : this.formGroup.value.headline,
+      createdOn : `The Wire ${new Date().toString()}`
+    };
+    this.trendingNewsService.updateTrendingNews(data);
+    this.locationService.goToPath(`/trending-news`);
   }
 
 }

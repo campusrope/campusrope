@@ -44,6 +44,15 @@ deleteTrendingNews(index: number) {
   this.trendingNewsList.splice(index, 1);
 }
 
+getTrendingNewsById(id: number) {
+  return this.trendingNewsList.find((trendingNewsData) => trendingNewsData.id === id);
+}
+
+updateTrendingNews(trendingNewsDataInfo: { id: number; description: string; createdOn: string; }) {
+ const index =  this.trendingNewsList.findIndex((trendingNewsData) => trendingNewsData.id === trendingNewsDataInfo.id);
+ this.trendingNewsList.splice(index, 1, trendingNewsDataInfo);
+}
+
 constructor() { }
 
 }
