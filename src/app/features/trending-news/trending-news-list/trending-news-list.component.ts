@@ -15,4 +15,9 @@ export class TrendingNewsListComponent implements OnInit {
   ngOnInit() {
     this.trendingNewsList = this.trendingNewsService.getTrendingNewsList();
   }
+
+  onDeleteTrendingNews(index: number) {
+    this.trendingNewsService.deleteTrendingNews(index);
+    this.trendingNewsList = this.trendingNewsService.getTrendingNewsList();
+  }
 }

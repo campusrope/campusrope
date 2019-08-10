@@ -40,6 +40,10 @@ addTrendingNews(trendingNewsData: { id: number; description: string; createdOn: 
   this.trendingNewsList.push(trendingNewsData);
 }
 
+deleteTrendingNews(index: number) {
+  this.trendingNewsList.splice(index, 1);
+}
+
 constructor() { }
 
 }

@@ -22,9 +22,7 @@
    <div class="trending-news-card-wrapper">
       <div
       *ngFor="
-        let trendingNewsData of trendingNewsList;
-        let odd = odd
-      "
+        let trendingNewsData of trendingNewsList; let i = index; let odd = odd"
       [style.margin]="odd ? '10px 0px 10px 0px' : '10px 10px 10px 0px'"
     >
       <mat-card class="example-card">
@@ -38,6 +36,10 @@
           src="assets/Youtube Player.png"
           alt="Youtube Player"
         />
+        <mat-card-actions>
+          <button mat-raised-button color="accent">Edit</button>
+          <button mat-raised-button color="warn" (click)="onDeleteTrendingNews(i)">Delete</button>
+        </mat-card-actions>
       </mat-card>
     </div>
    </div>
