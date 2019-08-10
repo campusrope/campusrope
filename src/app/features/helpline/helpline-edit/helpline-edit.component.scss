@@ -1,0 +1,31 @@
+.helpline-container {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+
+.helpline-container > * {
+  width: 100%;
+}
+
+.example-button-row{
+  display: flex;
+  justify-content: space-between;
+}
+
+.example-button-row button,
+.example-button-row a {
+  margin-right: 8px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.form {
+  width: 100%;
+}
+
+.form mat-form-field{
+  width: 100%;
+}

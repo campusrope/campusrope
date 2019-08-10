@@ -73,6 +73,12 @@
           <img src="assets/whatsapp.png" />
         </div>
       </div>
+      <mat-action-row>
+          <button mat-button color="warn">Delete</button>
+          <button mat-button
+            [routerLink]="['edit', helplineData.id]"
+            color="primary">Edit</button>
+      </mat-action-row>
     </mat-expansion-panel>
   </mat-accordion>
 </div>
