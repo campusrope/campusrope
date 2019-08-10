@@ -14,4 +14,9 @@ export class LocationService {
   goBack() {
     this.location.back();
   }
+
+  goToPath(path: string) {
+    this.location.go(path);
+  }
+
 }

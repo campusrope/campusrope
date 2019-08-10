@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { LocationService } from "src/app/core/location/location.service";
+import { TrendingNewsService } from "../trending-news.service";
 
 @Component({
   selector: "app-trending-news-add",
@@ -14,7 +15,8 @@ export class TrendingNewsAddComponent implements OnInit {
 
   constructor(
     private locationService: LocationService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private trendingNewsService: TrendingNewsService
   ) { }
 
   ngOnInit() {
@@ -36,7 +38,13 @@ export class TrendingNewsAddComponent implements OnInit {
 
   onTrendingNewsAdd(): any {
     if (!this.formGroup.valid) { return; }
-    console.log(this.formGroup.value);
+    const data = {
+      id : this.trendingNewsService.getTrendingNewsList().length + 1,
+      description : this.formGroup.value.headline,
+      createdOn : `The Wire ${new Date().toString()}`
+    };
+    this.trendingNewsService.addTrendingNews(data);
+    this.locationService.goToPath(`/trending-news`);
   }
 
 }

@@ -7,6 +7,7 @@ import { SharedModule } from "src/app/shared/shared.module";
 import { TrendingNewsAddComponent } from "./trending-news-add/trending-news-add.component";
 import { TopicListComponent, AddTopicDialogModal } from "./topics/topic-list/topic-list.component";
 import { ManageClientListComponent } from "./trending-news-add/manage-client/manage-client-list/manage-client-list.component";
+import { TrendingNewsService } from "./trending-news.service";
 
 @NgModule({
   imports: [
@@ -20,6 +21,9 @@ import { ManageClientListComponent } from "./trending-news-add/manage-client/man
     TopicListComponent,
     ManageClientListComponent,
     AddTopicDialogModal
+  ],
+  providers: [
+    TrendingNewsService
   ],
   exports: [],
   entryComponents: [TrendingNewsListComponent, AddTopicDialogModal]
