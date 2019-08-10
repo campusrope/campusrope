@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { HelplineService } from "../helpline.service";
 
 @Component({
   selector: "app-helpline-list",
@@ -6,7 +7,10 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./helpline-list.component.scss"]
 })
 export class HelplineListComponent implements OnInit {
-  constructor() {}
+  helplineList: any = [];
+  constructor(private helplineService: HelplineService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.helplineList = this.helplineService.getHelplineList();
+  }
 }

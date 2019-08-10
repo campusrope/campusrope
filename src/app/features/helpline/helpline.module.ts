@@ -6,6 +6,8 @@ import { RouterModule } from "@angular/router";
 import { HELPLINE_ROUTES } from "./helpline.routes";
 import { SharedModule } from "src/app/shared/shared.module";
 import { HelplineAddComponent } from "./helpline-add/helpline-add.component";
+import { HelplineService } from "./helpline.service";
+import { HelplineEditComponent } from "./helpline-edit/helpline-edit.component";
 
 @NgModule({
   imports: [
@@ -15,7 +17,11 @@ import { HelplineAddComponent } from "./helpline-add/helpline-add.component";
     RouterModule.forChild(HELPLINE_ROUTES)],
   declarations: [
     HelplineListComponent,
-    HelplineAddComponent
+    HelplineAddComponent,
+    HelplineEditComponent
+  ],
+  providers: [
+    HelplineService
   ],
   exports: [],
   entryComponents: [HelplineListComponent]
