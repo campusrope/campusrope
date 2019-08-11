@@ -1,10 +1,15 @@
-<h1 mat-dialog-title>Modal</h1>
+<h1 mat-dialog-title>{{data.title}}</h1>
 <div mat-dialog-content>
-  <mat-form-field>
-    <input matInput >
+  <mat-form-field class="full-width">
+    <input matInput disabled=true [(ngModel)]="data.link">
   </mat-form-field>
 </div>
 <div mat-dialog-actions>
-  <button mat-button >Open URL</button>
-  <button mat-button >Close</button>
+  <button mat-button >
+    <a href="{{data.link}}" target="blank">
+        Open URL
+    </a>
+  </button>
+  <button mat-button >Copy URL</button>
+  <button mat-button (click)="onCancelClick()">Close</button>
 </div>

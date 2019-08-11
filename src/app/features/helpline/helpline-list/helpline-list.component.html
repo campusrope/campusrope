@@ -44,33 +44,43 @@
             {{helplineData.headlineNumber}}
           </h2>
         </div>
-        <div class="helpline-content-btn" (click)="openDialog(helplineData.websiteLink)">
+        <div class="helpline-content-btn"
+          (click)="openDialog(helplineData.websiteLink,'Website')">
           <span>
             Website
           </span>
           <h5>
-            <a href="#">
+            <a href="JavaScript:void(0);">
               {{helplineData.websiteLink}}
             </a>
           </h5>
         </div>
 
-        <div class="helpline-content-btn " (click)="openDialog(helplineData.fileOnlineComplaintLink)">
+        <div class="helpline-content-btn "
+          (click)="openDialog(helplineData.fileOnlineComplaintLink,'File Online Complaints')">
           <span style="color: #FF0000">
             File Online Complaints
           </span>
           <h5>
-            <a href="#">
+            <a href="JavaScript:void(0);">
               {{helplineData.fileOnlineComplaintLink}}
             </a>
           </h5>
         </div>
 
-        <div style="display:flex; justify-content: center;margin-top: 10px;">
-          <img src="assets/facebook.png" />
-          <img src="assets/twitter.png" />
-          <img src="assets/instagram.png" />
-          <img src="assets/whatsapp.png" />
+        <div class="social-icons">
+          <img
+            (click)="openDialog(helplineData.facebookLink,'Facebok')"
+            src="assets/facebook.png" />
+          <img
+            (click)="openDialog(helplineData.twitterLink,'Twitter')"
+            src="assets/twitter.png" />
+          <img
+            (click)="openDialog(helplineData.instagramLink,'Instagram')"
+            src="assets/instagram.png" />
+          <img
+            (click)="openDialog(helplineData.whatsappLink,'Whatsapp')"
+            src="assets/whatsapp.png" />
         </div>
       </div>
       <mat-action-row>

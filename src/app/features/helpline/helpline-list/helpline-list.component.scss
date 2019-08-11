@@ -70,3 +70,13 @@
   justify-content: space-around;
   align-items: center;
 }
+
+.social-icons {
+  display:flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.social-icons > img{
+  cursor: pointer;
+}

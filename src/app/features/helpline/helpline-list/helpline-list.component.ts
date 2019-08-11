@@ -17,10 +17,12 @@ export class HelplineListComponent implements OnInit {
     this.helplineList = this.helplineService.getHelplineList();
   }
 
-  openDialog(helplineNo: string) {
+  openDialog(helplineNo: string, title: string) {
     this.dialog.open(LinksDialogModalComponent, {
+      width: "350px",
       data: {
-        link: helplineNo
+        link: helplineNo,
+        title
       }
     });
   }

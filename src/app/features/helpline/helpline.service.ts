@@ -15,11 +15,11 @@ helplineList = [
     nostrum esse culpa.`,
     headlineNumber: "1800-234-534",
     websiteLink: "https://gama.gov",
-    twitterLink: "www.twitter.com",
-    facebookLink: "www.facebook.com",
+    twitterLink: "https://twitter.com",
+    facebookLink: "https://facebook.com",
     fileOnlineComplaintLink: "https://gama.gov",
-    instagramLink: "www.instagram.com",
-    whatsappLink: "www.web.whatsapp.com"
+    instagramLink: "https://instagram.com",
+    whatsappLink: "https://web.whatsapp.com"
   },
   {
     id: 2,
@@ -30,11 +30,11 @@ helplineList = [
     nostrum esse culpa.`,
     headlineNumber: "1800-234-534",
     websiteLink: "https://gama.gov",
-    twitterLink: "www.twitter.com",
-    facebookLink: "www.facebook.com",
+    twitterLink: "https://twitter.com",
+    facebookLink: "https://facebook.com",
     fileOnlineComplaintLink: "https://gama.gov",
-    instagramLink: "www.instagram.com",
-    whatsappLink: "www.web.whatsapp.com"
+    instagramLink: "https://instagram.com",
+    whatsappLink: "https://web.whatsapp.com"
   },
   {
     id: 3,
@@ -45,11 +45,11 @@ helplineList = [
     nostrum esse culpa.`,
     headlineNumber: "1800-234-534",
     websiteLink: "https://gama.gov",
-    twitterLink: "www.twitter.com",
-    facebookLink: "www.facebook.com",
+    twitterLink: "https://twitter.com",
+    facebookLink: "https://facebook.com",
     fileOnlineComplaintLink: "https://gama.gov",
-    instagramLink: "www.instagram.com",
-    whatsappLink: "www.web.whatsapp.com"
+    instagramLink: "https://instagram.com",
+    whatsappLink: "https://web.whatsapp.com"
   },
   {
     id: 4,
@@ -60,11 +60,11 @@ helplineList = [
     nostrum esse culpa.`,
     headlineNumber: "1800-234-534",
     websiteLink: "https://gama.gov",
-    twitterLink: "www.twitter.com",
-    facebookLink: "www.facebook.com",
+    twitterLink: "https://twitter.com",
+    facebookLink: "https://facebook.com",
     fileOnlineComplaintLink: "https://gama.gov",
-    instagramLink: "www.instagram.com",
-    whatsappLink: "www.web.whatsapp.com"
+    instagramLink: "https://instagram.com",
+    whatsappLink: "https://web.whatsapp.com"
   },
   {
     id: 5,
@@ -75,11 +75,11 @@ helplineList = [
     nostrum esse culpa.`,
     headlineNumber: "1800-234-534",
     websiteLink: "https://gama.gov",
-    twitterLink: "www.twitter.com",
-    facebookLink: "www.facebook.com",
+    twitterLink: "https://twitter.com",
+    facebookLink: "https://facebook.com",
     fileOnlineComplaintLink: "https://gama.gov",
-    instagramLink: "www.instagram.com",
-    whatsappLink: "www.web.whatsapp.com"
+    instagramLink: "https://instagram.com",
+    whatsappLink: "https://web.whatsapp.com"
   }
 ];
 
