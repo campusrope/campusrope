@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from "@angular/core";
 import { MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+import { NotificationService } from "src/app/core/core.module";
 
 @Component({
   selector: "app-links-dialog-modal",
@@ -10,6 +11,7 @@ export class LinksDialogModalComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<LinksDialogModalComponent>,
+    private notificationService: NotificationService,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
 
@@ -32,5 +34,6 @@ export class LinksDialogModalComponent implements OnInit {
       selBox.select();
       document.execCommand("copy");
       document.body.removeChild(selBox);
+      this.notificationService.success("Text Copied");
     }
 }

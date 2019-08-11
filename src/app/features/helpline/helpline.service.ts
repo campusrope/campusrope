@@ -87,6 +87,10 @@ getHelplineList() {
   return this.helplineList;
 }
 
+deleteHelpline(index: number) {
+  this.helplineList.splice(index, 1);
+}
+
 constructor() { }
 
 }
