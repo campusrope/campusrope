@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { LocationService } from "src/app/core/location/location.service";
 import { TrendingNewsService } from "../trending-news.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-trending-news-add",
@@ -16,7 +17,8 @@ export class TrendingNewsAddComponent implements OnInit {
   constructor(
     private locationService: LocationService,
     private formBuilder: FormBuilder,
-    private trendingNewsService: TrendingNewsService
+    private trendingNewsService: TrendingNewsService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -44,7 +46,7 @@ export class TrendingNewsAddComponent implements OnInit {
       createdOn : `The Wire ${new Date().toString()}`
     };
     this.trendingNewsService.addTrendingNews(data);
-    this.locationService.goToPath(`/trending-news`);
+    this.router.navigate(["trending-news"]);
   }
 
 }

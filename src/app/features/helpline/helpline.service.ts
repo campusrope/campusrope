@@ -1,11 +1,24 @@
 import { Injectable } from "@angular/core";
 
+export interface Helpline {
+  id: number;
+  headline: string;
+  description: string;
+  headlineNumber: string;
+  websiteLink: string;
+  twitterLink: string;
+  facebookLink: string;
+  fileOnlineComplaintLink: string;
+  instagramLink: string;
+  whatsappLink: string;
+}
+
 @Injectable({
   providedIn: "root"
 })
 export class HelplineService {
 
-helplineList = [
+helplineList: Helpline[] = [
   {
     id: 1,
     headline: "Consumer Protection",
@@ -89,6 +102,10 @@ getHelplineList() {
 
 deleteHelpline(index: number) {
   this.helplineList.splice(index, 1);
+}
+
+addHelpline(helplineData: Helpline) {
+  this.helplineList.push(helplineData);
 }
 
 constructor() { }
