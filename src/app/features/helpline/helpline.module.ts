@@ -8,6 +8,7 @@ import { SharedModule } from "src/app/shared/shared.module";
 import { HelplineAddComponent } from "./helpline-add/helpline-add.component";
 import { HelplineService } from "./helpline.service";
 import { HelplineEditComponent } from "./helpline-edit/helpline-edit.component";
+import { LinksDialogModalComponent } from "./links-dialog-modal/links-dialog-modal.component";
 
 @NgModule({
   imports: [
@@ -18,12 +19,13 @@ import { HelplineEditComponent } from "./helpline-edit/helpline-edit.component";
   declarations: [
     HelplineListComponent,
     HelplineAddComponent,
-    HelplineEditComponent
+    HelplineEditComponent,
+    LinksDialogModalComponent
   ],
   providers: [
     HelplineService
   ],
   exports: [],
-  entryComponents: [HelplineListComponent]
+  entryComponents: [HelplineListComponent, LinksDialogModalComponent]
 })
 export class HelplineModule {}

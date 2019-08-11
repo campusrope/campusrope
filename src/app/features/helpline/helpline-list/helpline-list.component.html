@@ -36,7 +36,7 @@
       </p>
 
       <div style="display:flex;flex-direction:column">
-        <div class="helpline-content-btn ">
+        <div class="helpline-content-btn">
           <span>
             Helpline Number
           </span>
@@ -44,7 +44,7 @@
             {{helplineData.headlineNumber}}
           </h2>
         </div>
-        <div class="helpline-content-btn ">
+        <div class="helpline-content-btn" (click)="openDialog(helplineData.websiteLink)">
           <span>
             Website
           </span>
@@ -55,7 +55,7 @@
           </h5>
         </div>
 
-        <div class="helpline-content-btn ">
+        <div class="helpline-content-btn " (click)="openDialog(helplineData.fileOnlineComplaintLink)">
           <span style="color: #FF0000">
             File Online Complaints
           </span>
