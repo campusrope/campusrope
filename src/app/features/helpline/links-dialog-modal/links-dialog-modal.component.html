@@ -1,7 +1,7 @@
 <h1 mat-dialog-title>{{data.title}}</h1>
 <div mat-dialog-content>
   <mat-form-field class="full-width">
-    <input matInput disabled=true [(ngModel)]="data.link">
+    <input matInput disabled=true [(ngModel)]="data.link" #linkInput>
   </mat-form-field>
 </div>
 <div mat-dialog-actions>
@@ -10,6 +10,7 @@
         Open URL
     </a>
   </button>
-  <button mat-button >Copy URL</button>
+  <button mat-button
+    (click)="copyText(data.link)" >Copy URL</button>
   <button mat-button (click)="onCancelClick()">Close</button>
 </div>
