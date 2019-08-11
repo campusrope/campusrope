@@ -108,6 +108,15 @@ addHelpline(helplineData: Helpline) {
   this.helplineList.push(helplineData);
 }
 
+getHelplineById(id: number) {
+  return this.helplineList.find((helplineData) => helplineData.id === id);
+}
+
+updateHelpline(updateHelplineData: Helpline) {
+  const index =  this.helplineList.findIndex((trendingNewsData) => trendingNewsData.id === updateHelplineData.id);
+  this.helplineList.splice(index, 1, updateHelplineData);
+ }
+
 constructor() { }
 
 }
