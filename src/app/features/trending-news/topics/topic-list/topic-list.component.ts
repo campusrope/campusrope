@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { MatDialog, MatDialogRef } from "@angular/material";
+import { Topic, TopicService } from "../topic.service";
 
 @Component({
   selector: "app-topic-list",
@@ -8,39 +9,16 @@ import { MatDialog, MatDialogRef } from "@angular/material";
 })
 export class TopicListComponent implements OnInit {
 
-  topics = [
-    {
-      id : 1,
-      topic : "Topic 1"
-    },
-    {
-      id : 2,
-      topic : "Topic 2"
-    },
-    {
-      id : 3,
-      topic : "Topic 3"
-    },
-    {
-      id : 4,
-      topic : "Topic 4"
-    },
-    {
-      id : 5,
-      topic : "Topic 5"
-    },
-    {
-      id : 6,
-      topic : "Topic 6"
-    }
-  ];
+  topics: Topic[];
 
-  constructor(public dialog: MatDialog) { }
+  constructor(private dialog: MatDialog, private topicService: TopicService) { }
 
   ngOnInit() {
+    this.topics = this.topicService.getTopics();
   }
 
   openDialog(): void {
+    // tslint:disable-next-line: no-use-before-declare
     const dialogRef = this.dialog.open(AddTopicDialogModal, {
       width: "250px"
     });

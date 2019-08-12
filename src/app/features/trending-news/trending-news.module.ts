@@ -9,6 +9,7 @@ import { TopicListComponent, AddTopicDialogModal } from "./topics/topic-list/top
 import { ManageClientListComponent } from "./trending-news-add/manage-client/manage-client-list/manage-client-list.component";
 import { TrendingNewsService } from "./trending-news.service";
 import { TrendingNewsEditComponent } from "./trending-news-edit/trending-news-edit.component";
+import { TopicService } from "./topics/topic.service";
 
 @NgModule({
   imports: [
@@ -25,7 +26,8 @@ import { TrendingNewsEditComponent } from "./trending-news-edit/trending-news-ed
     TrendingNewsEditComponent
   ],
   providers: [
-    TrendingNewsService
+    TrendingNewsService,
+    TopicService
   ],
   exports: [],
   entryComponents: [TrendingNewsListComponent, AddTopicDialogModal]
