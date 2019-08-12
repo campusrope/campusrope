@@ -1,10 +1,15 @@
 <h1 mat-dialog-title>Add Topic</h1>
-<div mat-dialog-content>
-  <mat-form-field>
-    <input matInput placeholder="Topic Name">
-  </mat-form-field>
-</div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onCancelClick()">Cancel</button>
-  <button mat-button cdkFocusInitial>Save</button>
-</div>
+<form [formGroup]="formGroup" class="form">
+    <div mat-dialog-content>
+          <mat-form-field>
+              <input matInput placeholder="Topic Name" formControlName="topicName">
+              <mat-error *ngIf="!formGroup.controls['topicName'].valid">
+                  {{ titleAlert }}
+              </mat-error>
+          </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+      <button mat-button (click)="onCancelClick()">Cancel</button>
+      <button mat-button cdkFocusInitial (click)="onSaveTopic()">Save</button>
+    </div>
+</form>

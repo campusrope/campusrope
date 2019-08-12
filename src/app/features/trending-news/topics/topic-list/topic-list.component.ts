@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { MatDialog, MatDialogRef } from "@angular/material";
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { Topic, TopicService } from "../topic.service";
 
 @Component({
@@ -20,7 +21,8 @@ export class TopicListComponent implements OnInit {
   openDialog(): void {
     // tslint:disable-next-line: no-use-before-declare
     const dialogRef = this.dialog.open(AddTopicDialogModal, {
-      width: "250px"
+      width: "250px",
+      hasBackdrop: false
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -35,13 +37,37 @@ export class TopicListComponent implements OnInit {
   templateUrl: "./add-topic-modal.html",
 })
 // tslint:disable-next-line: component-class-suffix
-export class AddTopicDialogModal {
-
+export class AddTopicDialogModal implements OnInit {
+  formGroup: FormGroup;
+  titleAlert = "This field is required";
   constructor(
-    public dialogRef: MatDialogRef<AddTopicDialogModal>) {}
+    private dialogRef: MatDialogRef<AddTopicDialogModal>,
+    private formBuilder: FormBuilder,
+    private topicService: TopicService
+    ) {}
 
-  onCancelClick(): void {
-    this.dialogRef.close();
-  }
+    ngOnInit() {
+      this.createForm();
+    }
+
+    onCancelClick(): void {
+      this.dialogRef.close();
+    }
+
+    createForm() {
+      this.formGroup = this.formBuilder.group({
+        topicName: [null, Validators.required]
+      });
+    }
+
+    onSaveTopic() {
+      if (!this.formGroup.valid) { return; }
+      const data: Topic = {
+        id : this.topicService.getTopics().length + 1,
+        topic : this.formGroup.value.topicName
+      };
+      this.topicService.addTopic(data);
+      this.onCancelClick();
+    }
 
 }
