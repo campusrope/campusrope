@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { StateConstantService } from "src/app/core/core.module";
 
 @Component({
   selector: "app-leftpane",
@@ -6,7 +7,12 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./leftpane.component.scss"]
 })
 export class LeftpaneComponent implements OnInit {
-  constructor() {}
 
-  ngOnInit() {}
+  states = [];
+
+  constructor(private stateConstantService: StateConstantService) {}
+
+  ngOnInit() {
+    this.states = this.stateConstantService.getStates();
+  }
 }

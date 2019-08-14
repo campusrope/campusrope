@@ -21,6 +21,7 @@ import { HttpErrorInterceptor } from "./http-interceptors/http-error.interceptor
 import { NotificationService } from "./notifications/notification.service";
 import { SharedModule } from "../shared/shared.module";
 import { StateModule } from "../state/state.module";
+import { StateConstantService } from "./constants/state-constant.service";
 
 export {
   TitleService,
@@ -29,7 +30,8 @@ export {
   ROUTE_ANIMATIONS_ELEMENTS,
   AnimationsService,
   AuthGuardService,
-  NotificationService
+  NotificationService,
+  StateConstantService
 };
 
 export function HttpLoaderFactory(http: HttpClient) {

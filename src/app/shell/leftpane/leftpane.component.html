@@ -1,1 +1,13 @@
-<div class="Left"></div>
+<div class="left-side-pane">
+  <div class="search-state-wrapper">
+      <div>
+          <mat-icon class="search-icon">search</mat-icon>
+         <input type="text" class="search-state-box" placeholder="Search State">
+      </div>
+  </div>
+  <div class="search-list-options">
+      <div *ngFor="let state of states">
+        {{state.name}}
+      </div>
+  </div>
+</div>
