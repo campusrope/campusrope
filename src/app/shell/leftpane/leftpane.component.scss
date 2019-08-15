@@ -46,3 +46,11 @@
   top: 150px;
   overflow-y: auto;
 }
+
+.selected {
+  background: #FCFCFC;
+}
+
+.search-list-options * {
+  cursor: pointer;
+}

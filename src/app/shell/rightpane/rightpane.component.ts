@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { TopicService, Topic } from "src/app/features/trending-news/topics/topic.service";
 
 @Component({
   selector: "app-rightpane",
@@ -6,7 +7,12 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./rightpane.component.scss"]
 })
 export class RightpaneComponent implements OnInit {
-  constructor() {}
 
-  ngOnInit() {}
+  topics: Topic[];
+
+  constructor(private topicService: TopicService) { }
+
+  ngOnInit() {
+    this.topics = this.topicService.getTopics();
+  }
 }

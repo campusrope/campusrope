@@ -1,1 +1,12 @@
-<div class="Right"></div>
+<div class="right-side-pane">
+  <div class="topic-wrapper">
+      <div class="topic-box">
+         <span>Topics</span>
+      </div>
+  </div>
+  <div class="topic-options">
+      <div *ngFor="let topicData of topics">
+        {{topicData.topic}}
+      </div>
+  </div>
+</div>
