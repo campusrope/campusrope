@@ -1,12 +1,9 @@
 <div class="trending-news-container">
     <div class="trending-news-header">
-        <mat-form-field>
+        <mat-form-field *ngIf="isMobile$ | async">
             <mat-label>Select State</mat-label>
             <mat-select>
-              <mat-option>None</mat-option>
-              <mat-option value="option1">Option 1</mat-option>
-              <mat-option value="option2">Option 2</mat-option>
-              <mat-option value="option3">Option 3</mat-option>
+              <mat-option *ngFor="let state of states" [value]="state.name">{{ state.name }}</mat-option>
             </mat-select>
           </mat-form-field>
           <button mat-raised-button color="primary"

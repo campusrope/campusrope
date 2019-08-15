@@ -19,9 +19,9 @@
 
       <mat-form-field>
         <mat-select placeholder="State" formControlName="state">
-          <mat-option value="option">Option</mat-option>
-          <mat-option value="one">One</mat-option>
-          <mat-option value="two">Two</mat-option>
+          <mat-option *ngFor="let state of states" [value]="state.name">
+            {{ state.name }}
+          </mat-option>
         </mat-select>
         <mat-error *ngIf="!formGroup.controls['state'].valid
           && formGroup.controls['state'].touched">
@@ -29,7 +29,7 @@
         </mat-error>
       </mat-form-field>
 
-      <button mat-raised-button color="accent" 
+      <button mat-raised-button color="accent"
             routerLink="./manage-client">Manage Client</button>
 
       <mat-form-field appearance="legacy">

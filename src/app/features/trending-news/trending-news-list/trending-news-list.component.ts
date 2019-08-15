@@ -1,5 +1,9 @@
 import { Component, OnInit } from "@angular/core";
+import { Observable } from "rxjs";
+import { Store, select } from "@ngrx/store";
 import { TrendingNewsService } from "../trending-news.service";
+import { StateConstantService } from "src/app/core/core.module";
+import { AppState, getIsMobile } from "src/app/state";
 
 @Component({
   selector: "app-trending-news-list",
@@ -8,12 +12,19 @@ import { TrendingNewsService } from "../trending-news.service";
 })
 export class TrendingNewsListComponent implements OnInit {
   trendingNewsList: any = [];
+  isMobile$: Observable<boolean>;
+  states: any = [];
+
   constructor(
-    private trendingNewsService: TrendingNewsService
+    private trendingNewsService: TrendingNewsService,
+    private stateConstantService: StateConstantService,
+    private store: Store<AppState>
     ) {}
 
   ngOnInit() {
+    this.isMobile$ = this.store.pipe(select(getIsMobile));
     this.trendingNewsList = this.trendingNewsService.getTrendingNewsList();
+    this.states = this.stateConstantService.getStates();
   }
 
   onDeleteTrendingNews(index: number) {

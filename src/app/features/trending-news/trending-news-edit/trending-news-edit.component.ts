@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { LocationService } from "src/app/core/location/location.service";
 import { TrendingNewsService } from "../trending-news.service";
 import { ActivatedRoute, Router } from "@angular/router";
+import { StateConstantService } from "src/app/core/core.module";
 
 @Component({
   selector: "app-trending-news-edit",
@@ -12,6 +13,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 export class TrendingNewsEditComponent implements OnInit {
 
   formGroup: FormGroup;
+  states: any = [];
   titleAlert = "This field is required";
   selectedNewsData: any;
 
@@ -19,11 +21,13 @@ export class TrendingNewsEditComponent implements OnInit {
     private locationService: LocationService,
     private formBuilder: FormBuilder,
     private trendingNewsService: TrendingNewsService,
+    private stateConstantService: StateConstantService,
     private route: ActivatedRoute,
     private router: Router
   ) { }
 
   ngOnInit() {
+    this.states = this.stateConstantService.getStates();
     this.createForm();
     this.route.params.subscribe(params => {
       this.selectedNewsData = this.trendingNewsService.getTrendingNewsById(+params.id);

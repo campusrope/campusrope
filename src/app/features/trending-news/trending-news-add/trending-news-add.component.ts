@@ -1,8 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
 import { LocationService } from "src/app/core/location/location.service";
 import { TrendingNewsService } from "../trending-news.service";
-import { Router } from "@angular/router";
+import { StateConstantService } from "src/app/core/core.module";
 
 @Component({
   selector: "app-trending-news-add",
@@ -12,16 +13,19 @@ import { Router } from "@angular/router";
 export class TrendingNewsAddComponent implements OnInit {
 
   formGroup: FormGroup;
+  states: any = [];
   titleAlert = "This field is required";
 
   constructor(
     private locationService: LocationService,
     private formBuilder: FormBuilder,
     private trendingNewsService: TrendingNewsService,
+    private stateConstantService: StateConstantService,
     private router: Router
   ) { }
 
   ngOnInit() {
+    this.states = this.stateConstantService.getStates();
     this.createForm();
   }
 
