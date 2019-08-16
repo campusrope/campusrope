@@ -18,10 +18,13 @@ import { AnimationsService } from "./animations/animations.service";
 import { AppErrorHandler } from "./error-handler/app-error-handler.service";
 import { LocalStorageService } from "./local-storage/local-storage.service";
 import { HttpErrorInterceptor } from "./http-interceptors/http-error.interceptor";
+import { BaseUrlInterceptor } from "./http-interceptors/base-url.interceptor";
+import { AuthTokenInterceptor } from './http-interceptors/auth-token.interceptor';
 import { NotificationService } from "./notifications/notification.service";
 import { SharedModule } from "../shared/shared.module";
 import { StateModule } from "../state/state.module";
 import { StateConstantService } from "./constants/state-constant.service";
+import { AdminTaskService } from "../features/admin-task/admin-task.service";
 
 export {
   TitleService,
@@ -44,7 +47,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 
 @NgModule({
   imports: [
-    // angular
+  // angular
     CommonModule,
     HttpClientModule,
     SharedModule,
@@ -64,7 +67,11 @@ export function HttpLoaderFactory(http: HttpClient) {
   declarations: [],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
-    { provide: ErrorHandler, useClass: AppErrorHandler }
+    { provide: HTTP_INTERCEPTORS, useClass: BaseUrlInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthTokenInterceptor, multi: true },
+    { provide: "BASE_API_URL", useValue: environment.apiUrl },
+    { provide: ErrorHandler, useClass: AppErrorHandler },
+    AdminTaskService
   ],
   exports: [TranslateModule]
 })

@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
+import { AuthService } from "../../core/auth/auth.service";
 
 @Component({
   selector: "app-login",
@@ -10,15 +11,14 @@ import { Router } from "@angular/router";
 export class LoginComponent {
   loginForm: FormGroup;
 
-  constructor(fb: FormBuilder, private router: Router) {
+  constructor(fb: FormBuilder, private router: Router, private authService: AuthService) {
     this.loginForm = fb.group({
-      username: [
+      email: [
         "",
         Validators.compose(
           [
             Validators.required,
-            Validators.minLength(6),
-            Validators.maxLength(20)
+            Validators.email
           ]
         )
       ],
@@ -41,6 +41,6 @@ export class LoginComponent {
 
   onSubmit(values) {
     if (this.loginForm.invalid) { return; }
-    console.log(values);
+    this.authService.loginWithCredentials(values);
   }
 }
