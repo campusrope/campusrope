@@ -21,6 +21,7 @@ import { YoutubePlayerComponent } from "./youtube-player/youtube-player.componen
     TranslateModule,
     MaterialModule,
     YoutubePlayerComponent
-  ]
+  ],
+  entryComponents: [YoutubePlayerComponent]
 })
 export class SharedModule {}

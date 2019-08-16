@@ -1,13 +1,17 @@
-<div class="left-side-pane">
-  <div class="search-state-wrapper">
+<div class="left-side-pane"
+      [ngSwitch]="routerEvent?.url">
+  <div class="search-state-wrapper"
+      *ngSwitchCase="'/trending-news'">
       <div>
           <mat-icon class="search-icon">search</mat-icon>
          <input type="text" class="search-state-box" placeholder="Search State">
       </div>
   </div>
-  <div class="search-list-options">
+  <div class="search-list-options"
+      *ngSwitchCase="'/trending-news'">
       <div *ngFor="let state of states">
         {{state.name}}
       </div>
   </div>
+  <div *ngSwitchDefault></div>
 </div>

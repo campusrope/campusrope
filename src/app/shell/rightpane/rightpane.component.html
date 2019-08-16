@@ -1,12 +1,16 @@
-<div class="right-side-pane">
-  <div class="topic-wrapper">
+<div class="right-side-pane"
+    [ngSwitch]="routerEvent?.url">
+  <div class="topic-wrapper"
+    *ngSwitchCase="'/trending-news'">
       <div class="topic-box">
          <span>Topics</span>
       </div>
   </div>
-  <div class="topic-options">
+  <div class="topic-options"
+    *ngSwitchCase="'/trending-news'">
       <div *ngFor="let topicData of topics">
         {{topicData.topic}}
       </div>
   </div>
+  <div *ngSwitchDefault></div>
 </div>
