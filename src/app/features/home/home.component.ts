@@ -5,6 +5,7 @@ import { map } from "rxjs/operators";
 import { Router } from "@angular/router";
 import { AppState } from "../../state/core.state";
 import { getIsMobile, getShowSidenav, SetSidenav } from "../../state";
+import { AuthService } from "../../core/auth/auth.service";
 
 @Component({
   selector: "app-home",
@@ -14,15 +15,17 @@ import { getIsMobile, getShowSidenav, SetSidenav } from "../../state";
 export class HomeComponent implements OnInit {
   isMobile$: Observable<boolean>;
   showSidenav$: Observable<boolean>;
+  loggedUser$: Observable<any>;
   routes: string[] = ["", "/helpline", "/trending-news"];
   currentRoutePosition: string;
   routeChangeCounter = 0;
 
-  constructor(private store: Store<AppState>, private router: Router) {}
+  constructor(private store: Store<AppState>, private router: Router, private authService: AuthService) {}
 
   ngOnInit() {
     this.isMobile$ = this.store.pipe(select(getIsMobile));
     this.showSidenav$ = this.store.pipe(select(getShowSidenav));
+    this.loggedUser$ = this.authService.loggedUser$;
   }
 
   get isDesktop$() {

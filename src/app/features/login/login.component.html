@@ -9,10 +9,9 @@
       <p>
         <mat-form-field>
           <mat-icon matSuffix>person_outline</mat-icon>
-          <input type="text" matInput placeholder="Username" formControlName="username">
-          <mat-error *ngIf="hasError('username', 'required')">Username is required</mat-error>
-          <mat-error *ngIf="hasError('username', 'minlength')">Username should contain atleast 6 character</mat-error>
-          <mat-error *ngIf="hasError('username', 'maxlength')">You have more than 20 characters</mat-error>
+          <input type="text" matInput placeholder="Email" formControlName="email">
+          <mat-error *ngIf="hasError('email', 'required')">Email is required</mat-error>
+          <mat-error *ngIf="hasError('email', 'email')">Please provide valid email</mat-error>
         </mat-form-field>
       </p>
 

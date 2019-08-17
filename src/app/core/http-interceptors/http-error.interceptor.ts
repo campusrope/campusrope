@@ -22,7 +22,7 @@ export class HttpErrorInterceptor implements HttpInterceptor {
       tap({
         error: (err: any) => {
           if (err instanceof HttpErrorResponse) {
-            const appErrorHandler = this.injector.get(ErrorHandler);
+          const appErrorHandler = this.injector.get(ErrorHandler);
             appErrorHandler.handleError(err);
           }
         }
