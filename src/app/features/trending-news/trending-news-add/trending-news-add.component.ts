@@ -52,7 +52,7 @@ export class TrendingNewsAddComponent implements OnInit {
       createdOn : `The Wire ${new Date().toString()}`
     };
     this.trendingNewsService.addTrendingNews(data);
-    this.router.navigate(["trending-news"]);
+    this.router.navigate(["admin", "trending-news"]);
   }
 
   getYoutubeId(): string {

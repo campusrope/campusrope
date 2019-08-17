@@ -29,7 +29,14 @@ const routes: Routes = [
         path: "helpline",
         loadChildren: () =>
           import("../helpline/helpline.module").then(m => m.HelplineModule)
-      }
+      },
+      {
+        path: "admin/trending-news",
+        loadChildren: () =>
+          import("../admin-trending-news/admin-trending-news.module").then(
+            m => m.AdminTrendingNewsModule
+          )
+      },
     ]
   }
 ];

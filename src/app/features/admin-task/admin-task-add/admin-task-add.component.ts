@@ -71,6 +71,6 @@ export class AdminTaskAddComponent implements OnInit {
       userId: "1",
       tasks: assignedTasks
     };
-    this.adminTaskService.createAdminTask(data).subscribe(console.log);
+    // this.adminTaskService.createAdminTask(data).subscribe(console.log);
   }
 }
