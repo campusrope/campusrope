@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 
 @Component({
   selector: "app-youtube-player",
@@ -8,7 +8,7 @@ import { Component, OnInit } from "@angular/core";
 export class YoutubePlayerComponent implements OnInit {
 
   player: YT.Player;
-  id = "qDuKsiwS5xw";
+  @Input() id: string;
   constructor() { }
 
   ngOnInit() {

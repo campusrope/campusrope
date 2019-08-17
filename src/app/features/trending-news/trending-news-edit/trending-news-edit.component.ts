@@ -46,7 +46,8 @@ export class TrendingNewsEditComponent implements OnInit {
 
   setSelectedNewsData() {
     this.formGroup.patchValue({
-      headline: this.selectedNewsData.description
+      headline: this.selectedNewsData.description,
+      embedYoutubeVideo: this.selectedNewsData.youtubeVideoUrl
     });
   }
 
@@ -59,10 +60,20 @@ export class TrendingNewsEditComponent implements OnInit {
     const data = {
       id : this.selectedNewsData.id,
       description : this.formGroup.value.headline,
+      youtubeVideoUrl : this.formGroup.value.embedYoutubeVideo,
+      videoId : this.getYoutubeId(),
       createdOn : `The Wire ${new Date().toString()}`
     };
     this.trendingNewsService.updateTrendingNews(data);
     this.router.navigate(["trending-news"]);
+  }
+
+  getYoutubeId(): string {
+    const regExp = /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+    const match = this.formGroup.value.embedYoutubeVideo.match(regExp);
+    if (match && match[2].length === 11) {
+      return match[2];
+    }
   }
 
 }

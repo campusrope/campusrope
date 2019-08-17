@@ -28,7 +28,8 @@
           <mat-card-title>{{ trendingNewsData.description }}</mat-card-title>
           <mat-card-subtitle>{{ trendingNewsData.createdOn }}</mat-card-subtitle>
         </mat-card-header>
-        <app-youtube-player></app-youtube-player>
+        <app-youtube-player
+              [id] = "trendingNewsData.videoId"></app-youtube-player>
         <mat-card-actions>
           <button mat-raised-button [routerLink]="['edit', trendingNewsData.id]" color="accent">Edit</button>
           <button mat-raised-button color="warn" (click)="onDeleteTrendingNews(i)">Delete</button>

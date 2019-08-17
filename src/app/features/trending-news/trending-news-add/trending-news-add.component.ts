@@ -47,10 +47,20 @@ export class TrendingNewsAddComponent implements OnInit {
     const data = {
       id : this.trendingNewsService.getTrendingNewsList().length + 1,
       description : this.formGroup.value.headline,
+      youtubeVideoUrl : this.formGroup.value.embedYoutubeVideo,
+      videoId : this.getYoutubeId(),
       createdOn : `The Wire ${new Date().toString()}`
     };
     this.trendingNewsService.addTrendingNews(data);
     this.router.navigate(["trending-news"]);
+  }
+
+  getYoutubeId(): string {
+    const regExp = /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+    const match = this.formGroup.value.embedYoutubeVideo.match(regExp);
+    if (match && match[2].length === 11) {
+      return match[2];
+    }
   }
 
 }
