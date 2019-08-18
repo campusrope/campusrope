@@ -20,10 +20,13 @@ export interface Helpline {
 })
 export class HelplineService {
   private readonly helplineListSubject$ = new BehaviorSubject<Helpline[]>([]);
+  private readonly selectedHelplineSubject$ = new BehaviorSubject<Helpline>(null);
 
   public helplineList$: Observable<
     Helpline[]
   > = this.helplineListSubject$.asObservable();
+
+  public selectedHelpline$: Observable<Helpline> = this.selectedHelplineSubject$.asObservable();
 
   constructor(private http: HttpClient) {}
 
@@ -44,10 +47,26 @@ export class HelplineService {
     });
   }
 
-  addHelpline(helplineData: Helpline) {}
+  addHelpline(helplineData: Helpline) {
+    this.http.post(`api/helplines`, helplineData).subscribe((res: any) => {
+      const helplines = this.helplineListSubject$
+      .getValue()
+      .concat([res])
+      .slice();
+      this.helplineListSubject$.next(helplines);
+    });
+  }
 
-  getHelplineById(id: number) {}
+  getHelplineById(id: number) {
+    this.http.get(`api/helplines/${id}`).subscribe((helpline: any) => {
+      this.selectedHelplineSubject$.next(helpline);
+    });
+  }
 
-  updateHelpline(updateHelplineData: Helpline) {}
+  updateHelpline(updateHelplineData: Helpline) {
+    this.http.put(`api/helplines/${updateHelplineData._id}`, updateHelplineData).subscribe((helpline: any) => {
+      this.selectedHelplineSubject$.next(null);
+    });
+  }
 
 }
