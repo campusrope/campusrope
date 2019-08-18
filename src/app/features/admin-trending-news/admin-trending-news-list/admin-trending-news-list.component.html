@@ -1,11 +1,21 @@
 <div class="trending-news-container">
     <div class="trending-news-header">
-        <mat-form-field *ngIf="isMobile$ | async">
+        <mat-form-field>
             <mat-label>Select State</mat-label>
             <mat-select>
               <mat-option *ngFor="let state of states" [value]="state.name">{{ state.name }}</mat-option>
             </mat-select>
           </mat-form-field>
+          <button mat-raised-button color="primary"
+          routerLink="./topics">Topics
+      </button>
+      <button
+        mat-mini-fab
+        routerLink="./add"
+        matTooltip="Add Trending News"
+      >
+        <i class="material-icons">add</i>
+      </button>
     </div>
    <div class="trending-news-card-wrapper">
       <div
@@ -21,6 +31,10 @@
         </mat-card-header>
         <app-youtube-player
               [id] = "trendingNewsData.videoId"></app-youtube-player>
+        <mat-card-actions>
+              <button mat-raised-button [routerLink]="['edit', trendingNewsData.id]" color="accent">Edit</button>
+              <button mat-raised-button color="warn" (click)="onDeleteTrendingNews(i)">Delete</button>
+        </mat-card-actions>
       </mat-card>
     </div>
    </div>
