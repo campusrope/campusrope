@@ -45,9 +45,9 @@ export class HelplineEditComponent implements OnInit {
 
   setSelectedHelplineData() {
     this.formGroup.patchValue({
-      headline: this.selectedHelpline.headline,
+      headline: this.selectedHelpline.name,
       description: this.selectedHelpline.description,
-      headlineNumber: this.selectedHelpline.headlineNumber,
+      headlineNumber: this.selectedHelpline.phoneNumber,
       websiteLink: this.selectedHelpline.websiteLink,
       twitterLink: this.selectedHelpline.twitterLink,
       facebookLink: this.selectedHelpline.facebookLink,
@@ -64,7 +64,7 @@ export class HelplineEditComponent implements OnInit {
   onHeadlineUpdate(): any {
     if (!this.formGroup.valid) { return; }
     const data = {
-      id : this.selectedHelpline.id,
+      id : this.selectedHelpline._id,
       headline: this.formGroup.value.headline,
       description: this.formGroup.value.description,
       headlineNumber: this.formGroup.value.headlineNumber,

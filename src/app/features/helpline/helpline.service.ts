@@ -1,10 +1,12 @@
 import { Injectable } from "@angular/core";
+import { BehaviorSubject, Observable } from "rxjs";
+import { HttpClient } from "@angular/common/http";
 
 export interface Helpline {
-  id: number;
-  headline: string;
+  _id: string;
+  name: string;
   description: string;
-  headlineNumber: string;
+  phoneNumber: string;
   websiteLink: string;
   twitterLink: string;
   facebookLink: string;
@@ -17,106 +19,35 @@ export interface Helpline {
   providedIn: "root"
 })
 export class HelplineService {
+  private readonly helplineListSubject$ = new BehaviorSubject<Helpline[]>([]);
 
-helplineList: Helpline[] = [
-  {
-    id: 1,
-    headline: "Consumer Protection",
-    description: `Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-    Ratione fugiat debitis temporibus eius eveniet sit deleniti culpa? Explicabo
-    pariatur quibusdam eaque consectetur accusamus architecto totam deserunt, doloribus
-    nostrum esse culpa.`,
-    headlineNumber: "1800-234-534",
-    websiteLink: "https://gama.gov",
-    twitterLink: "https://twitter.com",
-    facebookLink: "https://facebook.com",
-    fileOnlineComplaintLink: "https://gama.gov",
-    instagramLink: "https://instagram.com",
-    whatsappLink: "https://web.whatsapp.com"
-  },
-  {
-    id: 2,
-    headline: "Advertising Standards Council",
-    description: `Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-    Ratione fugiat debitis temporibus eius eveniet sit deleniti culpa? Explicabo
-    pariatur quibusdam eaque consectetur accusamus architecto totam deserunt, doloribus
-    nostrum esse culpa.`,
-    headlineNumber: "1800-234-534",
-    websiteLink: "https://gama.gov",
-    twitterLink: "https://twitter.com",
-    facebookLink: "https://facebook.com",
-    fileOnlineComplaintLink: "https://gama.gov",
-    instagramLink: "https://instagram.com",
-    whatsappLink: "https://web.whatsapp.com"
-  },
-  {
-    id: 3,
-    headline: "All in one Emergency Number",
-    description: `Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-    Ratione fugiat debitis temporibus eius eveniet sit deleniti culpa? Explicabo
-    pariatur quibusdam eaque consectetur accusamus architecto totam deserunt, doloribus
-    nostrum esse culpa.`,
-    headlineNumber: "1800-234-534",
-    websiteLink: "https://gama.gov",
-    twitterLink: "https://twitter.com",
-    facebookLink: "https://facebook.com",
-    fileOnlineComplaintLink: "https://gama.gov",
-    instagramLink: "https://instagram.com",
-    whatsappLink: "https://web.whatsapp.com"
-  },
-  {
-    id: 4,
-    headline: "Women's Helpline",
-    description: `Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-    Ratione fugiat debitis temporibus eius eveniet sit deleniti culpa? Explicabo
-    pariatur quibusdam eaque consectetur accusamus architecto totam deserunt, doloribus
-    nostrum esse culpa.`,
-    headlineNumber: "1800-234-534",
-    websiteLink: "https://gama.gov",
-    twitterLink: "https://twitter.com",
-    facebookLink: "https://facebook.com",
-    fileOnlineComplaintLink: "https://gama.gov",
-    instagramLink: "https://instagram.com",
-    whatsappLink: "https://web.whatsapp.com"
-  },
-  {
-    id: 5,
-    headline: "Indian Railway",
-    description: `Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-    Ratione fugiat debitis temporibus eius eveniet sit deleniti culpa? Explicabo
-    pariatur quibusdam eaque consectetur accusamus architecto totam deserunt, doloribus
-    nostrum esse culpa.`,
-    headlineNumber: "1800-234-534",
-    websiteLink: "https://gama.gov",
-    twitterLink: "https://twitter.com",
-    facebookLink: "https://facebook.com",
-    fileOnlineComplaintLink: "https://gama.gov",
-    instagramLink: "https://instagram.com",
-    whatsappLink: "https://web.whatsapp.com"
+  public helplineList$: Observable<
+    Helpline[]
+  > = this.helplineListSubject$.asObservable();
+
+  constructor(private http: HttpClient) {}
+
+  getHelplineList() {
+    this.http.get("api/helplines").subscribe((res: any) => {
+      this.helplineListSubject$.next(res);
+    });
   }
-];
 
-getHelplineList() {
-  return this.helplineList;
-}
+  deleteHelpline(id: string) {
+    this.http.delete(`api/helplines/${id}`).subscribe((res: any) => {
+      const filteredHelplines = this.helplineListSubject$
+      .getValue()
+      .filter((helpline) => helpline._id  !== id)
+      .slice();
 
-deleteHelpline(index: number) {
-  this.helplineList.splice(index, 1);
-}
+      this.helplineListSubject$.next(filteredHelplines);
+    });
+  }
 
-addHelpline(helplineData: Helpline) {
-  this.helplineList.push(helplineData);
-}
+  addHelpline(helplineData: Helpline) {}
 
-getHelplineById(id: number) {
-  return this.helplineList.find((helplineData) => helplineData.id === id);
-}
+  getHelplineById(id: number) {}
 
-updateHelpline(updateHelplineData: Helpline) {
-  const index =  this.helplineList.findIndex((trendingNewsData) => trendingNewsData.id === updateHelplineData.id);
-  this.helplineList.splice(index, 1, updateHelplineData);
- }
-
-constructor() { }
+  updateHelpline(updateHelplineData: Helpline) {}
 
 }

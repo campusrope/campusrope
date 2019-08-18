@@ -22,12 +22,12 @@
 
   <mat-accordion
     *ngFor="
-    let helplineData of helplineList; let i = index"
+    let helplineData of helplineList$ | async ; let i = index"
     style="margin: 20px 0;width: 80%">
     <mat-expansion-panel class="helpline-accordion-panel">
       <mat-expansion-panel-header>
         <mat-panel-title>
-          {{helplineData.headline}}
+          {{helplineData.name}}
         </mat-panel-title>
       </mat-expansion-panel-header>
 
@@ -41,7 +41,7 @@
             Helpline Number
           </span>
           <h2>
-            {{helplineData.headlineNumber}}
+            {{helplineData.phoneNumber}}
           </h2>
         </div>
         <div class="helpline-content-btn"
@@ -84,9 +84,9 @@
         </div>
       </div>
       <mat-action-row>
-          <button mat-button color="warn" (click)="onDeleteHelpline(i)">Delete</button>
+          <button mat-button color="warn" (click)="onDeleteHelpline(helplineData)">Delete</button>
           <button mat-button
-            [routerLink]="['edit', helplineData.id]"
+            [routerLink]="['edit', helplineData._id]"
             color="primary">Edit</button>
       </mat-action-row>
     </mat-expansion-panel>
