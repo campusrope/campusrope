@@ -4,6 +4,7 @@ import { LocationService } from "src/app/core/location/location.service";
 import { TrendingNewsService } from "../trending-news.service";
 import { ActivatedRoute, Router } from "@angular/router";
 import { StateConstantService } from "src/app/core/core.module";
+import { Topic, TopicService } from "../topics/topic.service";
 
 @Component({
   selector: "app-trending-news-edit",
@@ -14,6 +15,7 @@ export class TrendingNewsEditComponent implements OnInit {
 
   formGroup: FormGroup;
   states: any = [];
+  topics: Topic[];
   titleAlert = "This field is required";
   selectedNewsData: any;
 
@@ -22,12 +24,14 @@ export class TrendingNewsEditComponent implements OnInit {
     private formBuilder: FormBuilder,
     private trendingNewsService: TrendingNewsService,
     private stateConstantService: StateConstantService,
+    private topicService: TopicService,
     private route: ActivatedRoute,
     private router: Router
   ) { }
 
   ngOnInit() {
     this.states = this.stateConstantService.getStates();
+    this.topics = this.topicService.getTopics();
     this.createForm();
     this.route.params.subscribe(params => {
       this.selectedNewsData = this.trendingNewsService.getTrendingNewsById(+params.id);
@@ -40,6 +44,7 @@ export class TrendingNewsEditComponent implements OnInit {
       headline: [null, Validators.required],
       embedYoutubeVideo: [null, Validators.required],
       state: [null, Validators.required],
+      topic: [null, Validators.required],
       searchClient: ""
     });
   }
@@ -47,7 +52,8 @@ export class TrendingNewsEditComponent implements OnInit {
   setSelectedNewsData() {
     this.formGroup.patchValue({
       headline: this.selectedNewsData.description,
-      embedYoutubeVideo: this.selectedNewsData.youtubeVideoUrl
+      embedYoutubeVideo: this.selectedNewsData.youtubeVideoUrl,
+      topic: this.selectedNewsData.topic
     });
   }
 
@@ -62,6 +68,7 @@ export class TrendingNewsEditComponent implements OnInit {
       description : this.formGroup.value.headline,
       youtubeVideoUrl : this.formGroup.value.embedYoutubeVideo,
       videoId : this.getYoutubeId(),
+      topic : this.formGroup.value.topic,
       createdOn : `The Wire ${new Date().toString()}`
     };
     this.trendingNewsService.updateTrendingNews(data);

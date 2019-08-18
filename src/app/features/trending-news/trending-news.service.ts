@@ -5,6 +5,7 @@ export interface TrendingNews {
   description: string;
   youtubeVideoUrl: string;
   videoId: string;
+  topic: string;
   createdOn: string;
 }
 
@@ -20,6 +21,7 @@ private trendingNewsList = [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     youtubeVideoUrl: "https://www.youtube.com/watch?v=qDuKsiwS5xw",
     videoId: "qDuKsiwS5xw",
+    topic: "Topic 1",
     createdOn: "The Wire  September 14, 2016"
   },
   {
@@ -28,6 +30,7 @@ private trendingNewsList = [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     youtubeVideoUrl: "https://www.youtube.com/watch?v=qDuKsiwS5xw",
     videoId: "qDuKsiwS5xw",
+    topic: "Topic 2",
     createdOn: "The Wire  September 14, 2017"
   },
   {
@@ -36,6 +39,7 @@ private trendingNewsList = [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     youtubeVideoUrl: "https://www.youtube.com/watch?v=qDuKsiwS5xw",
     videoId: "qDuKsiwS5xw",
+    topic: "Topic 3",
     createdOn: "The Wire  Jan 14, 2018"
   },
   {
@@ -44,6 +48,7 @@ private trendingNewsList = [
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     youtubeVideoUrl: "https://www.youtube.com/watch?v=qDuKsiwS5xw",
     videoId: "qDuKsiwS5xw",
+    topic: "Topic 4",
     createdOn: "The Wire  Jan 14, 2019"
   }
 ];

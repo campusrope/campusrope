@@ -18,6 +18,18 @@
       </mat-form-field>
 
       <mat-form-field>
+          <mat-select placeholder="Select Topic" formControlName="topic">
+            <mat-option *ngFor="let topicData of topics" [value]="topicData.topic">
+              {{ topicData.topic }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="!formGroup.controls['topic'].valid
+            && formGroup.controls['state'].touched">
+            {{ titleAlert }}
+          </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
         <mat-select placeholder="State" formControlName="state">
           <mat-option *ngFor="let state of states" [value]="state.name">
             {{ state.name }}

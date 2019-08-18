@@ -3,7 +3,7 @@ import { BehaviorSubject, Observable } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 
 export interface Helpline {
-  _id: string;
+  _id?: string;
   name: string;
   description: string;
   phoneNumber: string;

@@ -46,10 +46,9 @@ export class HelplineAddComponent implements OnInit {
   onHeadlineAdd(): any {
     if (!this.formGroup.valid) { return; }
     const data: Helpline = {
-      id : this.helplineService.getHelplineList().length + 1,
-      headline: this.formGroup.value.headline,
+      name: this.formGroup.value.headline,
       description: this.formGroup.value.description,
-      headlineNumber: this.formGroup.value.headlineNumber,
+      phoneNumber: this.formGroup.value.headlineNumber,
       websiteLink: this.formGroup.value.websiteLink,
       twitterLink: this.formGroup.value.twitterLink,
       facebookLink: this.formGroup.value.facebookLink,

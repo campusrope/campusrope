@@ -25,7 +25,7 @@ export class HelplineEditComponent implements OnInit {
 
   ngOnInit() {
     this.createForm();
-    this.selectedHelpline = this.helplineService.getHelplineById(+this.route.snapshot.params.id);
+    // this.selectedHelpline = this.helplineService.getHelplineById(+this.route.snapshot.params.id);
     this.setSelectedHelplineData();
   }
 
@@ -64,10 +64,10 @@ export class HelplineEditComponent implements OnInit {
   onHeadlineUpdate(): any {
     if (!this.formGroup.valid) { return; }
     const data = {
-      id : this.selectedHelpline._id,
-      headline: this.formGroup.value.headline,
+      _id : this.selectedHelpline._id,
+      name: this.formGroup.value.headline,
       description: this.formGroup.value.description,
-      headlineNumber: this.formGroup.value.headlineNumber,
+      phoneNumber: this.formGroup.value.headlineNumber,
       websiteLink: this.formGroup.value.websiteLink,
       twitterLink: this.formGroup.value.twitterLink,
       facebookLink: this.formGroup.value.facebookLink,
