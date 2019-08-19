@@ -8,6 +8,7 @@ export interface Helpline {
   description: string;
   phoneNumber: string;
   websiteLink: string;
+  state: string;
   twitterLink: string;
   facebookLink: string;
   fileOnlineComplaintLink: string;

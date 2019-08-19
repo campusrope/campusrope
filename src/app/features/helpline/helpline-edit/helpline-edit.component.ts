@@ -1,10 +1,11 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { LocationService } from "src/app/core/location/location.service";
 import { ActivatedRoute, Router } from "@angular/router";
-import { Helpline, HelplineService } from "../helpline.service";
 import { Observable } from "rxjs";
 import { tap } from "rxjs/operators";
+import { LocationService } from "src/app/core/location/location.service";
+import { Helpline, HelplineService } from "../helpline.service";
+import { StateConstantService } from "src/app/core/core.module";
 
 @Component({
   selector: "app-helpline-edit",
@@ -13,6 +14,7 @@ import { tap } from "rxjs/operators";
 })
 export class HelplineEditComponent implements OnInit {
 
+  states: any = [];
   formGroup: FormGroup;
   selectedHelpline$: Observable<Helpline>;
   titleAlert = "This field is required";
@@ -22,12 +24,14 @@ export class HelplineEditComponent implements OnInit {
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private helplineService: HelplineService,
+    private stateConstantService: StateConstantService,
     private router: Router
   ) {
     this.selectedHelpline$ = this.helplineService.selectedHelpline$;
   }
 
   ngOnInit() {
+    this.states = this.stateConstantService.getStates();
     this.createForm();
     this.helplineService.getHelplineById(this.route.snapshot.params.id);
     this.setSelectedHelplineData();
@@ -41,6 +45,7 @@ export class HelplineEditComponent implements OnInit {
       websiteLink: [null, Validators.required],
       twitterLink: [null, Validators.required],
       facebookLink: [null, Validators.required],
+      state: [null, Validators.required],
       fileOnlineComplaintLink: "",
       instagramLink: "",
       whatsappLink: ""
@@ -66,6 +71,7 @@ export class HelplineEditComponent implements OnInit {
       phoneNumber: this.formGroup.value.headlineNumber,
       websiteLink: this.formGroup.value.websiteLink,
       twitterLink: this.formGroup.value.twitterLink,
+      state: this.formGroup.value.state,
       facebookLink: this.formGroup.value.facebookLink,
       fileOnlineComplaintLink: this.formGroup.value.fileOnlineComplaintLink,
       instagramLink: this.formGroup.value.instagramLink,

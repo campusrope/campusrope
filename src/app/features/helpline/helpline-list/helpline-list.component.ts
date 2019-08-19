@@ -4,6 +4,7 @@ import { HelplineService, Helpline } from "../helpline.service";
 import { LinksDialogModalComponent } from "../links-dialog-modal/links-dialog-modal.component";
 import { NotificationService } from "src/app/core/core.module";
 import { Observable } from "rxjs";
+import { StateConstantService } from "src/app/core/core.module";
 
 @Component({
   selector: "app-helpline-list",
@@ -12,17 +13,20 @@ import { Observable } from "rxjs";
 })
 export class HelplineListComponent implements OnInit {
 
+  states: any = [];
   helplineList$: Observable<Helpline[]>;
 
   constructor(
     private helplineService: HelplineService,
     private notificationService: NotificationService,
+    private stateConstantService: StateConstantService,
     private dialog: MatDialog
   ) {
     this.helplineList$ = this.helplineService.helplineList$;
   }
 
   ngOnInit() {
+    this.states = this.stateConstantService.getStates();
     this.helplineService.getHelplineList();
   }
 
@@ -38,5 +42,6 @@ export class HelplineListComponent implements OnInit {
 
   onDeleteHelpline(helplineToDelete: Helpline) {
     this.helplineService.deleteHelpline(helplineToDelete._id);
+    this.notificationService.success("Deleted");
   }
 }

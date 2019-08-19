@@ -18,6 +18,18 @@
       </mat-form-field>
 
       <mat-form-field>
+          <mat-select placeholder="State" formControlName="state">
+            <mat-option *ngFor="let state of states" [value]="state.name">
+              {{ state.name }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="!formGroup.controls['state'].valid
+            && formGroup.controls['state'].touched">
+            {{ titleAlert }}
+          </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
           <input matInput placeholder="Headline Number" formControlName="headlineNumber">
           <mat-error *ngIf="!formGroup.controls['headlineNumber'].valid
             && formGroup.controls['headlineNumber'].touched">
