@@ -33,8 +33,10 @@ export class HelplineEditComponent implements OnInit {
   ngOnInit() {
     this.states = this.stateConstantService.getStates();
     this.createForm();
-    this.helplineService.getHelplineById(this.route.snapshot.params.id);
-    this.setSelectedHelplineData();
+    this.helplineService.getHelplineById(this.route.snapshot.params.id)
+    .pipe( tap(helpline => {
+      this.formGroup.patchValue(helpline);
+    }));
   }
 
   createForm() {
@@ -52,17 +54,12 @@ export class HelplineEditComponent implements OnInit {
     });
   }
 
-  setSelectedHelplineData() {
-    this.selectedHelpline$.pipe( tap(helpline => {
-      this.formGroup.patchValue(helpline);
-    }));
-  }
 
-  goBack(): any {
+  goBack() {
     this.locationService.goBack();
   }
 
-  onHeadlineUpdate(): any {
+  onHeadlineUpdate() {
     if (!this.formGroup.valid) { return; }
     const data = {
       _id : this.route.snapshot.params.id,
