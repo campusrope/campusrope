@@ -1,49 +1,35 @@
 import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { BehaviorSubject, Observable } from "rxjs";
 
 export interface Topic {
-  id: number;
-  topic: string;
+  _id?: string;
+  name: string;
 }
 @Injectable({
   providedIn: "root"
 })
 export class TopicService {
+  private readonly topicListSubject$ = new BehaviorSubject<Topic[]>([]);
 
-  topics: Topic[] = [
-    {
-      id : 1,
-      topic : "Topic 1"
-    },
-    {
-      id : 2,
-      topic : "Topic 2"
-    },
-    {
-      id : 3,
-      topic : "Topic 3"
-    },
-    {
-      id : 4,
-      topic : "Topic 4"
-    },
-    {
-      id : 5,
-      topic : "Topic 5"
-    },
-    {
-      id : 6,
-      topic : "Topic 6"
-    }
-  ];
+  public topicList$: Observable<Topic[]> = this.topicListSubject$.asObservable();
 
-  getTopics(): Topic[] {
-    return this.topics;
+  constructor(private http: HttpClient) { }
+
+  getTopics() {
+    this.http.get("api/helplines").subscribe((res: any) => {
+      this.topicListSubject$.next(res);
+    });
   }
 
   addTopic(topicData: Topic): void {
-    this.topics.push(topicData);
+    this.http.post(`api/topics`, topicData).subscribe((res: any) => {
+      const topics = this.topicListSubject$
+      .getValue()
+      .concat([res])
+      .slice();
+      this.topicListSubject$.next(topics);
+    });
   }
-
-constructor() { }
 
 }

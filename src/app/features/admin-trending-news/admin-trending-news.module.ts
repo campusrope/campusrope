@@ -4,6 +4,7 @@ import { RouterModule } from "@angular/router";
 import { SharedModule } from "src/app/shared/shared.module";
 import { ADMIN_TRENDING_NEWS_ROUTES } from "./admin-trending-news.routes";
 import { AdminTrendingNewsListComponent } from "./admin-trending-news-list/admin-trending-news-list.component";
+import { AddTopicDialogModal } from "../trending-news/topics/topic-list/topic-list.component";
 
 @NgModule({
   imports: [
@@ -14,5 +15,6 @@ import { AdminTrendingNewsListComponent } from "./admin-trending-news-list/admin
   declarations: [
     AdminTrendingNewsListComponent
   ],
+  entryComponents: [AdminTrendingNewsListComponent, AddTopicDialogModal]
 })
 export class AdminTrendingNewsModule { }

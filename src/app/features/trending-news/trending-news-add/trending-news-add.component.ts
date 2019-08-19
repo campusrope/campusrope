@@ -5,6 +5,7 @@ import { LocationService } from "src/app/core/location/location.service";
 import { TrendingNewsService } from "../trending-news.service";
 import { StateConstantService } from "src/app/core/core.module";
 import { Topic, TopicService } from "../topics/topic.service";
+import { Observable } from "rxjs";
 
 @Component({
   selector: "app-trending-news-add",
@@ -15,7 +16,7 @@ export class TrendingNewsAddComponent implements OnInit {
 
   formGroup: FormGroup;
   states: any = [];
-  topics: Topic[];
+  topicList$: Observable<Topic[]>;
   titleAlert = "This field is required";
 
   constructor(
@@ -25,11 +26,13 @@ export class TrendingNewsAddComponent implements OnInit {
     private stateConstantService: StateConstantService,
     private topicService: TopicService,
     private router: Router
-  ) { }
+  ) {
+    this.topicList$ = this.topicService.topicList$;
+  }
 
   ngOnInit() {
     this.states = this.stateConstantService.getStates();
-    this.topics = this.topicService.getTopics();
+    this.topicService.getTopics();
     this.createForm();
   }
 

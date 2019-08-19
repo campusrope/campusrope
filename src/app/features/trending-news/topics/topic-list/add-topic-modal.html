@@ -2,8 +2,8 @@
 <form [formGroup]="formGroup" class="form">
     <div mat-dialog-content>
           <mat-form-field>
-              <input matInput placeholder="Topic Name" formControlName="topicName">
-              <mat-error *ngIf="!formGroup.controls['topicName'].valid">
+              <input matInput placeholder="Topic Name" formControlName="name">
+              <mat-error *ngIf="!formGroup.controls['name'].valid">
                   {{ titleAlert }}
               </mat-error>
           </mat-form-field>

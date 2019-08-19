@@ -5,6 +5,7 @@ import { TrendingNewsService } from "../trending-news.service";
 import { ActivatedRoute, Router } from "@angular/router";
 import { StateConstantService } from "src/app/core/core.module";
 import { Topic, TopicService } from "../topics/topic.service";
+import { Observable } from "rxjs";
 
 @Component({
   selector: "app-trending-news-edit",
@@ -15,7 +16,7 @@ export class TrendingNewsEditComponent implements OnInit {
 
   formGroup: FormGroup;
   states: any = [];
-  topics: Topic[];
+  topicList$: Observable<Topic[]>;
   titleAlert = "This field is required";
   selectedNewsData: any;
 
@@ -27,11 +28,13 @@ export class TrendingNewsEditComponent implements OnInit {
     private topicService: TopicService,
     private route: ActivatedRoute,
     private router: Router
-  ) { }
+  ) {
+    this.topicList$ = this.topicService.topicList$;
+  }
 
   ngOnInit() {
     this.states = this.stateConstantService.getStates();
-    this.topics = this.topicService.getTopics();
+    this.topicService.getTopics();
     this.createForm();
     this.route.params.subscribe(params => {
       this.selectedNewsData = this.trendingNewsService.getTrendingNewsById(+params.id);

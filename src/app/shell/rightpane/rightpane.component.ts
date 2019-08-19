@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Router, NavigationStart } from "@angular/router";
 import { TopicService, Topic } from "src/app/features/trending-news/topics/topic.service";
+import { Observable } from "rxjs";
 
 @Component({
   selector: "app-rightpane",
@@ -9,11 +10,13 @@ import { TopicService, Topic } from "src/app/features/trending-news/topics/topic
 })
 export class RightpaneComponent implements OnInit {
 
-  topics: Topic[];
+  topicList$: Observable<Topic[]>;
   routerEvent: NavigationStart;
 
   constructor(private topicService: TopicService,
-              private router: Router) { }
+              private router: Router) {
+    this.topicList$ = this.topicService.topicList$;
+  }
 
   ngOnInit() {
     this.router.events.subscribe((event) => {
@@ -21,6 +24,6 @@ export class RightpaneComponent implements OnInit {
         this.routerEvent = event;
       }
     });
-    this.topics = this.topicService.getTopics();
+    this.topicService.getTopics();
   }
 }
