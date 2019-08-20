@@ -5,6 +5,7 @@ import { SharedModule } from "src/app/shared/shared.module";
 import { ADMIN_TRENDING_NEWS_ROUTES } from "./admin-trending-news.routes";
 import { AdminTrendingNewsListComponent } from "./admin-trending-news-list/admin-trending-news-list.component";
 import { AddTopicDialogModal } from "../trending-news/topics/topic-list/topic-list.component";
+import { AddClientDialogModal } from "../trending-news/trending-news-add/manage-client/manage-client-list/manage-client-list.component";
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { AddTopicDialogModal } from "../trending-news/topics/topic-list/topic-li
   declarations: [
     AdminTrendingNewsListComponent
   ],
-  entryComponents: [AdminTrendingNewsListComponent, AddTopicDialogModal]
+  entryComponents: [AdminTrendingNewsListComponent, AddTopicDialogModal, AddClientDialogModal]
 })
 export class AdminTrendingNewsModule { }

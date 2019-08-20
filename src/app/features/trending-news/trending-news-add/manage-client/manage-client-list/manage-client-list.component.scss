@@ -8,10 +8,14 @@
 .list-wrapper-repeat {
   display: flex;
   align-items: center;
-  margin-top:15px; 
+  margin-top:15px;
 }
 
 .example-header-image {
   background-image: url('../../../../../../assets/wire.png');
   background-size: cover;
+}
+
+mat-dialog-content mat-form-field {
+  width: 100%
 }

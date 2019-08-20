@@ -24,7 +24,7 @@
             </mat-option>
           </mat-select>
           <mat-error *ngIf="!formGroup.controls['topic'].valid
-            && formGroup.controls['state'].touched">
+            && formGroup.controls['topic'].touched">
             {{ titleAlert }}
           </mat-error>
       </mat-form-field>

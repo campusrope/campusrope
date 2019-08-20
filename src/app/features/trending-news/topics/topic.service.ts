@@ -17,7 +17,7 @@ export class TopicService {
   constructor(private http: HttpClient) { }
 
   getTopics() {
-    this.http.get("api/helplines").subscribe((res: any) => {
+    this.http.get("api/topics").subscribe((res: any) => {
       this.topicListSubject$.next(res);
     });
   }
