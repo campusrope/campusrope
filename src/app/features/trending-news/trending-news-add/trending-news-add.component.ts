@@ -6,6 +6,7 @@ import { TrendingNewsService } from "../trending-news.service";
 import { StateConstantService } from "src/app/core/core.module";
 import { Topic, TopicService } from "../topics/topic.service";
 import { Observable } from "rxjs";
+import { ManageClientService, Client } from "./manage-client/manage-client.service";
 
 @Component({
   selector: "app-trending-news-add",
@@ -17,6 +18,7 @@ export class TrendingNewsAddComponent implements OnInit {
   formGroup: FormGroup;
   states: any = [];
   topicList$: Observable<Topic[]>;
+  clientList$: Observable<Client[]>;
   titleAlert = "This field is required";
 
   constructor(
@@ -25,14 +27,17 @@ export class TrendingNewsAddComponent implements OnInit {
     private trendingNewsService: TrendingNewsService,
     private stateConstantService: StateConstantService,
     private topicService: TopicService,
+    private manageClientService: ManageClientService,
     private router: Router
   ) {
     this.topicList$ = this.topicService.topicList$;
+    this.clientList$ = this.manageClientService.manageClientList$;
   }
 
   ngOnInit() {
     this.states = this.stateConstantService.getStates();
     this.topicService.getTopics();
+    this.manageClientService.getClients();
     this.createForm();
   }
 
@@ -42,7 +47,7 @@ export class TrendingNewsAddComponent implements OnInit {
       embedYoutubeVideo: [null, Validators.required],
       state: [null, Validators.required],
       topic: [null, Validators.required],
-      searchClient: ""
+      searchClient: [null, Validators.required]
     });
   }
 
