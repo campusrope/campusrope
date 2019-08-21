@@ -1,8 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { MatDialogRef, MatDialog } from "@angular/material";
-import { ManageClientService } from "../manage-client.service";
-
+import { Observable } from "rxjs";
+import { NotificationService } from "src/app/core/core.module";
+import { ManageClientService, Client } from "../manage-client.service";
 @Component({
   selector: "app-manage-client-list",
   templateUrl: "./manage-client-list.component.html",
@@ -10,9 +11,15 @@ import { ManageClientService } from "../manage-client.service";
 })
 export class ManageClientListComponent implements OnInit {
 
-  constructor(private dialog: MatDialog) { }
+  clientList$: Observable<Client[]>;
+
+  constructor(private dialog: MatDialog, private manageClientService: ManageClientService,
+              private notificationService: NotificationService) {
+    this.clientList$ = this.manageClientService.manageClientList$;
+  }
 
   ngOnInit() {
+    this.manageClientService.getClients();
   }
 
   openClientDialog(): void {
@@ -25,6 +32,11 @@ export class ManageClientListComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log("The dialog was closed");
     });
+  }
+
+  onDeleteClient(clientData: Client) {
+    this.manageClientService.deleteClient(clientData._id);
+    this.notificationService.success("Deleted");
   }
 
 }
@@ -61,6 +73,11 @@ export class AddClientDialogModal implements OnInit {
 
     onSaveClient() {
       if (!this.formGroup.valid) { return; }
+      const data: Client = {
+        name: this.formGroup.value.name,
+        logoUrl: this.formGroup.value.logoUrl
+      };
+      this.manageClientService.addClient(data);
       this.onCancelClick();
     }
 

@@ -1,22 +1,17 @@
 <div class="manage-client-wrapper">
   <h3>Manage Client</h3>
   <button mat-raised-button color="accent" (click)="openClientDialog()">Add Clients</button>
-  <div class="list-wrapper-repeat">
+  <div class="list-wrapper-repeat"
+        *ngFor="
+        let clientData of clientList$ | async ; let i = index">
     <mat-card>
       <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>The Wire</mat-card-title>
+        <div mat-card-avatar class="example-header-image"
+          [ngStyle]="{'background-image':'url(' + clientData.logoUrl + ')'}"></div>
+        <mat-card-title>{{clientData.name}}</mat-card-title>
       </mat-card-header>
     </mat-card>
-    <mat-icon aria-hidden="false" style="margin-left: 15px">delete</mat-icon>
-  </div>
-  <div class="list-wrapper-repeat">
-    <mat-card>
-      <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>The Quint</mat-card-title>
-      </mat-card-header>
-    </mat-card>
-    <mat-icon aria-hidden="false" style="margin-left: 15px">delete</mat-icon>
+    <mat-icon aria-hidden="false"
+      style="margin-left: 15px; cursor: pointer;" (click)="onDeleteClient(clientData)">delete</mat-icon>
   </div>
 </div>
