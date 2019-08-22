@@ -10,9 +10,9 @@
       </mat-form-field>
 
       <mat-form-field>
-        <textarea matInput placeholder="Embed Youtube Video" formControlName="embedYoutubeVideo"></textarea>
-        <mat-error *ngIf="!formGroup.controls['embedYoutubeVideo'].valid
-          && formGroup.controls['embedYoutubeVideo'].touched">
+        <textarea matInput placeholder="Embed Youtube Video" formControlName="youtubeUrl"></textarea>
+        <mat-error *ngIf="!formGroup.controls['youtubeUrl'].valid
+          && formGroup.controls['youtubeUrl'].touched">
           {{ titleAlert }}
         </mat-error>
       </mat-form-field>
@@ -46,14 +46,14 @@
             routerLink="./manage-client">Manage Client</button>
 
       <mat-form-field appearance="legacy">
-          <mat-select placeholder="Search Client" formControlName="searchClient">
+          <mat-select placeholder="Search Client" formControlName="client">
             <mat-option *ngFor="let clientData of clientList$ | async" [value]="clientData._id">
               {{ clientData.name }}
             </mat-option>
           </mat-select>
           <mat-icon matSuffix>search</mat-icon>
-          <mat-error *ngIf="!formGroup.controls['searchClient'].valid
-            && formGroup.controls['searchClient'].touched">
+          <mat-error *ngIf="!formGroup.controls['client'].valid
+            && formGroup.controls['client'].touched">
             {{ titleAlert }}
           </mat-error>
       </mat-form-field>

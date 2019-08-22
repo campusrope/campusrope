@@ -22,7 +22,7 @@ export class AdminTrendingNewsListComponent implements OnInit {
   }
 
   onDeleteTrendingNews(index: number) {
-    this.trendingNewsService.deleteTrendingNews(index);
+    // this.trendingNewsService.deleteTrendingNews(index);
     this.trendingNewsList = this.trendingNewsService.getTrendingNewsList();
   }
 

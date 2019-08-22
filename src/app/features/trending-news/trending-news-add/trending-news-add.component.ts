@@ -44,10 +44,10 @@ export class TrendingNewsAddComponent implements OnInit {
   createForm() {
     this.formGroup = this.formBuilder.group({
       headline: [null, Validators.required],
-      embedYoutubeVideo: [null, Validators.required],
+      youtubeUrl: [null, Validators.required],
       state: [null, Validators.required],
       topic: [null, Validators.required],
-      searchClient: [null, Validators.required]
+      client: [null, Validators.required]
     });
   }
 
@@ -58,23 +58,14 @@ export class TrendingNewsAddComponent implements OnInit {
   onTrendingNewsAdd(): any {
     if (!this.formGroup.valid) { return; }
     const data = {
-      id : this.trendingNewsService.getTrendingNewsList().length + 1,
-      description : this.formGroup.value.headline,
-      youtubeVideoUrl : this.formGroup.value.embedYoutubeVideo,
-      videoId : this.getYoutubeId(),
+      headline : this.formGroup.value.headline,
+      youtubeUrl : this.formGroup.value.youtubeUrl,
+      state : this.formGroup.value.state,
       topic : this.formGroup.value.topic,
-      createdOn : `The Wire ${new Date().toString()}`
+      client : this.formGroup.value.client
     };
     this.trendingNewsService.addTrendingNews(data);
     this.router.navigate(["admin", "trending-news"]);
-  }
-
-  getYoutubeId(): string {
-    const regExp = /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
-    const match = this.formGroup.value.embedYoutubeVideo.match(regExp);
-    if (match && match[2].length === 11) {
-      return match[2];
-    }
   }
 
 }

@@ -42,7 +42,7 @@ export class TrendingNewsEditComponent implements OnInit {
     this.manageClientService.getClients();
     this.createForm();
     this.route.params.subscribe(params => {
-      this.selectedNewsData = this.trendingNewsService.getTrendingNewsById(+params.id);
+      this.selectedNewsData = this.trendingNewsService.getTrendingNewsById(params.id);
       this.setSelectedNewsData();
     });
   }
@@ -79,7 +79,7 @@ export class TrendingNewsEditComponent implements OnInit {
       topic : this.formGroup.value.topic,
       createdOn : `The Wire ${new Date().toString()}`
     };
-    this.trendingNewsService.updateTrendingNews(data);
+    // this.trendingNewsService.updateTrendingNews(data);
     this.router.navigate(["admin", "trending-news"]);
   }
 
