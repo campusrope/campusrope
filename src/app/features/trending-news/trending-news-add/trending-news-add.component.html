@@ -10,21 +10,21 @@
       </mat-form-field>
 
       <mat-form-field>
-        <textarea matInput placeholder="Embed Youtube Video" formControlName="embedYoutubeVideo"></textarea>
-        <mat-error *ngIf="!formGroup.controls['embedYoutubeVideo'].valid
-          && formGroup.controls['embedYoutubeVideo'].touched">
+        <textarea matInput placeholder="Embed Youtube Video" formControlName="youtubeUrl"></textarea>
+        <mat-error *ngIf="!formGroup.controls['youtubeUrl'].valid
+          && formGroup.controls['youtubeUrl'].touched">
           {{ titleAlert }}
         </mat-error>
       </mat-form-field>
 
       <mat-form-field>
           <mat-select placeholder="Select Topic" formControlName="topic">
-            <mat-option *ngFor="let topicData of topics" [value]="topicData.topic">
-              {{ topicData.topic }}
+            <mat-option *ngFor="let topicData of topicList$ | async" [value]="topicData._id">
+              {{ topicData.name }}
             </mat-option>
           </mat-select>
           <mat-error *ngIf="!formGroup.controls['topic'].valid
-            && formGroup.controls['state'].touched">
+            && formGroup.controls['topic'].touched">
             {{ titleAlert }}
           </mat-error>
       </mat-form-field>
@@ -42,11 +42,20 @@
       </mat-form-field>
 
       <button mat-raised-button color="accent"
+            style="margin-bottom: 15px"
             routerLink="./manage-client">Manage Client</button>
 
       <mat-form-field appearance="legacy">
-          <input matInput placeholder="Search Client" formControlName="searchClient">
+          <mat-select placeholder="Search Client" formControlName="client">
+            <mat-option *ngFor="let clientData of clientList$ | async" [value]="clientData._id">
+              {{ clientData.name }}
+            </mat-option>
+          </mat-select>
           <mat-icon matSuffix>search</mat-icon>
+          <mat-error *ngIf="!formGroup.controls['client'].valid
+            && formGroup.controls['client'].touched">
+            {{ titleAlert }}
+          </mat-error>
       </mat-form-field>
 
       <div class="example-button-row">

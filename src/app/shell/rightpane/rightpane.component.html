@@ -8,8 +8,8 @@
   </div>
   <div class="topic-options"
     *ngSwitchCase="'/trending-news'">
-      <div *ngFor="let topicData of topics">
-        {{topicData.topic}}
+      <div *ngFor="let topicData of topicList$ | async">
+        {{topicData.name}}
       </div>
   </div>
   <div *ngSwitchDefault></div>

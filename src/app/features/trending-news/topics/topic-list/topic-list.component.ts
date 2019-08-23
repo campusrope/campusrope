@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { MatDialog, MatDialogRef } from "@angular/material";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { Topic, TopicService } from "../topic.service";
+import { Observable } from "rxjs";
 
 @Component({
   selector: "app-topic-list",
@@ -10,12 +11,14 @@ import { Topic, TopicService } from "../topic.service";
 })
 export class TopicListComponent implements OnInit {
 
-  topics: Topic[];
+  topicList$: Observable<Topic[]>;
 
-  constructor(private dialog: MatDialog, private topicService: TopicService) { }
+  constructor(private dialog: MatDialog, private topicService: TopicService) {
+    this.topicList$ = this.topicService.topicList$;
+   }
 
   ngOnInit() {
-    this.topics = this.topicService.getTopics();
+    this.topicService.getTopics();
   }
 
   openDialog(): void {
@@ -56,15 +59,14 @@ export class AddTopicDialogModal implements OnInit {
 
     createForm() {
       this.formGroup = this.formBuilder.group({
-        topicName: [null, Validators.required]
+        name: [null, Validators.required]
       });
     }
 
     onSaveTopic() {
       if (!this.formGroup.valid) { return; }
       const data: Topic = {
-        id : this.topicService.getTopics().length + 1,
-        topic : this.formGroup.value.topicName
+        name : this.formGroup.value.name
       };
       this.topicService.addTopic(data);
       this.onCancelClick();

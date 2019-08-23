@@ -10,7 +10,7 @@
   </div>
   <mat-card
     class="topic-card"
-    *ngFor="let topicData of topics">
-    {{topicData.topic}}
+    *ngFor="let topicData of topicList$ | async">
+    {{topicData.name}}
   </mat-card>
 </div>

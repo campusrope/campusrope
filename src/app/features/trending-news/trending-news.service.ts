@@ -1,12 +1,14 @@
 import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { BehaviorSubject, Observable } from "rxjs";
 
 export interface TrendingNews {
-  id: number;
-  description: string;
-  youtubeVideoUrl: string;
-  videoId: string;
+  _id?: string;
+  headline: string;
+  youtubeUrl: string;
+  state: string;
   topic: string;
-  createdOn: string;
+  client: string;
 }
 
 @Injectable({
@@ -14,66 +16,59 @@ export interface TrendingNews {
 })
 export class TrendingNewsService {
 
-private trendingNewsList = [
-  {
-    id: 1,
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-    youtubeVideoUrl: "https://www.youtube.com/watch?v=qDuKsiwS5xw",
-    videoId: "qDuKsiwS5xw",
-    topic: "Topic 1",
-    createdOn: "The Wire  September 14, 2016"
-  },
-  {
-    id: 2,
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-    youtubeVideoUrl: "https://www.youtube.com/watch?v=qDuKsiwS5xw",
-    videoId: "qDuKsiwS5xw",
-    topic: "Topic 2",
-    createdOn: "The Wire  September 14, 2017"
-  },
-  {
-    id: 3,
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-    youtubeVideoUrl: "https://www.youtube.com/watch?v=qDuKsiwS5xw",
-    videoId: "qDuKsiwS5xw",
-    topic: "Topic 3",
-    createdOn: "The Wire  Jan 14, 2018"
-  },
-  {
-    id: 4,
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-    youtubeVideoUrl: "https://www.youtube.com/watch?v=qDuKsiwS5xw",
-    videoId: "qDuKsiwS5xw",
-    topic: "Topic 4",
-    createdOn: "The Wire  Jan 14, 2019"
+  private readonly trendingNewsListSubject$ = new BehaviorSubject<TrendingNews[]>([]);
+  private readonly selectedTrendingNewsSubject$ = new BehaviorSubject<TrendingNews>(null);
+
+  public trendingNewsList$: Observable<TrendingNews[]> = this.trendingNewsListSubject$.asObservable();
+
+  public selectedTrendingNews$: Observable<TrendingNews> = this.selectedTrendingNewsSubject$.asObservable();
+
+  constructor(private http: HttpClient) {}
+
+  getTrendingNewsList() {
+    this.http.get("api/trendings").subscribe((res: any) => {
+      this.trendingNewsListSubject$.next(res);
+    });
   }
-];
 
-getTrendingNewsList() {
-  return this.trendingNewsList;
-}
+  addTrendingNews(trendingNewsData: TrendingNews) {
+    this.http.post(`api/trendings`, trendingNewsData).subscribe((res: any) => {
+      res.videoId = this.getYoutubeId(res.youtubeUrl);
+      const trendingNewsList = this.trendingNewsListSubject$
+      .getValue()
+      .concat([res]);
 
-addTrendingNews(trendingNewsData: TrendingNews) {
-  this.trendingNewsList.push(trendingNewsData);
-}
+      this.trendingNewsListSubject$.next(trendingNewsList);
+    });
+  }
 
-deleteTrendingNews(index: number) {
-  this.trendingNewsList.splice(index, 1);
-}
+  deleteTrendingNews(id: string) {
+    this.http.delete(`api/trendings/${id}`).subscribe((res: any) => {
+      const filteredTrendings = this.trendingNewsListSubject$
+      .getValue()
+      .filter((trending) => trending._id  !== id);
 
-getTrendingNewsById(id: number) {
-  return this.trendingNewsList.find((trendingNewsData) => trendingNewsData.id === id);
-}
+      this.trendingNewsListSubject$.next(filteredTrendings);
+    });
+  }
 
-updateTrendingNews(trendingNewsDataInfo: TrendingNews) {
- const index =  this.trendingNewsList.findIndex((trendingNewsData) => trendingNewsData.id === trendingNewsDataInfo.id);
- this.trendingNewsList.splice(index, 1, trendingNewsDataInfo);
-}
+  getTrendingNewsById(id: string) {
+    this.http.get(`api/trendings/${id}`).subscribe((trendingNews: any) => {
+      this.selectedTrendingNewsSubject$.next(trendingNews);
+    });
+  }
 
-constructor() { }
+  updateTrendingNews(trendingNewsDataInfo: TrendingNews) {
+    this.http.put(`api/trendings/${trendingNewsDataInfo._id}`, trendingNewsDataInfo).subscribe(() => {
+      this.selectedTrendingNewsSubject$.next(null);
+    });
+  }
 
+  getYoutubeId(youtubeUrl: string): string {
+    const regExp = /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+    const match = youtubeUrl.match(regExp);
+    if (match && match[2].length === 11) {
+      return match[2];
+    }
+  }
 }

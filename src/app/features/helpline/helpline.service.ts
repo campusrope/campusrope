@@ -53,8 +53,7 @@ export class HelplineService {
     this.http.post(`api/helplines`, helplineData).subscribe((res: any) => {
       const helplines = this.helplineListSubject$
       .getValue()
-      .concat([res])
-      .slice();
+      .concat([res]);
       this.helplineListSubject$.next(helplines);
     });
   }
