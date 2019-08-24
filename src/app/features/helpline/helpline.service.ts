@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable } from "rxjs";
 import { HttpClient } from "@angular/common/http";
-import { tap } from 'rxjs/operators';
+import { tap } from "rxjs/operators";
 
 export interface Helpline {
   _id?: string;
@@ -58,7 +58,7 @@ export class HelplineService {
     });
   }
 
-  getHelplineById(id: number) :Observable<Helpline> {
+  getHelplineById(id: number): Observable<Helpline> {
     return this.http.get(`api/helplines/${id}`).pipe(tap((helpline: any) => {
       this.selectedHelplineSubject$.next(helpline);
     }));

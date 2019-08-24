@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { TrendingNewsService, TrendingNewsList } from "../../trending-news/trending-news.service";
-import { StateConstantService } from "src/app/core/core.module";
+import { StateConstantService, NotificationService } from "src/app/core/core.module";
 import { Observable } from "rxjs";
 
 @Component({
@@ -14,7 +14,8 @@ export class AdminTrendingNewsListComponent implements OnInit {
 
   constructor(
     private trendingNewsService: TrendingNewsService,
-    private stateConstantService: StateConstantService
+    private stateConstantService: StateConstantService,
+    private notificationService: NotificationService,
     ) {
       this.trendingNewsList$ = this.trendingNewsService.trendingNewsList$;
     }
@@ -26,6 +27,7 @@ export class AdminTrendingNewsListComponent implements OnInit {
 
   onDeleteTrendingNews(id: string) {
     this.trendingNewsService.deleteTrendingNews(id);
+    this.notificationService.success("Deleted");
   }
 
 }
