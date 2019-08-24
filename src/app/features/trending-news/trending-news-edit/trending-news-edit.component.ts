@@ -1,11 +1,12 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { LocationService } from "src/app/core/location/location.service";
-import { TrendingNewsService } from "../trending-news.service";
+import { TrendingNewsService, TrendingNewsModel } from "../trending-news.service";
 import { ActivatedRoute, Router } from "@angular/router";
 import { StateConstantService } from "src/app/core/core.module";
 import { Topic, TopicService } from "../topics/topic.service";
 import { Observable } from "rxjs";
+import { tap } from "rxjs/operators";
 import { Client, ManageClientService } from "../trending-news-add/manage-client/manage-client.service";
 
 @Component({
@@ -20,7 +21,6 @@ export class TrendingNewsEditComponent implements OnInit {
   topicList$: Observable<Topic[]>;
   clientList$: Observable<Client[]>;
   titleAlert = "This field is required";
-  selectedNewsData: any;
 
   constructor(
     private locationService: LocationService,
@@ -41,27 +41,29 @@ export class TrendingNewsEditComponent implements OnInit {
     this.topicService.getTopics();
     this.manageClientService.getClients();
     this.createForm();
-    this.route.params.subscribe(params => {
-      this.selectedNewsData = this.trendingNewsService.getTrendingNewsById(params.id);
-      this.setSelectedNewsData();
-    });
+    this.trendingNewsService.getTrendingNewsById(this.route.snapshot.params.id)
+    .pipe( tap(trending => {
+      this.setSelectedNewsData(trending);
+    }));
   }
 
   createForm() {
     this.formGroup = this.formBuilder.group({
       headline: [null, Validators.required],
-      embedYoutubeVideo: [null, Validators.required],
+      youtubeUrl: [null, Validators.required],
       state: [null, Validators.required],
       topic: [null, Validators.required],
-      searchClient: [null, Validators.required]
+      client: [null, Validators.required]
     });
   }
 
-  setSelectedNewsData() {
+  setSelectedNewsData(trending: TrendingNewsModel) {
     this.formGroup.patchValue({
-      headline: this.selectedNewsData.description,
-      embedYoutubeVideo: this.selectedNewsData.youtubeVideoUrl,
-      topic: this.selectedNewsData.topic
+      headline: trending.headline,
+      youtubeUrl: trending.youtubeUrl,
+      topic: trending.topic._id,
+      client: trending.client._id,
+      state: trending.state
     });
   }
 
@@ -72,23 +74,15 @@ export class TrendingNewsEditComponent implements OnInit {
   onTrendingNewsUpdate(): any {
     if (!this.formGroup.valid) { return; }
     const data = {
-      id : this.selectedNewsData.id,
-      description : this.formGroup.value.headline,
-      youtubeVideoUrl : this.formGroup.value.embedYoutubeVideo,
-      videoId : this.getYoutubeId(),
+      _id : this.route.snapshot.params.id,
+      headline : this.formGroup.value.headline,
+      youtubeUrl : this.formGroup.value.youtubeUrl,
+      state : this.formGroup.value.state,
       topic : this.formGroup.value.topic,
-      createdOn : `The Wire ${new Date().toString()}`
+      client : this.formGroup.value.client
     };
-    // this.trendingNewsService.updateTrendingNews(data);
+    this.trendingNewsService.updateTrendingNews(data);
     this.router.navigate(["admin", "trending-news"]);
-  }
-
-  getYoutubeId(): string {
-    const regExp = /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
-    const match = this.formGroup.value.embedYoutubeVideo.match(regExp);
-    if (match && match[2].length === 11) {
-      return match[2];
-    }
   }
 
 }

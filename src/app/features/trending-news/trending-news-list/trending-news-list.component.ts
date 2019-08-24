@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
 import { Store, select } from "@ngrx/store";
-import { TrendingNewsService, TrendingNewsList } from "../trending-news.service";
+import { TrendingNewsService, TrendingNewsModel } from "../trending-news.service";
 import { StateConstantService } from "src/app/core/core.module";
 import { AppState, getIsMobile } from "src/app/state";
 
@@ -12,7 +12,7 @@ import { AppState, getIsMobile } from "src/app/state";
 })
 export class TrendingNewsListComponent implements OnInit {
   isMobile$: Observable<boolean>;
-  trendingNewsList$: Observable<TrendingNewsList[]>;
+  trendingNewsList$: Observable<TrendingNewsModel[]>;
   states: any = [];
 
   constructor(

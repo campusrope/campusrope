@@ -58,7 +58,7 @@ export class HelplineService {
     });
   }
 
-  getHelplineById(id: number): Observable<Helpline> {
+  getHelplineById(id: string): Observable<Helpline> {
     return this.http.get(`api/helplines/${id}`).pipe(tap((helpline: any) => {
       this.selectedHelplineSubject$.next(helpline);
     }));

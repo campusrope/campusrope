@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { BehaviorSubject, Observable } from "rxjs";
 import { Topic } from "./topics/topic.service";
 import { Client } from "./trending-news-add/manage-client/manage-client.service";
+import { tap } from "rxjs/operators";
 
 export interface TrendingNews {
   _id?: string;
@@ -13,7 +14,7 @@ export interface TrendingNews {
   client: string;
 }
 
-export interface TrendingNewsList {
+export interface TrendingNewsModel {
   _id: string;
   headline: string;
   youtubeUrl: string;
@@ -29,28 +30,29 @@ export interface TrendingNewsList {
 })
 export class TrendingNewsService {
 
-  private readonly trendingNewsListSubject$ = new BehaviorSubject<TrendingNewsList[]>([]);
-  private readonly selectedTrendingNewsSubject$ = new BehaviorSubject<TrendingNews>(null);
+  private readonly trendingNewsListSubject$ = new BehaviorSubject<TrendingNewsModel[]>([]);
+  private readonly selectedTrendingNewsSubject$ = new BehaviorSubject<TrendingNewsModel>(null);
 
-  public trendingNewsList$: Observable<TrendingNewsList[]> = this.trendingNewsListSubject$.asObservable();
+  public trendingNewsList$: Observable<TrendingNewsModel[]> = this.trendingNewsListSubject$.asObservable();
 
-  public selectedTrendingNews$: Observable<TrendingNews> = this.selectedTrendingNewsSubject$.asObservable();
+  public selectedTrendingNews$: Observable<TrendingNewsModel> = this.selectedTrendingNewsSubject$.asObservable();
 
   constructor(private http: HttpClient) {}
 
   getTrendingNewsList() {
     this.http.get("api/trendings").subscribe((res: any) => {
+      res.forEach(trending => {
+        trending.videoId = this.getYoutubeId(trending.youtubeUrl);
+      });
       this.trendingNewsListSubject$.next(res);
     });
   }
 
   addTrendingNews(trendingNewsData: TrendingNews) {
     this.http.post(`api/trendings`, trendingNewsData).subscribe((res: any) => {
-      res.videoId = this.getYoutubeId(res.youtubeUrl);
       const trendingNewsList = this.trendingNewsListSubject$
       .getValue()
       .concat([res]);
-      console.log("trendingNewsList", trendingNewsList);
       this.trendingNewsListSubject$.next(trendingNewsList);
     });
   }
@@ -65,10 +67,10 @@ export class TrendingNewsService {
     });
   }
 
-  getTrendingNewsById(id: string) {
-    this.http.get(`api/trendings/${id}`).subscribe((trendingNews: any) => {
+  getTrendingNewsById(id: string): Observable<TrendingNewsModel> {
+    return this.http.get(`api/trendings/${id}`).pipe(tap((trendingNews: TrendingNewsModel) => {
       this.selectedTrendingNewsSubject$.next(trendingNews);
-    });
+    }));
   }
 
   updateTrendingNews(trendingNewsDataInfo: TrendingNews) {

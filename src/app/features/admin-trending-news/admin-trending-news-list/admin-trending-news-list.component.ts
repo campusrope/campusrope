@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { TrendingNewsService, TrendingNewsList } from "../../trending-news/trending-news.service";
+import { TrendingNewsService, TrendingNewsModel } from "../../trending-news/trending-news.service";
 import { StateConstantService, NotificationService } from "src/app/core/core.module";
 import { Observable } from "rxjs";
 
@@ -9,7 +9,7 @@ import { Observable } from "rxjs";
   styleUrls: ["./admin-trending-news-list.component.scss"]
 })
 export class AdminTrendingNewsListComponent implements OnInit {
-  trendingNewsList$: Observable<TrendingNewsList[]>;
+  trendingNewsList$: Observable<TrendingNewsModel[]>;
   states: any = [];
 
   constructor(
