@@ -20,20 +20,22 @@
    <div class="trending-news-card-wrapper">
       <div
       *ngFor="
-        let trendingNewsData of trendingNewsList; let i = index; let odd = odd"
-      [style.margin]="odd ? '10px 0px 10px 0px' : '10px 10px 10px 0px'"
-    >
+        let trendingNewsData of trendingNewsList$ | async; let i = index; let odd = odd"
+        [style.margin]="odd ? '10px 0px 10px 0px' : '10px 10px 10px 0px'"
+      >
       <mat-card class="example-card">
         <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>{{ trendingNewsData.description }}</mat-card-title>
-          <mat-card-subtitle>{{ trendingNewsData.createdOn }}</mat-card-subtitle>
+          <div mat-card-avatar
+           [ngStyle]="{'background-image':'url(' + trendingNewsData.client.logoUrl + ')'}"
+            class="example-header-image"></div>
+          <mat-card-title>{{ trendingNewsData.headline }}</mat-card-title>
+          <mat-card-subtitle>{{trendingNewsData.client.name}} {{ trendingNewsData.createdAt }}</mat-card-subtitle>
         </mat-card-header>
         <app-youtube-player
               [id] = "trendingNewsData.videoId"></app-youtube-player>
         <mat-card-actions>
-              <button mat-raised-button [routerLink]="['edit', trendingNewsData.id]" color="accent">Edit</button>
-              <button mat-raised-button color="warn" (click)="onDeleteTrendingNews(i)">Delete</button>
+              <button mat-raised-button [routerLink]="['edit', trendingNewsData._id]" color="accent">Edit</button>
+              <button mat-raised-button color="warn" (click)="onDeleteTrendingNews(trendingNewsData._id)">Delete</button>
         </mat-card-actions>
       </mat-card>
     </div>

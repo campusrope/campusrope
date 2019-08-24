@@ -1,6 +1,8 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { BehaviorSubject, Observable } from "rxjs";
+import { Topic } from "./topics/topic.service";
+import { Client } from "./trending-news-add/manage-client/manage-client.service";
 
 export interface TrendingNews {
   _id?: string;
@@ -11,15 +13,26 @@ export interface TrendingNews {
   client: string;
 }
 
+export interface TrendingNewsList {
+  _id: string;
+  headline: string;
+  youtubeUrl: string;
+  state: string;
+  topic: Topic;
+  videoId?: string;
+  client: Client;
+  createdAt: string;
+}
+
 @Injectable({
   providedIn: "root"
 })
 export class TrendingNewsService {
 
-  private readonly trendingNewsListSubject$ = new BehaviorSubject<TrendingNews[]>([]);
+  private readonly trendingNewsListSubject$ = new BehaviorSubject<TrendingNewsList[]>([]);
   private readonly selectedTrendingNewsSubject$ = new BehaviorSubject<TrendingNews>(null);
 
-  public trendingNewsList$: Observable<TrendingNews[]> = this.trendingNewsListSubject$.asObservable();
+  public trendingNewsList$: Observable<TrendingNewsList[]> = this.trendingNewsListSubject$.asObservable();
 
   public selectedTrendingNews$: Observable<TrendingNews> = this.selectedTrendingNewsSubject$.asObservable();
 
@@ -37,7 +50,7 @@ export class TrendingNewsService {
       const trendingNewsList = this.trendingNewsListSubject$
       .getValue()
       .concat([res]);
-
+      console.log("trendingNewsList", trendingNewsList);
       this.trendingNewsListSubject$.next(trendingNewsList);
     });
   }

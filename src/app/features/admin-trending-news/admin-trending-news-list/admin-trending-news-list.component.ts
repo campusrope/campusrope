@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { TrendingNewsService } from "../../trending-news/trending-news.service";
+import { TrendingNewsService, TrendingNewsList } from "../../trending-news/trending-news.service";
 import { StateConstantService } from "src/app/core/core.module";
+import { Observable } from "rxjs";
 
 @Component({
   selector: "app-admin-trending-news-list",
@@ -8,22 +9,23 @@ import { StateConstantService } from "src/app/core/core.module";
   styleUrls: ["./admin-trending-news-list.component.scss"]
 })
 export class AdminTrendingNewsListComponent implements OnInit {
-  trendingNewsList: any = [];
+  trendingNewsList$: Observable<TrendingNewsList[]>;
   states: any = [];
 
   constructor(
     private trendingNewsService: TrendingNewsService,
     private stateConstantService: StateConstantService
-    ) {}
+    ) {
+      this.trendingNewsList$ = this.trendingNewsService.trendingNewsList$;
+    }
 
   ngOnInit() {
-    this.trendingNewsList = this.trendingNewsService.getTrendingNewsList();
+    this.trendingNewsService.getTrendingNewsList();
     this.states = this.stateConstantService.getStates();
   }
 
-  onDeleteTrendingNews(index: number) {
-    // this.trendingNewsService.deleteTrendingNews(index);
-    this.trendingNewsList = this.trendingNewsService.getTrendingNewsList();
+  onDeleteTrendingNews(id: string) {
+    this.trendingNewsService.deleteTrendingNews(id);
   }
 
 }
