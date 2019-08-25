@@ -2,9 +2,9 @@
     <h3 class="text-center">Update Content</h3>
     <form [formGroup]="formGroup" class="form" (ngSubmit)="onHeadlineUpdate()">
       <mat-form-field>
-        <input matInput placeholder="Headline" formControlName="headline">
-          <mat-error *ngIf="!formGroup.controls['headline'].valid
-            && formGroup.controls['headline'].touched">
+        <input matInput placeholder="Headline" formControlName="name">
+          <mat-error *ngIf="!formGroup.controls['name'].valid
+            && formGroup.controls['name'].touched">
               {{ titleAlert }}
           </mat-error>
       </mat-form-field>
@@ -30,9 +30,9 @@
       </mat-form-field>
 
       <mat-form-field>
-          <input matInput placeholder="Headline Number" formControlName="headlineNumber">
-          <mat-error *ngIf="!formGroup.controls['headlineNumber'].valid
-            && formGroup.controls['headlineNumber'].touched">
+          <input matInput placeholder="Headline Number" formControlName="phoneNumber">
+          <mat-error *ngIf="!formGroup.controls['phoneNumber'].valid
+            && formGroup.controls['phoneNumber'].touched">
               {{ titleAlert }}
           </mat-error>
       </mat-form-field>

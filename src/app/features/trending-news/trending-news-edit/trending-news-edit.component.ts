@@ -6,7 +6,6 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { StateConstantService } from "src/app/core/core.module";
 import { Topic, TopicService } from "../topics/topic.service";
 import { Observable } from "rxjs";
-import { tap } from "rxjs/operators";
 import { Client, ManageClientService } from "../trending-news-add/manage-client/manage-client.service";
 
 @Component({
@@ -42,9 +41,9 @@ export class TrendingNewsEditComponent implements OnInit {
     this.manageClientService.getClients();
     this.createForm();
     this.trendingNewsService.getTrendingNewsById(this.route.snapshot.params.id)
-    .pipe( tap(trending => {
+    .subscribe((trending) => {
       this.setSelectedNewsData(trending);
-    }));
+    });
   }
 
   createForm() {

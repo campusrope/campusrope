@@ -19,7 +19,7 @@
 
     <mat-form-field>
         <mat-select placeholder="Select Topic" formControlName="topic">
-          <mat-option *ngFor="let topicData of topicList$ | async" [value]="topicData.name">
+          <mat-option *ngFor="let topicData of topicList$ | async" [value]="topicData._id">
             {{ topicData.name }}
           </mat-option>
         </mat-select>
