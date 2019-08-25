@@ -5,12 +5,17 @@
   </mat-form-field>
 </div>
 <div mat-dialog-actions>
-  <button mat-button >
+  <button mat-button *ngIf="data.title !='Helpline Number'">
     <a href="{{data.link}}" target="blank">
         Open URL
     </a>
   </button>
+  <button mat-button *ngIf="data.title =='Helpline Number' && isMobile$ | async">
+    <a href="{{getPhoneNo(data.link)}}" target="blank">
+        Call
+    </a>
+  </button>
   <button mat-button
-    (click)="copyText(data.link)" >Copy URL</button>
+    (click)="copyText(data.link)" >Copy</button>
   <button mat-button (click)="onCancelClick()">Close</button>
 </div>
