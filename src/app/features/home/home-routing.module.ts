@@ -37,6 +37,13 @@ const routes: Routes = [
             m => m.AdminTrendingNewsModule
           )
       },
+      {
+        path: "admin/helpline",
+        loadChildren: () =>
+          import("../admin-helpline/admin-helpline.module").then(
+            m => m.AdminHelplineModule
+          )
+      },
     ]
   }
 ];
