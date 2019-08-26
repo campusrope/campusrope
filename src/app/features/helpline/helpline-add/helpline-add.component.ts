@@ -63,6 +63,6 @@ export class HelplineAddComponent implements OnInit {
       whatsappLink: this.formGroup.value.whatsappLink,
     };
     this.helplineService.addHelpline(data);
-    this.router.navigate(["helpline"]);
+    this.router.navigate(["admin", "helpline"]);
   }
 }

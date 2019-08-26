@@ -39,9 +39,4 @@ export class HelplineListComponent implements OnInit {
       }
     });
   }
-
-  onDeleteHelpline(helplineToDelete: Helpline) {
-    this.helplineService.deleteHelpline(helplineToDelete._id);
-    this.notificationService.success("Deleted");
-  }
 }

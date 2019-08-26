@@ -75,7 +75,7 @@ export class HelplineEditComponent implements OnInit {
 
     };
     this.helplineService.updateHelpline(data);
-    this.router.navigate(["helpline"]);
+    this.router.navigate(["admin", "helpline"]);
   }
 
 }

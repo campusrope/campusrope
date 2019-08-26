@@ -1,3 +1,92 @@
-<p>
-  admin-helpline-list works!
-</p>
+<div class="helpline-wrapper">
+  <div class="header">
+      <mat-form-field style="margin: 20px 0">
+          <mat-label>Select State</mat-label>
+          <mat-select>
+              <mat-option *ngFor="let state of states" [value]="state.name">{{ state.name }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+          <button
+            mat-mini-fab
+            routerLink="./add"
+            matTooltip="Add Helpline"
+            class="trending-news-add-btn"
+          >
+            <i class="material-icons">add</i>
+          </button>
+  </div>
+
+  <mat-accordion
+    *ngFor="
+    let helplineData of helplineList$ | async ; let i = index"
+    style="margin: 20px 0;width: 80%">
+    <mat-expansion-panel class="helpline-accordion-panel">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{helplineData.name}}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <p class="expansion-panel-desc">
+        {{helplineData.description}}
+      </p>
+
+      <div style="display:flex;flex-direction:column">
+        <div class="helpline-content-btn"
+            (click)="openDialog(helplineData.phoneNumber,'Helpline Number')">
+          <span>
+            Helpline Number
+          </span>
+          <h2>
+            {{helplineData.phoneNumber}}
+          </h2>
+        </div>
+        <div class="helpline-content-btn"
+          (click)="openDialog(helplineData.websiteLink,'Website')">
+          <span>
+            Website
+          </span>
+          <h5>
+            <a href="JavaScript:void(0);">
+              {{helplineData.websiteLink}}
+            </a>
+          </h5>
+        </div>
+
+        <div class="helpline-content-btn "
+          (click)="openDialog(helplineData.fileOnlineComplaintLink,'File Online Complaints')">
+          <span style="color: #FF0000">
+            File Online Complaints
+          </span>
+          <h5>
+            <a href="JavaScript:void(0);">
+              {{helplineData.fileOnlineComplaintLink}}
+            </a>
+          </h5>
+        </div>
+
+        <div class="social-icons">
+          <img
+            (click)="openDialog(helplineData.facebookLink,'Facebok')"
+            src="assets/facebook.png" />
+          <img
+            (click)="openDialog(helplineData.twitterLink,'Twitter')"
+            src="assets/twitter.png" />
+          <img
+            (click)="openDialog(helplineData.instagramLink,'Instagram')"
+            src="assets/instagram.png" />
+          <img
+            (click)="openDialog(helplineData.whatsappLink,'Whatsapp')"
+            src="assets/whatsapp.png" />
+        </div>
+      </div>
+      <mat-action-row>
+          <button mat-button color="warn" (click)="onDeleteHelpline(helplineData)">Delete</button>
+          <button mat-button
+            [routerLink]="['edit', helplineData._id]"
+            color="primary">Edit</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
