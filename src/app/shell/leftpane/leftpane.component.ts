@@ -10,6 +10,7 @@ import { StateConstantService } from "src/app/core/core.module";
 export class LeftpaneComponent implements OnInit {
 
   states = [];
+  filterState: string;
   routerEvent: NavigationStart;
 
   constructor(private stateConstantService: StateConstantService,
@@ -24,5 +25,12 @@ export class LeftpaneComponent implements OnInit {
       }
     });
     this.states = this.stateConstantService.getStates();
+  }
+
+  onSelectState(state) {
+    // tslint:disable-next-line: no-shadowed-variable
+    const selectedState = this.states.find((state) => state.selected);
+    if (selectedState) { selectedState.selected = false; }
+    state.selected = true;
   }
 }

@@ -4,12 +4,16 @@
       *ngSwitchCase="'/trending-news'">
       <div>
           <mat-icon class="search-icon">search</mat-icon>
-         <input type="text" class="search-state-box" placeholder="Search State">
+         <input type="text" class="search-state-box"
+          [(ngModel)]="filterState"
+          placeholder="Search State">
       </div>
   </div>
   <div class="search-list-options"
       *ngSwitchCase="'/trending-news'">
-      <div *ngFor="let state of states">
+      <div (click)="onSelectState(state)"
+      [ngClass]="{'selected':state.selected}"
+        *ngFor="let state of states | filter : filterState">
         {{state.name}}
       </div>
   </div>
