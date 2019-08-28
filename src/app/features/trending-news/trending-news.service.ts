@@ -79,6 +79,15 @@ export class TrendingNewsService {
     });
   }
 
+  getTrendingNewsByState(stateName: string) {
+    this.http.get(`api/trendings?state=${stateName}`).subscribe((res: any) => {
+      res.forEach(trending => {
+        trending.videoId = this.getYoutubeId(trending.youtubeUrl);
+      });
+      this.trendingNewsListSubject$.next(res);
+    });
+  }
+
   getYoutubeId(youtubeUrl: string): string {
     const regExp = /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
     const match = youtubeUrl.match(regExp);
