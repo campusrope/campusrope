@@ -2,7 +2,7 @@
     <div class="trending-news-header">
         <mat-form-field *ngIf="isMobile$ | async">
             <mat-label>Select State</mat-label>
-            <mat-select>
+            <mat-select (selectionChange)="onStateChange()" [(value)]="selectedState">
               <mat-option *ngFor="let state of states" [value]="state.name">{{ state.name }}</mat-option>
             </mat-select>
           </mat-form-field>

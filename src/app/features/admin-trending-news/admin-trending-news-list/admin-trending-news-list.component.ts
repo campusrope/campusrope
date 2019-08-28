@@ -11,6 +11,7 @@ import { Observable } from "rxjs";
 export class AdminTrendingNewsListComponent implements OnInit {
   trendingNewsList$: Observable<TrendingNewsModel[]>;
   states: any = [];
+  selectedState: string;
 
   constructor(
     private trendingNewsService: TrendingNewsService,
@@ -28,6 +29,10 @@ export class AdminTrendingNewsListComponent implements OnInit {
   onDeleteTrendingNews(id: string) {
     this.trendingNewsService.deleteTrendingNews(id);
     this.notificationService.success("Deleted");
+  }
+
+  onStateChange() {
+    this.trendingNewsService.getTrendingNewsByState(this.selectedState);
   }
 
 }

@@ -14,6 +14,7 @@ export class TrendingNewsListComponent implements OnInit {
   isMobile$: Observable<boolean>;
   trendingNewsList$: Observable<TrendingNewsModel[]>;
   states: any = [];
+  selectedState: string;
 
   constructor(
     private trendingNewsService: TrendingNewsService,
@@ -27,5 +28,9 @@ export class TrendingNewsListComponent implements OnInit {
     this.isMobile$ = this.store.pipe(select(getIsMobile));
     this.trendingNewsService.getTrendingNewsList();
     this.states = this.stateConstantService.getStates();
+  }
+
+  onStateChange() {
+    this.trendingNewsService.getTrendingNewsByState(this.selectedState);
   }
 }
