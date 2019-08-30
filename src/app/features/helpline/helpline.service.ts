@@ -70,4 +70,10 @@ export class HelplineService {
     });
   }
 
+  getHelplinesByState(stateName: string) {
+    this.http.get(`api/helplines?state=${stateName}`).subscribe((res: any) => {
+      this.helplineListSubject$.next(res);
+    });
+  }
+
 }

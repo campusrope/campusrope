@@ -14,6 +14,7 @@ import { StateConstantService } from "src/app/core/core.module";
 export class HelplineListComponent implements OnInit {
 
   states: any = [];
+  selectedState: string;
   helplineList$: Observable<Helpline[]>;
 
   constructor(
@@ -38,5 +39,8 @@ export class HelplineListComponent implements OnInit {
         title
       }
     });
+  }
+  onStateChange() {
+    this.helplineService.getHelplinesByState(this.selectedState);
   }
 }

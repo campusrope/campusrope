@@ -13,6 +13,7 @@ import { LinksDialogModalComponent } from "../../helpline/links-dialog-modal/lin
 export class AdminHelplineListComponent implements OnInit {
 
   states: any = [];
+  selectedState: string;
   helplineList$: Observable<Helpline[]>;
 
   constructor(
@@ -42,6 +43,10 @@ export class AdminHelplineListComponent implements OnInit {
   onDeleteHelpline(helplineToDelete: Helpline) {
     this.helplineService.deleteHelpline(helplineToDelete._id);
     this.notificationService.success("Deleted");
+  }
+
+  onStateChange() {
+    this.helplineService.getHelplinesByState(this.selectedState);
   }
 
 }
