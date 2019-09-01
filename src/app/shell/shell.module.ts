@@ -6,7 +6,6 @@ import { CenterpaneComponent } from "./centerpane/centerpane.component";
 import { AppbarComponent } from "./appbar/appbar.component";
 import { SharedModule } from "../shared/shared.module";
 import { RouterModule } from "@angular/router";
-import { TrendingNewsModule } from "../features/trending-news/trending-news.module";
 
 @NgModule({
   declarations: [
@@ -15,12 +14,7 @@ import { TrendingNewsModule } from "../features/trending-news/trending-news.modu
     CenterpaneComponent,
     AppbarComponent
   ],
-  imports: [
-    CommonModule,
-    SharedModule,
-    RouterModule,
-    TrendingNewsModule
-  ],
+  imports: [CommonModule, SharedModule, RouterModule],
   exports: [
     LeftpaneComponent,
     RightpaneComponent,
